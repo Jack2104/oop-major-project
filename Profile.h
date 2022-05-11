@@ -4,10 +4,10 @@
 #include <string>
 
 class Profile {
-    public:
+    private:
         
     
-    private:
+    public:
         
 };
 

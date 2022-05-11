@@ -5,10 +5,10 @@
 #include "Assignment.h"
 
 class Course {
-    public:
+    private:
 
     
-    private:
+    public:
         
 };
 
