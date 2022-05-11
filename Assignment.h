@@ -4,10 +4,10 @@
 #include <string>
 
 class Assignment {
-    public:
+    private:
         
     
-    private:
+    public:
         
 };
 

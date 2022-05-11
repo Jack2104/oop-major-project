@@ -5,10 +5,10 @@
 #include "Profile.h"
 
 class Admin : public Profile {
-    public:
+    private:
 
     
-    private:
+    public:
         
 };
 
