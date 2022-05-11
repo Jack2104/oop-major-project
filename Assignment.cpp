@@ -1,8 +1,6 @@
 #include <iostream>
 #include <string>
 
-int main() {
-   
+#include "Assignment.h"
 
-    return 0;
-}
+
