@@ -29,7 +29,7 @@ class Profile {
         /* Returns the profile's ID */
         int getID();
 
-        /* Sets the profile's ID */
+        /* Sets the profile's ID. Negative inputs will be multiplied by -1 */
         void setID(int schoolID);
 
         /* Abstract methods */
