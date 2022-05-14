@@ -25,17 +25,17 @@ class Teacher : public Profile {
         /* Deletes a course from the array courses */
         void deleteCourse(string courseName, Profile* courses);
 
-        /* Abstract method implementation that prints the Teacher's name */
-        void printTitle();
-
-        /* Abstract method implementation that returns the teacher's email address */
-        string constructEmail();
-
         /* Prompts the user to grade a student's assignment */
         void grade(Assignment* assignment);
 
         /* Creates and returns an Assignment object */
         Assignment createAssignment();
+
+        /* Abstract method implementation that prints the Teacher's name */
+        void printTitle();
+
+        /* Abstract method implementation that returns the teacher's email address */
+        string constructEmail();
 };
 
 #endif

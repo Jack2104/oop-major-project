@@ -2,6 +2,7 @@
 #define STUDENT_H
 
 #include <string>
+
 #include "Profile.h"
 #include "Course.h"
 

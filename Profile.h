@@ -3,12 +3,38 @@
 
 #include <string>
 
+using namespace std;
+
 class Profile {
-    private:
-        
+    protected:
+        string name;
+        string password;
+        int schoolID;
     
     public:
+        Profile(string name, string password, int schoolID);
+
+        /* Returns the profile's name */
+        string getName();
         
+        /* Sets the profile's name */
+        void setName(string name);
+
+        /* Returns the profile's password */
+        string getPassword();
+        
+        /* Sets the profile's password */
+        void setPassword(string password);
+
+        /* Returns the profile's ID */
+        int getID();
+
+        /* Sets the profile's ID */
+        void setID(int id);
+
+        /* Abstract methods */
+        virtual void printTitle();
+        virtual void constructEmail();
 };
 
 #endif
