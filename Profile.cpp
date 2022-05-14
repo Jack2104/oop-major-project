@@ -17,5 +17,17 @@ void Profile::setName(string name) { this->name = name; }
 string Profile::getPassword() { return name; };
 void Profile::setPassword(string name) { this->password = password; }
 
-int Profile::getID() { return name; };
-void Profile::setID(string name) { this->schoolID = schoolID; }
+int Profile::getID() {
+    if (this->schoolID < 0) {
+        return -1 * this->schoolID;
+    }
+
+    return this->schoolID;
+};
+void Profile::setID(int schoolID) {
+    if (schoolID < 0) {
+        this->schoolID = -1 * schoolID;
+    } else {
+        this->schoolID = schoolID;
+    }
+}
