@@ -7,20 +7,34 @@
 #include "Course.h"
 #include "Assignment.h"
 
+using namespace std;
+
 class Teacher : public Profile {
     private:
-        int courseCount;
-        Course* teachableCourses;
+        int courseCount; // Number of courses that the teacher can teach at a time
+        Course* teachableCourses; // Array of courses that the teacher can teach
 
     public:
         Teacher();
-        Teacher(int courseCount, std::string name, std::string password, int schoolID);
+        Teacher(int courseCount, string name, string password, int schoolID);
         ~Teacher();
+
+        /* Creats and returns a Course object */
         void createCourse();
-        void deleteCourse();
+
+        /* Deletes a course from the array courses */
+        void deleteCourse(string courseName, Profile* courses);
+
+        /* Abstract method implementation that prints the Teacher's name */
         void printTitle();
-        std::string constructEmail();
-        void grade(Assignment* Assignment);
+
+        /* Abstract method implementation that returns the teacher's email address */
+        string constructEmail();
+
+        /* Prompts the user to grade a student's assignment */
+        void grade(Assignment* assignment);
+
+        /* Creates and returns an Assignment object */
         Assignment createAssignment();
 };
 
