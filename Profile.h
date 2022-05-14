@@ -30,7 +30,7 @@ class Profile {
         int getID();
 
         /* Sets the profile's ID */
-        void setID(int id);
+        void setID(int schoolID);
 
         /* Abstract methods */
         virtual void printTitle();

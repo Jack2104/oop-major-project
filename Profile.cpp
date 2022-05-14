@@ -5,7 +5,7 @@
 
 using namespace std;
 
-void Profile::Profile(string name, string password, int schoolID) {
+Profile::Profile(string name, string password, int schoolID) {
     this->name = name;
     this->password = password;
     this->schoolID = schoolID;
@@ -14,15 +14,15 @@ void Profile::Profile(string name, string password, int schoolID) {
 string Profile::getName() { return name; };
 void Profile::setName(string name) { this->name = name; }
 
-string Profile::getPassword() { return name; };
-void Profile::setPassword(string name) { this->password = password; }
+string Profile::getPassword() { return password; };
+void Profile::setPassword(string password) { this->password = password; }
 
 int Profile::getID() {
-    if (this->schoolID < 0) {
-        return -1 * this->schoolID;
+    if (schoolID < 0) {
+        return -1 * schoolID;
     }
 
-    return this->schoolID;
+    return schoolID;
 };
 void Profile::setID(int schoolID) {
     if (schoolID < 0) {
@@ -31,3 +31,7 @@ void Profile::setID(int schoolID) {
         this->schoolID = schoolID;
     }
 }
+
+// Abstract methods
+void Profile::printTitle() {};
+void Profile::constructEmail() {};
