@@ -64,7 +64,7 @@ int main() {
         Profile profile("Bob", "password1", 1234);
 
         if (profile.getID() !== 1234) {
-            std::cout << "ProfileTest.cpp: Test 3 failed" << std::endl;
+            std::cout << "ProfileTest.cpp: Test 8 failed" << std::endl;
         }
     }
 
@@ -72,7 +72,7 @@ int main() {
         Profile profile("Bob", "password1", 100000);
 
         if (profile.getID() !== 100000) {
-            std::cout << "ProfileTest.cpp: Test 3 failed" << std::endl;
+            std::cout << "ProfileTest.cpp: Test 9 failed" << std::endl;
         }
     }
 
@@ -80,7 +80,7 @@ int main() {
         Profile profile("Bob", "password1", -100000);
 
         if (profile.getID() !== 100000) {
-            std::cout << "ProfileTest.cpp: Test 3 failed" << std::endl;
+            std::cout << "ProfileTest.cpp: Test 10 failed" << std::endl;
         }
     }
 
@@ -88,7 +88,7 @@ int main() {
         Profile profile("Bob", "password1", 1);
 
         if (profile.getID() !== 1) {
-            std::cout << "ProfileTest.cpp: Test 3 failed" << std::endl;
+            std::cout << "ProfileTest.cpp: Test 11 failed" << std::endl;
         }
     }
 
@@ -96,7 +96,7 @@ int main() {
         Profile profile("Bob", "password1", -1);
 
         if (profile.getID() !== 1) {
-            std::cout << "ProfileTest.cpp: Test 3 failed" << std::endl;
+            std::cout << "ProfileTest.cpp: Test 12 failed" << std::endl;
         }
     }
 
@@ -104,7 +104,7 @@ int main() {
         Profile profile("Bob", "password1", 0);
 
         if (profile.getID() !== 0) {
-            std::cout << "ProfileTest.cpp: Test 3 failed" << std::endl;
+            std::cout << "ProfileTest.cpp: Test 13 failed" << std::endl;
         }
     }
 
