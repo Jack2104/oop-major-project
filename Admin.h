@@ -2,6 +2,8 @@
 #define ADMIN_H
 
 #include <string>
+#include <vector>
+
 #include "Profile.h"
 #include "Teacher.h"
 #include "Student.h"
@@ -10,23 +12,19 @@ using namespace std;
 
 class Admin : public Profile {
     public:
+        Admin(string name, string password, int schoolID);
+
         /* Creates and returns a new Teacher object */
         Teacher createTeacher();
-
-        /* Deletes a teacher that has the specified ID from the array teachers */
-        void removeTeacher(string ID, Profile* teachers);
 
         /* Creates and returns a new Student object */
         Student createStudent();
 
-        /* Deletes a student that has the specified ID from the array students */
-        void removeStudent(string ID, Profile* students);
-
         /* Creates and returns a new Admin object */
         Admin createAdmin();
 
-        /* Deletes an admin that has the specified ID from the array admins */
-        void removeAdmin(string ID, Profile* admins);
+        /* Deletes a profile that has the specified ID from the array profiles */
+        void removeProfile(string id, vector<Profile>* profiles);
 
         /* Abstract method implementation that prints the admin's name and ID */
         void printTitle();
