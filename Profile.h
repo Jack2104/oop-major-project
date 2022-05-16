@@ -12,6 +12,7 @@ class Profile {
         int schoolID;
     
     public:
+        Profile();
         Profile(string name, string password, int schoolID);
 
         /* Returns the profile's name */

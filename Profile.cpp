@@ -5,6 +5,12 @@
 
 using namespace std;
 
+Profile::Profile() {
+    name = "?";
+    password = "?";
+    schoolID = 0;
+};
+
 Profile::Profile(string name, string password, int schoolID) {
     this->name = name;
     this->password = password;
