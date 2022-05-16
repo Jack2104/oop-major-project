@@ -35,7 +35,7 @@ class Profile {
 
         /* Abstract methods */
         virtual void printTitle();
-        virtual string constructEmail();
+        virtual void printEmail();
 };
 
 #endif

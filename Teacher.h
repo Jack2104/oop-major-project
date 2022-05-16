@@ -38,8 +38,8 @@ class Teacher : public Profile {
         /* Abstract method implementation that prints the Teacher's name */
         void printTitle();
 
-        /* Abstract method implementation that returns the teacher's email address */
-        string constructEmail();
+        /* Abstract method implementation that prints the teacher's email address */
+        void printEmail();
 };
 
 #endif

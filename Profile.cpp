@@ -6,8 +6,8 @@
 using namespace std;
 
 Profile::Profile() {
-    name = "?";
-    password = "?";
+    name = "[no name]";
+    password = "[no password]";
     schoolID = 0;
 };
 
@@ -40,4 +40,4 @@ void Profile::setID(int schoolID) {
 
 // Abstract methods
 void Profile::printTitle() {};
-void Profile::constructEmail() {};
+void Profile::printEmail() {};

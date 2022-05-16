@@ -113,7 +113,7 @@ void Admin::printTitle() {
     cout << this->name << " (admin)" << endl;
 }
 
-string Admin::constructEmail() {
-    return to_string(this->schoolID) + "@admin.com";
+void Admin::printEmail() {
+    cout << "Email address: " << to_string(this->schoolID) + "@admin.com";
 }
 

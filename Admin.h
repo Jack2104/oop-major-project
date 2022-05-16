@@ -29,8 +29,8 @@ class Admin : public Profile {
         /* Abstract method implementation that prints the admin's name and ID */
         void printTitle();
 
-        /* Abstract method implementation that returns the admin's email address */
-        string constructEmail();
+        /* Abstract method implementation that prints the admin's email address */
+        void printEmail();
 };
 
 #endif

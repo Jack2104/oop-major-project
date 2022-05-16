@@ -15,16 +15,15 @@ class Assignment {
     public:
         Assignment();
         Assignment(string name, int weight, string description);
-        ~Assignment();
 
         /* Assigns a name to the assignment */
         void setName(string name);
 
         /* Assings a % weight of the assignment for the course */
-        void setWeight(float weight);
+        void setWeight(int weight);
 
         /* Assigns a grade for the assignment */
-        void setGrade(float grade);
+        void setGrade(int grade);
 
         /* Assings a description for the assignment */
         void setDescription(string description);
@@ -33,10 +32,10 @@ class Assignment {
         string getName();
 
         /* Returns assignment weight */
-        float getWeight();
+        int getWeight();
 
         /* Returns assignment grade */
-        float getGrade();
+        int getGrade();
 
         /* Returns assignment description */
         string getDescription();
