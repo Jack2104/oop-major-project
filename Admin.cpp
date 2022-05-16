@@ -56,12 +56,10 @@ Teacher* Admin::createTeacher(vector<Course>* courses) {
     cout << "The following courses are available to teach:" << endl;
 
     vector<Course>::iterator c_ptr;
-    int i = 1;
 
     // Print the name of every course
     for(c_ptr = courses->begin(); c_ptr < courses->end(); c_ptr++) {
-        cout << i << ". " << c_ptr->getName() << endl;
-        i++;
+        cout << c_ptr->getName() << endl;
     }
 
     cout << endl << "Select a course by entering its name: ";
@@ -110,10 +108,10 @@ Teacher* Admin::createTeacher(vector<Course>* courses) {
 // }
 
 void Admin::printTitle() {
-    cout << this->name << " (admin)" << endl;
+    cout << "### " << this->name << " (admin) ###" << endl;
 }
 
 void Admin::printEmail() {
-    cout << "Email address: " << to_string(this->schoolID) + "@admin.com";
+    cout << "Email address: " << this->schoolID << "@admin.edu";
 }
 
