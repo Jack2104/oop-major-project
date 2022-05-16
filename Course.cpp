@@ -9,16 +9,20 @@ using namespace std;
 Course::Course(string name, int courseID, int maxAssignmentCount, string day) {
     this->name = name;
     this->courseID = courseID;
-    this->day =day.
+    this->day = day;
     this->maxAssignmentCount = maxAssignmentCount;
     this->currentAssignmentCount = 0;
 
-    this->assignments = new Assignment[this->maxAssignmentCount];
+    this->assignments = new Assignment*[this->maxAssignmentCount];
 }
 
 Course::Course() {};
 
 Course::~Course() {
+    for (int i = 0; i < this->currentAssignmentCount; i++) {
+        delete this->assignments[i];
+    }
+
     delete[] this->assignments;
 }
 
@@ -48,18 +52,20 @@ void Course::setDay(string day) {
 
 Assignment* Course::getAssignment(string name) {
     for (int i = 0; i < this->currentAssignmentCount; i++) {
-        if (this->assignments[i].getName() == name) {
-            return &(this->assignments[i]);
+        Assignment* assignment_ptr = this->assignments[i];
+
+        if (assignment_ptr->getName() == name) {
+            return this->assignments[i];
         }
     }
 
     return NULL;
 }
 
-void Course::addAssignment(Assignment assignment) {
+void Course::addAssignment(Assignment* assignment_ptr) {
     if (this->currentAssignmentCount < this->maxAssignmentCount) {
         this->currentAssignmentCount++;
-        this->assignements[this->currentAssignmentCount] = assignment;
+        this->assignments[this->currentAssignmentCount] = assignment_ptr;
     }
 }
 
@@ -108,7 +114,8 @@ void Course::createAssignment() {
 
     cout << "  Assignment description was recorded as " << description << endl;
 
-    this->assignments[this->currentAssignmentCount] = new Assignment(name, 0, weight, description);
+    // Assignment* assignment = new Assignment(name, weight, description);
+    this->assignments[this->currentAssignmentCount] = new Assignment(name, weight, description);
 
     cout << "Assignment created!" << endl;
 }
@@ -125,17 +132,19 @@ void Course::removeAssignment() {
     cout << "Enter the name of the assignment you'd like to delete: ";
 
     // Continually prompt the user for input until a valid input is entered
-    while (!getline(cin, name) || name.empty() || !valid) {
+    while (!getline(cin, name) || name.empty()) {
         cout << "Sorry, that's not a valid input. Please enter an assignment name." << endl << "Assignment name: ";
     }
 
     // Find the assignment to be deleted
     for (int i = 0; i < this->currentAssignmentCount; i++) {
-        if (this->assignements[i].getName() == name) {
+        Assignment* assignment = this->assignments[i];
+
+        if (assignment->getName() == name) {
             delete this->assignments[i]; // Delete the assignment from memory
             this->currentAssignmentCount--;
             cout << "Assignment was deleted" << endl;
-            return
+            return;
         }
     }
 
@@ -166,7 +175,7 @@ char Course::percentageToLetterGrade(int percentage) {
 
     return 'E';
 }
-``
+
 void Course::printGrade() {
     int grade = this->calculateGrade();
     char letterGrade = this->percentageToLetterGrade(grade);
@@ -176,6 +185,6 @@ void Course::printGrade() {
 
     for (int i = 0; i < this->currentAssignmentCount; i++) {
         Assignment* assignment = this->assignments[i];
-        cout << "  " << assignment->getName() << ": " << assignment.getGrade() << "(weighted " << assignment->getWeight() << "%)" << endl;
+        cout << "  " << assignment->getName() << ": " << assignment->getGrade() << "(weighted " << assignment->getWeight() << "%)" << endl;
     }
 }

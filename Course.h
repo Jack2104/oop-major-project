@@ -12,7 +12,7 @@ class Course {
         int courseID; // Course specific ID 
         int maxAssignmentCount; // Number of assignements for the course
         int currentAssignmentCount;
-        Assignment* assignments; // Array of assignments associated with the course
+        Assignment** assignments; // Array of assignments associated with the course
         string day; // 
 
     public:
@@ -24,7 +24,7 @@ class Course {
         Assignment* getAssignment(string name);
 
         /* Assigns an assignment to the course */
-        void addAssignment(Assignment assignment);
+        void addAssignment(Assignment* assignment);
 
         /* Creates a new assignment */
         void createAssignment();

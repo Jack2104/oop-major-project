@@ -3,6 +3,8 @@
 
 #include <string>
 
+using namespace std;
+
 class Assignment {
     private:
         string name; // Assignment name
@@ -12,7 +14,7 @@ class Assignment {
     
     public:
         Assignment();
-        Assignment(string name, float weight, float grade, string description);
+        Assignment(string name, int weight, string description);
         ~Assignment();
 
         /* Assigns a name to the assignment */

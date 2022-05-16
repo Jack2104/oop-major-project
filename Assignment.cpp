@@ -3,4 +3,5 @@
 
 #include "Assignment.h"
 
+using namespace std;
 

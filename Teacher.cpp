@@ -3,4 +3,5 @@
 
 #include "Teacher.h"
 
+using namespace std;
 
