@@ -11,15 +11,19 @@ using namespace std;
 
 class Teacher : public Profile {
     private:
-        int courseCount; // Number of courses that the teacher can teach at a time
+        // int courseCount; // Number of courses that the teacher can teach at a time
+        int currentCourseCount;
         Course* teachableCourses; // Array of courses that the teacher can teach
 
     public:
         Teacher();
-        Teacher(int courseCount, string name, string password, int schoolID);
+        Teacher(string name, string password, int schoolID);
         ~Teacher();
 
-        /* Creats and returns a Course object */
+        /* Adds a course to teachableCourses */
+        void joinCourse();
+
+        /* Creates and returns a Course object */
         void createCourse();
 
         /* Deletes a course from the array courses */

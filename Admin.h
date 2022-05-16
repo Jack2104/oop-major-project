@@ -15,7 +15,7 @@ class Admin : public Profile {
         Admin(string name, string password, int schoolID);
 
         /* Creates and returns a new Teacher object */
-        Teacher createTeacher();
+        Teacher* createTeacher(vector<Course>* courses);
 
         /* Creates and returns a new Student object */
         Student createStudent();
@@ -24,7 +24,7 @@ class Admin : public Profile {
         Admin createAdmin();
 
         /* Deletes a profile that has the specified ID from the array profiles */
-        void removeProfile(string id, vector<Profile>* profiles);
+        // void removeProfile(string id, vector<Profile>* profiles);
 
         /* Abstract method implementation that prints the admin's name and ID */
         void printTitle();
