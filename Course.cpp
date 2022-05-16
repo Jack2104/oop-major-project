@@ -129,9 +129,10 @@ void Course::removeAssignment() {
         cout << "Sorry, that's not a valid input. Please enter an assignment name." << endl << "Assignment name: ";
     }
 
+    // Find the assignment to be deleted
     for (int i = 0; i < this->currentAssignmentCount; i++) {
         if (this->assignements[i].getName() == name) {
-            delete this->assignments[i];
+            delete this->assignments[i]; // Delete the assignment from memory
             this->currentAssignmentCount--;
             cout << "Assignment was deleted" << endl;
             return
@@ -146,7 +147,7 @@ int Course::calculateGrade() {
 
     for (int i = 0; i < this->currentAssignmentCount; i++) {
         Assignment* assignment = this->assignments[i];
-        grade += assignment->getGrade() * (assignment->getWeight() / 100);
+        grade += assignment->getGrade() * (assignment->getWeight() / 100); // Multiply the assignment grade by it's weighting
     }
 
     return grade;
@@ -165,7 +166,7 @@ char Course::percentageToLetterGrade(int percentage) {
 
     return 'E';
 }
-
+``
 void Course::printGrade() {
     int grade = this->calculateGrade();
     char letterGrade = this->percentageToLetterGrade(grade);
@@ -175,6 +176,6 @@ void Course::printGrade() {
 
     for (int i = 0; i < this->currentAssignmentCount; i++) {
         Assignment* assignment = this->assignments[i];
-        cout << "  " << assignment->getName() << ": " << assignment.getGrade() << "(weighted" << assignment->getWeight() << "%)" << endl;
+        cout << "  " << assignment->getName() << ": " << assignment.getGrade() << "(weighted " << assignment->getWeight() << "%)" << endl;
     }
 }
