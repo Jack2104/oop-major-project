@@ -17,22 +17,33 @@ Teacher Admin::createTeacher(vector<Course>* courses) {
 
     string name;
     cout << "Name: ";
-    getline(cin, name);
+
+    while (!getline(cin, name) || name.empty()) {
+        cout << "Sorry, that's not a valid input. Please enter a name." << endl << "Name: ";
+    }
+
     cout << "  Name was recorded as " << name << endl;
 
     int id;
     cout << "School ID - please enter a number, with no spaces (any input after a space will not be included): ";
-    
-    while(!(cin >> id)){
+    cin >> id;
+
+    while(!id || id.empty()){
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "Sorry, that's not a valid input. Please enter a number, with no spaces." << endl << "School ID: ";
+        cin >> id;
     }
+
     cout << "  School ID was recorded as " << name << endl;
 
     string password;
     cout << "Password: ";
-    cin >> password;
+    
+    while (!getline(cin, password) || password.empty()) {
+        cout << "Sorry, that's not a valid input. Please enter a passwoed." << endl << "Password: ";
+    }
+
     cout << "  Password was recorded as " << name << endl;
 
     cout << "The following courses are available to teach:" << endl;
