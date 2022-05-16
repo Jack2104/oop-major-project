@@ -6,7 +6,7 @@
 using namespace std;
 
 class Profile {
-    private:
+    protected:
         string name;
         string password;
         int schoolID;
