@@ -24,7 +24,7 @@ class Admin : public Profile {
         Admin createAdmin();
 
         /* Deletes a profile that has the specified ID from the array profiles */
-        // void removeProfile(string id, vector<Profile>* profiles);
+        // void removeProfile(int id, vector<Profile*> profiles);
 
         /* Abstract method implementation that prints the admin's name and ID */
         void printTitle();

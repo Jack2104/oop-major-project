@@ -33,7 +33,7 @@ class Teacher : public Profile {
         void grade(Assignment* assignment);
 
         /* Creates and returns an Assignment object */
-        Assignment createAssignment();
+        // Assignment createAssignment();
 
         /* Abstract method implementation that prints the Teacher's name */
         void printTitle();

@@ -4,9 +4,9 @@
 #include <iterator>
 
 #include "Admin.h"
-// #include "Profile.h"
-// #include "Teacher.h"
-// #include "Student.h"
+#include "Profile.h"
+#include "Teacher.h"
+#include "Student.h"
 #include "Course.h"
 
 using namespace std;
@@ -19,6 +19,7 @@ Teacher* Admin::createTeacher(vector<Course>* courses) {
     string name;
     cout << "Name: ";
 
+    // Continually prompt the user for input until a valid input is entered
     while (!getline(cin, name) || name.empty()) {
         cout << "Sorry, that's not a valid input. Please enter a name." << endl << "Name: ";
     }
@@ -29,9 +30,11 @@ Teacher* Admin::createTeacher(vector<Course>* courses) {
     cout << "School ID - please enter a number, with no spaces (any input after a space will not be included): ";
     cin >> id;
 
+    // Continually prompt the user for input until an integer is passed
     while(!id) {
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cin.clear(); // Clear the buffer
+        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
+
         cout << "Sorry, that's not a valid input. Please enter a number, with no spaces." << endl << "School ID: ";
         cin >> id;
     }
@@ -41,6 +44,7 @@ Teacher* Admin::createTeacher(vector<Course>* courses) {
     string password;
     cout << "Password: ";
     
+    // Like for name, prompt the user for input until a non-empty string is entered
     while (!getline(cin, password) || password.empty()) {
         cout << "Sorry, that's not a valid input. Please enter a passwoed." << endl << "Password: ";
     }
@@ -54,6 +58,7 @@ Teacher* Admin::createTeacher(vector<Course>* courses) {
     vector<Course>::iterator c_ptr;
     int i = 1;
 
+    // Print the name of every course
     for(c_ptr = courses->begin(); c_ptr < courses->end(); c_ptr++) {
         cout << i << ". " << c_ptr->getName() << endl;
         i++;
@@ -63,7 +68,9 @@ Teacher* Admin::createTeacher(vector<Course>* courses) {
 
     string courseName;
 
+    // Continually prompt the user to enter a course until only a newline is entered (and then move on)
     while (getline(cin, courseName) && !courseName.empty()) {
+        // Check to see if the inputted course is in the available courses list
         for(c_ptr = courses->begin(); c_ptr < courses->end(); c_ptr++) {
             if (c_ptr->getName() == courseName) {
                 // teacher_ptr->joinCourse(c_ptr);
@@ -92,12 +99,12 @@ Teacher* Admin::createTeacher(vector<Course>* courses) {
 //     return admin;
 // }
 
-// void Admin::removeProfile(string id, vector<Profile*> profiles) {
+// void Admin::removeProfile(int id, vector<Profile*> profiles) {
 //     vector<Profile*>::iterator p_ptr = profiles.begin();
 
 //     for(p_ptr = profiles.begin(); p_ptr < profiles.end(); p_ptr++) {
 //         if ((*p_ptr)->getID() == id) {
-//             remove(profiles.begin(), profiles.end(), p_ptr);
+//             remove(profiles.begin(), profiles.end(), *p_ptr);
 //         }
 //     }
 // }

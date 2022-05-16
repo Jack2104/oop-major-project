@@ -6,8 +6,8 @@
 class Assignment {
     private:
         string name; // Assignment name
-        float weight; // Assignment % weight for the course
-        float grade; // Grade obtained for the assignment
+        int weight; // Assignment % weight for the course
+        int grade; // Grade obtained for the assignment
         string description; // Description of the assignment
     
     public:

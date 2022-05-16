@@ -4,54 +4,60 @@
 #include <string>
 #include "Assignment.h"
 
+using namespace std;
+
 class Course {
     private:
         string name; // Course name
         int courseID; // Course specific ID 
-        int assignmentCount; // Number of assignements for the course
+        int maxAssignmentCount; // Number of assignements for the course
+        int currentAssignmentCount;
         Assignment* assignments; // Array of assignments associated with the course
         string day; // 
 
     public:
         Course();
-        Course(string name, int courseID, int assignmentCount);
+        Course(string name, int courseID, int maxAssignmentCount, string day);
         ~Course();
 
         /* Returns a specific Assignment object  */
         Assignment* getAssignment(string name);
 
         /* Assigns an assignment to the course */
-        void addAssignment(Assignment* Assignment);
+        void addAssignment(Assignment assignment);
 
         /* Creates a new assignment */
         void createAssignment();
 
         /* Removes an assignment from the course */
-        void removeAssignment(string name);
+        void removeAssignment();
 
-        /* Returns the calculated grade for the course */
-        float calculateGrade();
+        /* Returns the calculated grade for the course, as a percentage */
+        int calculateGrade();
 
         /* Converts and returns the calculated course grade to a grade letter */
-        char percentageToLetterGrade(float percentage);
+        char percentageToLetterGrade(int percentage);
 
-        /* prints the course grade to the user */
+        /* Prints the course grade to the user */
         void printGrade();
 
-        /* returns course name */
+        /* Returns the course name */
         string getName();
 
-        /* returns courseID */
+        /* Returns the courseID */
         int getCourseID();
 
-        /* returns day */
-        void getDay();
+        /* Returns the day that the class runs */
+        string getDay();
 
-        /* assigns a name to a course */
+        /* Assigns a name to a course */
         void setName(string name);
 
-        /* assigns a course ID to a course */
+        /* Assigns a course ID to a course */
         void setCourseID(int courseID);
+
+        /* Assigns a day to a course */
+        void setDay(string name);
 };
 
 #endif
