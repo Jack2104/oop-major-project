@@ -183,12 +183,48 @@ Student* Admin::createStudent(vector<Course>* courses) {
     return student_ptr;
 }
 
-// Admin Admin::createAdmin() {
-//     // Admin admin(name, password, id);
-//     Admin admin;
+Admin* Admin::createAdmin() {
+    cout << "### Creating profile: admin ###" << endl;
 
-//     return admin;
-// }
+    string name;
+    cout << "Name: ";
+
+    // Continually prompt the user for input until a valid input is entered
+    while (!getline(cin, name) || name.empty()) {
+        cout << "Sorry, that's not a valid input. Please enter a name." << endl << "Name: ";
+    }
+
+    cout << "  Name was recorded as " << name << endl;
+
+    int id;
+    cout << "School ID - please enter a number, with no spaces (any input after a space will not be included): ";
+    cin >> id;
+
+    // Continually prompt the user for input until an integer is passed
+    while(!id) {
+        cin.clear(); // Clear the buffer
+        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
+
+        cout << "  Sorry, that's not a valid input. Please enter a number, with no spaces." << endl << "School ID: ";
+        cin >> id;
+    }
+
+    cout << "  School ID was recorded as " << name << endl;
+
+    string password;
+    cout << "Password: ";
+    
+    // Like for name, prompt the user for input until a non-empty string is entered
+    while (!getline(cin, password) || password.empty()) {
+        cout << "  Sorry, that's not a valid input. Please enter a password." << endl << "Password: ";
+    }
+
+    cout << "  Password was recorded as " << password << endl;
+
+    Admin* admin_ptr = new Admin(name, password, id);
+
+    return admin_ptr;
+}
 
 // void Admin::removeProfile(int id, vector<Profile*> profiles) {
 //     vector<Profile*>::iterator p_ptr = profiles.begin();
