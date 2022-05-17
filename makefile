@@ -4,8 +4,8 @@ main: Assignment.cpp Course.cpp Profile.cpp Admin.cpp Teacher.cpp Student.cpp ma
 profile_test: Profile.cpp ProfileTest.cpp
 	g++ Profile.cpp ProfileTest.cpp -o ProfileTest.out
 
-# admin_test: Course.cpp Student.cpp Teacher.cpp Admin.cpp AdminTest.cpp
-# 	g++ Course.cpp Student.cpp Teacher.cpp Admin.cpp AdminTest.cpp -o AdminTest.out
+admin_test: Assignment.cpp Course.cpp Profile.cpp Student.cpp Teacher.cpp Admin.cpp AdminTest.cpp
+	g++ Assignment.cpp Course.cpp Profile.cpp Student.cpp Teacher.cpp Admin.cpp AdminTest.cpp -o AdminTest.out
 
 # teacher_test: Assignment.cpp Course.cpp Teacher.cpp TeacherTest.cpp
 # 	g++ Assignment.cpp Course.cpp Teacher.cpp TeacherTest.cpp -o TeacherTest.out
