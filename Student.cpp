@@ -1,12 +1,15 @@
 #include <iostream>
 #include <string>
+#include <vector>
 
 #include "Student.h"
+#include "Course.h"
 
 using namespace std;
 
 Student::Student() {
-    courseCount = 0;
+    currentCourseCount = 0;
+    maxCourseCount = 0;
     name = "[no name]";
     password = "[no password]";
     schoolID = 0;
@@ -18,11 +21,11 @@ Student::Student(int maxCourseCount, string name, string password, int schoolID)
     this->name = name;
     this->password = password;
     this->schoolID = schoolID;
-    this->courses = new Course*[courseCount];
+    this->courses = new Course*[maxCourseCount];
 };
 
 Student::~Student() {
-    for (int i = 0; i < courseCount; i++) {
+    for (int i = 0; i < currentCourseCount; i++) {
         delete this->courses[i];
     }
 
@@ -32,7 +35,7 @@ Student::~Student() {
 void Student::printCourses() {
     cout << "### Enrolled Courses ###" << endl;
 
-    for (int i = 0 ; i < courseCount ; i++) {
+    for (int i = 0 ; i < currentCourseCount ; i++) {
         cout << courses[i]->getCourseID() << " " << courses[i]->getName() << endl;
     }
 };
@@ -43,7 +46,7 @@ void Student::printTimetable() {
     string days[] = {"monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"};
 
     for (int i = 0; i < 7; i++) {
-        day = days[i];
+        string day = days[i];
         cout << day << ": ";
 
         for (int i = 0; i < this->currentCourseCount; i++) {
@@ -89,7 +92,7 @@ void Student::enrol(vector<Course>* courses, int id) {
 
     // Print the name of every course
     for(c_ptr = courses->begin(); c_ptr < courses->end(); c_ptr++) {
-        if (c_ptr->getID() == id) {
+        if (c_ptr->getCourseID() == id) {
             this->courses[this->currentCourseCount] = &(*c_ptr);
             this->currentCourseCount++;
             cout << "Successfully enrolled in course" << endl;
@@ -100,7 +103,7 @@ void Student::enrol(vector<Course>* courses, int id) {
     cout << "There's no course with that ID. Please try again." << endl;
 };
 
-void Student::unenroll(vector<Course>* courses) {
+void Student::unenroll() {
     cout << "You are enrolled in the following courses:" << endl;
 
     for (int i = 0; i < this->currentCourseCount; i++) {
@@ -133,8 +136,10 @@ void Student::unenroll(vector<Course>* courses) {
 
 void Student::printReport() {
     cout << "### " << this->getName() << "'s Report Card ###" << endl;
-    for (int i = 0 ; i < 10 ; i++) {
-        cout << courses[i]->getCourseID() << " " << courses[i]->getName() << " [" << courses[i]->printGrade() << "]" << endl; 
+
+    for (int i = 0; i < this->currentCourseCount; i++) {
+        Course* course = courses[i];
+        course->printGrade();
     }
 };
 
