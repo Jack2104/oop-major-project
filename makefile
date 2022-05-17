@@ -14,7 +14,7 @@ profile_test: Profile.cpp ProfileTest.cpp
 # 	g++ Assignment.cpp Course.cpp Student.cpp StudentTest.cpp -o StudentTest.cpp
 
 course_test: Assignment.cpp Course.cpp CourseTest.cpp
-	g++ Assignment.cpp Coruse.cpp CourseTest.cpp -o CourseTest.out
+	g++ Assignment.cpp Course.cpp CourseTest.cpp -o CourseTest.out
 
 assignment_test: Assignment.cpp AssignmentTest.cpp
 	g++ Assignment.cpp AssignmentTest.cpp -o AssignmentTest.out

@@ -196,10 +196,15 @@ int main() {
 
     {
         Course course("Intro to Programming", 1234, 4, "monday");
-        Assignment assignment("Major practical", 100, "A big project");
-        assignment.setGrade(100);
+        Assignment* assignment = new Assignment("Major practical", 100, "A big project");
+        assignment->setGrade(100);
+
+        course.addAssignment(assignment);
 
         int grade = course.calculateGrade();
+        std::cout << "4" << std::endl;
+
+        std::cout << grade << std::endl;
 
         if (grade != 100) {
             std::cout << "CourseTest.cpp: Test 23 failed" << std::endl;

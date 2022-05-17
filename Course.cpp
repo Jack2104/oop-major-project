@@ -167,10 +167,20 @@ void Course::removeAssignment() {
 
 int Course::calculateGrade() {
     int grade = 0;
+    cout << "2" << endl;
 
     for (int i = 0; i < this->currentAssignmentCount; i++) {
-        Assignment* assignment = this->assignments[i];
-        grade += assignment->getGrade() * (assignment->getWeight() / 100); // Multiply the assignment grade by it's weighting
+        cout << "3" << endl;
+        Assignment* assignment_ptr = assignments[i];
+        cout << "4" << endl;
+
+        cout << i << ". " << assignment_ptr->getName() << endl;
+        cout << "5" << endl;
+
+        int assignmentGrade = assignment_ptr->getGrade();
+        float assignmentWeight = assignment_ptr->getWeight() / 100;
+
+        grade += assignmentGrade * assignmentWeight; // Multiply the assignment grade by it's weighting
     }
 
     return grade;

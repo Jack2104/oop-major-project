@@ -29,7 +29,13 @@ void Assignment::setGrade(int grade) {
 }
 
 void Assignment::setWeight(int weight) {
-    this->weight = weight;
+    if (weight > 100) {
+        this->weight = 100;
+    } else if (weight < 0) {
+        this->weight = 0;
+    } else {
+        this->weight = weight;
+    }
 }
 
 void Assignment::setDescription(string description) {
@@ -41,10 +47,22 @@ string Assignment::getName() {
 }
 
 int Assignment::getGrade() {
+    if (grade > 100) {
+        return 100;
+    } else if (grade < 0) {
+        return 0;
+    }
+
     return this->grade;
 }
 
 int Assignment::getWeight() {
+    if (weight > 100) {
+        return 100;
+    } else if (weight < 0) {
+        return 0;
+    }
+
     return this->weight;
 }
 
