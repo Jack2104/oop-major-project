@@ -30,6 +30,7 @@ int Profile::getID() {
 
     return schoolID;
 };
+
 void Profile::setID(int schoolID) {
     if (schoolID < 0) {
         this->schoolID = -1 * schoolID;

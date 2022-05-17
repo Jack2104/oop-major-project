@@ -19,7 +19,13 @@ void Assignment::setName(string name) {
 }
 
 void Assignment::setGrade(int grade) {
-    this->grade = grade;
+    if (grade > 100) {
+        this->grade = 100;
+    } else if (grade < 0) {
+        this->grade = 0;
+    } else {
+        this->grade = grade;
+    }
 }
 
 void Assignment::setWeight(int weight) {

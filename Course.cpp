@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 #include "Course.h"
 #include "Assignment.h"
@@ -31,7 +32,11 @@ string Course::getName() {
 }
 
 int Course::getCourseID() {
-    return this->courseID;
+    if (courseID < 0) {
+        return -1 * courseID;
+    }
+
+    return courseID;
 }
 
 string Course::getDay() {
@@ -43,11 +48,20 @@ void Course::setName(string name) {
 }
 
 void Course::setCourseID(int id) {
-    this->courseID = id;
+    if (courseID < 0) {
+        this->courseID = -1 * id;
+    } else {
+        this->courseID = id;
+    }
 }
 
 void Course::setDay(string day) {
-    this->day = day;
+    transform(day.begin(), day.end(), day.begin(), ::tolower); // convert the user input to lowercase
+    bool isDay = (day == "monday" || day == "tuesday" || day == "wednesday" || day == "thursday" || day == "friday");
+
+    if (isDay) {
+        this->day = day;
+    }
 }
 
 Assignment* Course::getAssignment(string name) {
@@ -191,7 +205,7 @@ void Course::printGrade() {
 
 void Course::printAssignmentList() {
     for (int i = 0; i < currentAssignmentCount; i++) {
-        Assignment* assignment = assignements[currentAssignmentCount];
-        cout << assignement->getName() << endl;
+        Assignment* assignment = assignments[currentAssignmentCount];
+        cout << assignment->getName() << endl;
     }
 }
