@@ -15,7 +15,7 @@ Student::Student() {
     schoolID = 0;
 };
 
-Student::Student(int maxCourseCount, string name, string password, int schoolID) {
+Student::Student(string name, string password, int schoolID, int maxCourseCount) {
     this->maxCourseCount = maxCourseCount;
     this->currentCourseCount = 0;
     this->name = name;

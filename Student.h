@@ -16,7 +16,7 @@ class Student : public Profile {
 
     public:
         Student();
-        Student(int courseCount, string name, string password, int schoolID);
+        Student(string name, string password, int schoolID, int maxCourseCount);
         ~Student();
 
         /* Prints the courses that the student is enrolled in to the console */
