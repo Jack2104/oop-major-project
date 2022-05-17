@@ -10,7 +10,8 @@ using namespace std;
 
 class Student : public Profile {
     private:
-        int courseCount; // Number of courses that the student can enrol in
+        int maxCourseCount; // Number of courses that the student can enrol in
+        int currentCourseCount;
         Course** courses; // Array of courses the student is enrolled in
 
     public:

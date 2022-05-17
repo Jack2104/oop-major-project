@@ -12,8 +12,9 @@ Student::Student() {
     schoolID = 0;
 };
 
-Student::Student(int courseCount, string name, string password, int schoolID) {
-    this->courseCount = courseCount;
+Student::Student(int maxCourseCount, string name, string password, int schoolID) {
+    this->maxCourseCount = maxCourseCount;
+    this->currentCourseCount = 0;
     this->name = name;
     this->password = password;
     this->schoolID = schoolID;
@@ -30,10 +31,32 @@ Student::~Student() {
 
 void Student::printCourses() {
     cout << "### Enrolled Courses ###" << endl;
+
     for (int i = 0 ; i < courseCount ; i++) {
         cout << courses[i]->getCourseID() << " " << courses[i]->getName() << endl;
     }
 };
+
+void Student::printTimetable() {
+    cout << "### Timetable ###" << endl;
+
+    string days[] = {"monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"};
+
+    for (int i = 0; i < 7; i++) {
+        day = days[i];
+        cout << day << ": ";
+
+        for (int i = 0; i < this->currentCourseCount; i++) {
+            Course* course = this->courses[i];
+
+            if (course->getDay() == day) {
+                cout << course->getName() << ", ";
+            }
+        }
+
+        cout << endl;
+    }
+}
 
 void Student::enrol(string courseName) {
     
