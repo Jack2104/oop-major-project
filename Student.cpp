@@ -39,10 +39,17 @@ void Student::enrol(string courseName) {
     
 };
 
+void Student::printReport() {
+    cout << "### " << this->getName() << "'s Report Card ###" << endl;
+    for (int i = 0 ; i < 10 ; i++) {
+        cout << courses[i]->getCourseID() << " " << courses[i]->getName() << " [" << courses[i]->printGrade() << "]" << endl; 
+    }
+};
+
 void Student::printTitle() {
     cout << "### " << this->name << " (Student) ###" << endl;
-}
+};
 
 void Student::printEmail() {
     cout << "Email address: " << this->schoolID << "@student.edu" << endl;
-}
+};
