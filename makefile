@@ -1,11 +1,23 @@
 main: Assignment.cpp Course.cpp Profile.cpp Admin.cpp Teacher.cpp Student.cpp main.cpp
 	g++ Assignment.cpp Course.cpp Profile.cpp Admin.cpp Teacher.cpp Student.cpp main.cpp -o main.out
 
-profiletest: Profile.cpp ProfileTest.cpp
+profile_test: Profile.cpp ProfileTest.cpp
 	g++ Profile.cpp ProfileTest.cpp -o ProfileTest.out
 
-coursetest: Assignment.cpp Course.cpp CourseTest.cpp
+# admin_test: Course.cpp Student.cpp Teacher.cpp Admin.cpp AdminTest.cpp
+# 	g++ Course.cpp Student.cpp Teacher.cpp Admin.cpp AdminTest.cpp -o AdminTest.out
+
+# teacher_test: Assignment.cpp Course.cpp Teacher.cpp TeacherTest.cpp
+# 	g++ Assignment.cpp Course.cpp Teacher.cpp TeacherTest.cpp -o TeacherTest.out
+
+# student_test: Assignment.cpp Course.cpp Student.cpp StudentTest.cpp
+# 	g++ Assignment.cpp Course.cpp Student.cpp StudentTest.cpp -o StudentTest.cpp
+
+course_test: Assignment.cpp Course.cpp CourseTest.cpp
 	g++ Assignment.cpp Coruse.cpp CourseTest.cpp -o CourseTest.out
 
-test:
+assignment_test: Assignment.cpp AssignmentTest.cpp
+	g++ Assignment.cpp AssignmentTest.cpp -o AssignmentTest.out
+
+integration_test:
 	./main < test_input.txt
