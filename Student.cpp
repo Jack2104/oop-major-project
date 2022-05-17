@@ -58,9 +58,78 @@ void Student::printTimetable() {
     }
 }
 
-void Student::enrol(string courseName) {
-    
+void Student::enrol(vector<Course>* courses, string name) {
+    if (this->currentCourseCount >= this->maxCourseCount) {
+        cout << "Sorry, but you can't enrol in any more courses." << endl;
+        return;
+    }
+
+    vector<Course>::iterator c_ptr;
+
+    // Print the name of every course
+    for(c_ptr = courses->begin(); c_ptr < courses->end(); c_ptr++) {
+        if (c_ptr->getName() == name) {
+            this->courses[this->currentCourseCount] = &(*c_ptr);
+            this->currentCourseCount++;
+            cout << "Successfully enrolled in course" << endl;
+            return;
+        }
+    }
+
+    cout << "There's no course with that name. Please try again." << endl;
 };
+
+void Student::enrol(vector<Course>* courses, int id) {
+    if (this->currentCourseCount >= this->maxCourseCount) {
+        cout << "Sorry, but you can't enrol in any more courses." << endl;
+        return;
+    }
+
+    vector<Course>::iterator c_ptr;
+
+    // Print the name of every course
+    for(c_ptr = courses->begin(); c_ptr < courses->end(); c_ptr++) {
+        if (c_ptr->getID() == id) {
+            this->courses[this->currentCourseCount] = &(*c_ptr);
+            this->currentCourseCount++;
+            cout << "Successfully enrolled in course" << endl;
+            return;
+        }
+    }
+
+    cout << "There's no course with that ID. Please try again." << endl;
+};
+
+void Student::unenroll(vector<Course>* courses) {
+    cout << "You are enrolled in the following courses:" << endl;
+
+    for (int i = 0; i < this->currentCourseCount; i++) {
+        Course* course = this->courses[i];
+        cout << course->getName() << endl;
+    }
+
+    string name;
+    cout << "Enter the name of the course you'd like to leave: ";
+
+    // Continually prompt the user for input until a valid input is entered
+    while (!getline(cin, name) || name.empty()) {
+        cout << "Sorry, that's not a valid input. Please enter an course name." << endl << "Course name: ";
+    }
+
+    // Find the assignment to be deleted
+    for (int i = 0; i < this->currentCourseCount; i++) {
+        Course* course = this->courses[i];
+
+        if (course->getName() == name) {
+            delete this->courses[i]; // Delete the assignment from memory
+            this->currentCourseCount--;
+            cout << "You successfully left that course." << endl;
+            return;
+        }
+    }
+
+    cout << "The course you entered does not exist. Please try again." << endl;
+}
 
 void Student::printReport() {
     cout << "### " << this->getName() << "'s Report Card ###" << endl;

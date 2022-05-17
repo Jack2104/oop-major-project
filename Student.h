@@ -29,16 +29,13 @@ class Student : public Profile {
         void printReport();
 
         /* Enrols the student in a course by name */
-        void enrol(string courseName);
-
-        /* Unenrolls the student from a course by name */
-        void unenroll(string courseName);
+        void enrol(vector<Course>* courses, string name);
 
         /* Enrols the student in a course by ID */
-        void enrol(int courseID);
+        void enrol(vector<Course>* courses, int courseID);
 
         /* Unenrolls the student from a course by ID */
-        void unenroll(int courseID);
+        void unenroll();
 
         /* Abstract method implementation that prints the students's name */
         void printTitle();
