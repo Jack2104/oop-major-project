@@ -11,7 +11,7 @@ using namespace std;
 class Student : public Profile {
     private:
         int courseCount; // Number of courses that the student can enrol in
-        Course* courses; // Array of courses the student is enrolled in
+        Course** courses; // Array of courses the student is enrolled in
 
     public:
         Student();
