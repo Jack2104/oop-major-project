@@ -7,8 +7,8 @@ profile_test: Profile.cpp ProfileTest.cpp
 admin_test: Assignment.cpp Course.cpp Profile.cpp Student.cpp Teacher.cpp Admin.cpp AdminTest.cpp
 	g++ Assignment.cpp Course.cpp Profile.cpp Student.cpp Teacher.cpp Admin.cpp AdminTest.cpp -o AdminTest.out
 
-# teacher_test: Assignment.cpp Course.cpp Teacher.cpp TeacherTest.cpp
-# 	g++ Assignment.cpp Course.cpp Teacher.cpp TeacherTest.cpp -o TeacherTest.out
+teacher_test: Assignment.cpp Course.cpp Profile.cpp Teacher.cpp TeacherTest.cpp
+	g++ Assignment.cpp Course.cpp Profile.cpp Teacher.cpp TeacherTest.cpp -o TeacherTest.out
 
 # student_test: Assignment.cpp Course.cpp Student.cpp StudentTest.cpp
 # 	g++ Assignment.cpp Course.cpp Student.cpp StudentTest.cpp -o StudentTest.cpp

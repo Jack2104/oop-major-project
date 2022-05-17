@@ -11,9 +11,6 @@ using namespace std;
 Teacher::Teacher() { this->maxCourseCount = 4; };
 
 Teacher::Teacher(string name, string password, int schoolID, int maxCourseCount) : Profile(name, password, schoolID) {
-    // this->name = name;
-    // this->password = password;
-    // this->schoolID = schoolID;
     this->maxCourseCount = maxCourseCount;
     this->currentCourseCount = 0;
 
