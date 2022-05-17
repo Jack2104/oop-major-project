@@ -39,10 +39,10 @@ class Student : public Profile {
         /* Unenrolls the student from a course by ID */
         void unenroll(int courseID);
 
-        /* Abstract method implementation that prints the Teacher's name */
+        /* Abstract method implementation that prints the students's name */
         void printTitle();
 
-        /* Abstract method implementation that prints the teacher's email address */
+        /* Abstract method implementation that prints the students's email address */
         void printEmail();
 };
 
