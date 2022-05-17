@@ -78,8 +78,8 @@ Assignment* Course::getAssignment(string name) {
 
 void Course::addAssignment(Assignment* assignment_ptr) {
     if (this->currentAssignmentCount < this->maxAssignmentCount) {
-        this->currentAssignmentCount++;
         this->assignments[this->currentAssignmentCount] = assignment_ptr;
+        this->currentAssignmentCount++;
     }
 }
 
@@ -167,15 +167,9 @@ void Course::removeAssignment() {
 
 int Course::calculateGrade() {
     int grade = 0;
-    cout << "2" << endl;
 
     for (int i = 0; i < this->currentAssignmentCount; i++) {
-        cout << "3" << endl;
         Assignment* assignment_ptr = assignments[i];
-        cout << "4" << endl;
-
-        cout << i << ". " << assignment_ptr->getName() << endl;
-        cout << "5" << endl;
 
         int assignmentGrade = assignment_ptr->getGrade();
         float assignmentWeight = assignment_ptr->getWeight() / 100;

@@ -202,9 +202,6 @@ int main() {
         course.addAssignment(assignment);
 
         int grade = course.calculateGrade();
-        std::cout << "4" << std::endl;
-
-        std::cout << grade << std::endl;
 
         if (grade != 100) {
             std::cout << "CourseTest.cpp: Test 23 failed" << std::endl;
