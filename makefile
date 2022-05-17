@@ -10,8 +10,8 @@ admin_test: Assignment.cpp Course.cpp Profile.cpp Student.cpp Teacher.cpp Admin.
 teacher_test: Assignment.cpp Course.cpp Profile.cpp Teacher.cpp TeacherTest.cpp
 	g++ Assignment.cpp Course.cpp Profile.cpp Teacher.cpp TeacherTest.cpp -o TeacherTest.out
 
-# student_test: Assignment.cpp Course.cpp Student.cpp StudentTest.cpp
-# 	g++ Assignment.cpp Course.cpp Student.cpp StudentTest.cpp -o StudentTest.cpp
+student_test: Assignment.cpp Course.cpp Profile.cpp Student.cpp StudentTest.cpp
+	g++ Assignment.cpp Course.cpp Profile.cpp Student.cpp StudentTest.cpp -o StudentTest.out
 
 course_test: Assignment.cpp Course.cpp CourseTest.cpp
 	g++ Assignment.cpp Course.cpp CourseTest.cpp -o CourseTest.out
