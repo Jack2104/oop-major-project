@@ -74,7 +74,7 @@ int main() {
     {
         Assignment assignment("Major practical", -1, "A big project");
 
-        if (assignment.getWeight() != 1) {
+        if (assignment.getWeight() != 0) {
             std::cout << "AssignmentTest.cpp: Test 9 failed" << std::endl;
         }
     }
@@ -127,7 +127,7 @@ int main() {
         Assignment assignment("Major practical", 50, "A big project");
         assignment.setWeight(-1);
 
-        if (assignment.getWeight() != 1) {
+        if (assignment.getWeight() != 0) {
             std::cout << "AssignmentTest.cpp: Test 15 failed" << std::endl;
         }
     }
@@ -176,7 +176,7 @@ int main() {
 
     {
         Assignment assignment("Major practical", 50, "");
-        assignment.setDescription("A different big project");
+        assignment.setDescription("");
 
         if (assignment.getDescription() != "") {
             std::cout << "AssignmentTest.cpp: Test 21 failed" << std::endl;
@@ -196,7 +196,7 @@ int main() {
         Assignment assignment("Major practical", 50, "A big project");
         assignment.setGrade(1000);
 
-        if (assignment.getGrade() != 1000) {
+        if (assignment.getGrade() != 100) {
             std::cout << "AssignmentTest.cpp: Test 23 failed" << std::endl;
         }
     }
@@ -232,7 +232,7 @@ int main() {
         Assignment assignment("Major practical", 50, "A big project");
         assignment.setGrade(-1);
 
-        if (assignment.getGrade() != 1) {
+        if (assignment.getGrade() != 0) {
             std::cout << "AssignmentTest.cpp: Test 27 failed" << std::endl;
         }
     }
