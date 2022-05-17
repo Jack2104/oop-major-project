@@ -2,6 +2,7 @@
 #define TEACHER_H
 
 #include <string>
+#include <vector>
 
 #include "Profile.h"
 #include "Course.h"
@@ -23,14 +24,14 @@ class Teacher : public Profile {
         /* Adds a course to teachableCourses */
         void joinCourse(vector<Course>* courses);
 
-        /* Creates and returns a Course object */
-        void createCourse();
+        /* Remoes a course from teachableCourses */
+        void leaveCourse();
 
-        /* Deletes a course from the array courses */
-        void deleteCourse(string courseName, Profile* courses);
+        /* Creates and returns a Course object */
+        Course createCourse();
 
         /* Prompts the user to grade a student's assignment */
-        void grade(Assignment* assignment);
+        void grade();
 
         /* Creates and returns an Assignment object */
         // Assignment createAssignment();

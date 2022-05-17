@@ -35,7 +35,7 @@ Teacher* Admin::createTeacher(vector<Course>* courses) {
         cin.clear(); // Clear the buffer
         cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
 
-        cout << "Sorry, that's not a valid input. Please enter a number, with no spaces." << endl << "School ID: ";
+        cout << "  Sorry, that's not a valid input. Please enter a number, with no spaces." << endl << "School ID: ";
         cin >> id;
     }
 
@@ -46,7 +46,7 @@ Teacher* Admin::createTeacher(vector<Course>* courses) {
     
     // Like for name, prompt the user for input until a non-empty string is entered
     while (!getline(cin, password) || password.empty()) {
-        cout << "Sorry, that's not a valid input. Please enter a passwoed." << endl << "Password: ";
+        cout << "  Sorry, that's not a valid input. Please enter a password." << endl << "Password: ";
     }
 
     cout << "  Password was recorded as " << password << endl;
@@ -77,7 +77,7 @@ Teacher* Admin::createTeacher(vector<Course>* courses) {
             }
         }
 
-        cout << courseName << " is not an available course. Please try again" << endl << "Select a course by entering its name: ";
+        cout << "  " << courseName << " is not an available course. Please try again" << endl << "Select a course by entering its name: ";
     }
 
     return teacher_ptr;
