@@ -59,7 +59,7 @@ Assignment* Course::getAssignment(string name) {
         }
     }
 
-    return NULL;
+    return nullptr;
 }
 
 void Course::addAssignment(Assignment* assignment_ptr) {
@@ -186,5 +186,12 @@ void Course::printGrade() {
     for (int i = 0; i < this->currentAssignmentCount; i++) {
         Assignment* assignment = this->assignments[i];
         cout << "  " << assignment->getName() << ": " << assignment->getGrade() << "(weighted " << assignment->getWeight() << "%)" << endl;
+    }
+}
+
+void Course::printAssignmentList() {
+    for (int i = 0; i < currentAssignmentCount; i++) {
+        Assignment* assignment = assignements[currentAssignmentCount];
+        cout << assignement->getName() << endl;
     }
 }

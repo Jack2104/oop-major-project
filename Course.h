@@ -41,6 +41,9 @@ class Course {
         /* Prints the course grade to the user */
         void printGrade();
 
+        /* Prints the array assignments to the console */
+        void printAssignmentList();
+
         /* Returns the course name */
         string getName();
 
