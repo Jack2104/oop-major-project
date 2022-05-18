@@ -7,12 +7,9 @@
 
 using namespace std;
 
-Student::Student() {
+Student::Student() : Profile() {
     currentCourseCount = 0;
     maxCourseCount = 0;
-    name = "[no name]";
-    password = "[no password]";
-    schoolID = 0;
 };
 
 Student::Student(string name, string password, int schoolID, int maxCourseCount) : Profile(name, password, schoolID) {
