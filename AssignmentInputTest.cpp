@@ -8,7 +8,7 @@ int main() {
     assignment.setGrade(100);
 
     std::cout << "Testing printAssignmentInfo()..."
-`
+
     assignment.printAssignmentInfo();
 
     return 0;
