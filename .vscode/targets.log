@@ -6,11 +6,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
- 
-make: *** No rule to make target `all'.  Stop.
 
-
-# Make data base, printed on Wed May 18 14:27:27 2022
+# Make data base, printed on Wed May 18 15:57:34 2022
 
 # Variables
 
@@ -39,10 +36,9 @@ MAKEFILE_LIST :=  makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
- 
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/7k/vkvkb3fn4y3_b67lxj_0w8qm0000gn/T/vscode-ipc-e538082c-0fc4-4607-aba4-896eeaa9eef0.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/7k/vkvkb3fn4y3_b67lxj_0w8qm0000gn/T/vscode-ipc-762ade86-4301-41c5-bc89-c798283cf2ea.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -164,7 +160,6 @@ VSCODE_PID = 73773
 CourseInputTest.cpp:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
- 
 #  File has not been updated.
 
 # Not a target:
@@ -290,6 +285,9 @@ student_unit_test: Assignment.cpp Course.cpp Profile.cpp Student.cpp StudentUnit
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+ 
+make: *** No rule to make target `all'.  Stop.
+
 #  commands to execute (from `makefile', line 14):
 	g++ Assignment.cpp Course.cpp Profile.cpp Student.cpp StudentUnitTest.cpp -o StudentUnitTest.out
 	
@@ -318,7 +316,6 @@ main: Assignment.cpp Course.cpp Profile.cpp Admin.cpp Teacher.cpp Student.cpp ma
 #  File has not been updated.
 #  commands to execute (from `makefile', line 2):
 	g++ Assignment.cpp Course.cpp Profile.cpp Admin.cpp Teacher.cpp Student.cpp main.cpp -o main.out
- 
 	
 
 assignment_unit_test: Assignment.cpp AssignmentUnitTest.cpp
@@ -376,6 +373,6 @@ integration_test:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Wed May 18 14:27:27 2022
+# Finished Make data base on Wed May 18 15:57:34 2022
 
  

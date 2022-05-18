@@ -89,7 +89,7 @@ void Course::createAssignment() {
         return;
     }
 
-    this->currentAssignmentCount++;
+    // this->currentAssignmentCount++;
 
     cout << "### Create new assignment ###" << endl;
 
@@ -128,25 +128,21 @@ void Course::createAssignment() {
 
     cout << "  Assignment weighting was recorded as " << weight << endl;
 
-    // Assignment* assignment = new Assignment(name, weight, description);
     this->assignments[this->currentAssignmentCount] = new Assignment(name, weight, description);
+    this->currentAssignmentCount++;
 
     cout << "Assignment created!" << endl;
 }
 
 void Course::removeAssignment() {
     cout << "This course has the following assignments:" << endl;
-
-    for (int i = 0; i < this->currentAssignmentCount; i++) {
-        Assignment* assignment = this->assignments[i];
-        cout << assignment->getName() << endl;
-    }
+    this->printAssignmentList();
 
     string name;
-    cout << "Enter the name of the assignment you'd like to delete: ";
+    cout << endl << "Enter the name of the assignment you'd like to delete: ";
 
     // Continually prompt the user for input until a valid input is entered
-    while (!getline(cin, name) || name.empty()) {
+    while (!getline(cin, name) || name.empty() || name.find_first_not_of(' ') == string::npos || name.find_first_not_of('	') == string::npos) {
         cout << "Sorry, that's not a valid input. Please enter an assignment name." << endl << "Assignment name: ";
     }
 
@@ -209,7 +205,7 @@ void Course::printGrade() {
 
 void Course::printAssignmentList() {
     for (int i = 0; i < currentAssignmentCount; i++) {
-        Assignment* assignment = assignments[currentAssignmentCount];
-        cout << assignment->getName() << endl;
+        Assignment* assignment = assignments[i];
+        cout << "• " << assignment->getName() << endl;
     }
 }
