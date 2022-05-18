@@ -10,7 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
 
 
-# Make data base, printed on Wed May 18 14:05:58 2022
+# Make data base, printed on Wed May 18 14:12:48 2022
 
 # Variables
 
@@ -34,7 +34,6 @@ SHELL = /bin/sh
 VSCODE_NLS_CONFIG = {"locale":"en-gb","availableLanguages":{},"_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
- 
 # makefile (from `makefile', line 1)
 MAKEFILE_LIST :=  makefile
 # environment
@@ -150,16 +149,21 @@ VSCODE_PID = 73773
 
 # Directories
 
- 
-# . (device 16777221, inode 41887336): 28 files, no impossibilities.
+# . (device 16777221, inode 41887336): 30 files, no impossibilities.
 
-# 28 files, no impossibilities in 1 directories.
+# 30 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
 # No implicit rules.
 
 # Files
+
+# Not a target:
+CourseInputTest.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 Course.cpp:
@@ -192,8 +196,16 @@ assignment_input_test: Assignment.cpp AssignmentInputTest.cpp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `makefile', line 23):
+#  commands to execute (from `makefile', line 27):
 	g++ Assignment.cpp AssignmentInputTest.cpp -o AssignmentInputTest.out
+	
+
+course_input_test: Assignment.cpp Course.cpp CourseInputTest.cpp
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `makefile', line 21):
+	g++ Assignment.cpp Course.cpp CourseUnitTest.cpp -o CourseInputTest.out
 	
 
 profile_unit_test: Profile.cpp ProfileTest.cpp
@@ -203,6 +215,7 @@ profile_unit_test: Profile.cpp ProfileTest.cpp
 #  commands to execute (from `makefile', line 5):
 	g++ Profile.cpp ProfileTest.cpp -o ProfileTest.out
 	
+ 
 
 # Not a target:
 Admin.cpp:
@@ -243,7 +256,7 @@ Profile.cpp:
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-18 14:05:29
+#  Last modified 2022-05-18 14:12:43
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -309,7 +322,7 @@ assignment_unit_test: Assignment.cpp AssignmentUnitTest.cpp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `makefile', line 20):
+#  commands to execute (from `makefile', line 24):
 	g++ Assignment.cpp AssignmentUnitTest.cpp -o AssignmentUnitTest.out
 	
 
@@ -319,6 +332,7 @@ course_unit_test: Assignment.cpp Course.cpp CourseUnitTest.cpp
 #  File has not been updated.
 #  commands to execute (from `makefile', line 17):
 	g++ Assignment.cpp Course.cpp CourseUnitTest.cpp -o CourseUnitTest.out
+	./CourseUnitTest < course_test_input.txt
 	
 
 # Not a target:
@@ -326,7 +340,6 @@ Assignment.cpp:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
- 
 
 # Not a target:
 TeacherUnitTest.cpp:
@@ -344,12 +357,12 @@ integration_test:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `makefile', line 26):
+#  commands to execute (from `makefile', line 30):
 	./main < test_input.txt
 	
 
 # files hash-table stats:
-# Load=27/1024=3%, Rehash=0, Collisions=1/72=1%
+# Load=29/1024=3%, Rehash=0, Collisions=1/77=1%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -361,6 +374,6 @@ integration_test:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Wed May 18 14:05:58 2022
+# Finished Make data base on Wed May 18 14:12:48 2022
 
  
