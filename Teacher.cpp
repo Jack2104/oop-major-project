@@ -25,7 +25,7 @@ Teacher::~Teacher() {
     delete[] this->teachableCourses;
 }
 
-void Teacher::joinCourse(vector<Course>* courses) {
+void Teacher::joinCourse(vector<Course*> courses) {
     if (this->currentCourseCount >= this->maxCourseCount) {
         cout << "Sorry, but you can't teach any more courses" << endl;
     }
@@ -34,22 +34,25 @@ void Teacher::joinCourse(vector<Course>* courses) {
 
     cout << "The following courses are available to join:" << endl;
 
-    vector<Course>::iterator c_ptr;
+    vector<Course*>::iterator c_ptr;
 
     // Print the name of every course
-    for(c_ptr = courses->begin(); c_ptr < courses->end(); c_ptr++) {
-        cout << c_ptr->getName() << endl;
+    for(c_ptr = courses.begin(); c_ptr < courses.end(); c_ptr++) {
+        Course* course = *c_ptr;
+        cout << course->getName() << endl;
     }
 
     cout << endl << "Select a course by entering its name: ";
 
     string courseName;
 
-    while (!getline(cin, courseName) || courseName.empty()) {
+    while (!getline(cin, courseName) || courseName.empty() || courseName.find_first_not_of(' ') == string::npos || courseName.find_first_not_of('	') == string::npos) {
         // Check to see if the inputted course is in the available courses list
-        for(c_ptr = courses->begin(); c_ptr < courses->end(); c_ptr++) {
-            if (c_ptr->getName() == courseName) {
-                this->teachableCourses[this->currentCourseCount] = &(*c_ptr);
+        for(c_ptr = courses.begin(); c_ptr < courses.end(); c_ptr++) {
+            Course* course = *c_ptr;
+
+            if (course->getName() == courseName) {
+                this->teachableCourses[this->currentCourseCount] = course; // &(*c_ptr);
                 cout << "You successfully joined " << courseName << endl;
                 break;
             }
@@ -59,14 +62,14 @@ void Teacher::joinCourse(vector<Course>* courses) {
     }
 }
 
-Course Teacher::createCourse() {
+Course* Teacher::createCourse() {
     cout << "### Create new course ###" << endl;
 
     string name;
     cout << "Course name: ";
 
     // Continually prompt the user for input until a valid input is entered
-    while (!getline(cin, name) || name.empty()) {
+    while (!getline(cin, name) || name.empty() || name.find_first_not_of(' ') == string::npos || name.find_first_not_of('	') == string::npos) {
         cout << "  Sorry, that's not a valid input. Please enter a course name." << endl << "Course name: ";
     }
 
@@ -109,15 +112,15 @@ Course Teacher::createCourse() {
     bool isDay = (day == "monday" || day == "tuesday" || day == "wednesday" || day == "thursday" || day == "friday");
 
     // Continually prompt the user for input until a valid input is entered
-    while (!getline(cin, name) || name.empty() || (name != "monday")) {
+    while (!getline(cin, day) || day.empty() || !isDay || day.find_first_not_of(' ') == string::npos || day.find_first_not_of('	') == string::npos) {
         cout << "  Sorry, that's not a valid input. Please enter a day." << endl << "What day does this course run on? Please enter a day from Monday - Friday: ";
     }
 
-    cout << "  Timetabled day was recorded as " << name << endl;
+    cout << "  Timetabled day was recorded as " << day << endl;
 
-    Course course(name, id, assignmentCount, day);
+    Course* course_ptr = new Course(name, id, assignmentCount, day);
 
-    return course;
+    return course_ptr;
 }
 
 void Teacher::leaveCourse() {
@@ -132,7 +135,7 @@ void Teacher::leaveCourse() {
     cout << "Enter the name of the course you'd like to leave: ";
 
     // Continually prompt the user for input until a valid input is entered
-    while (!getline(cin, name) || name.empty()) {
+    while (!getline(cin, name) || name.empty() || name.find_first_not_of(' ') == string::npos || name.find_first_not_of('	') == string::npos) {
         cout << "Sorry, that's not a valid input. Please enter an course name." << endl << "Course name: ";
     }
 
@@ -141,7 +144,12 @@ void Teacher::leaveCourse() {
         Course* course = this->teachableCourses[i];
 
         if (course->getName() == name) {
-            delete this->teachableCourses[i]; // Delete the assignment from memory
+            for (int j = i; j < this->currentCourseCount - 1; j++) {
+                this->teachableCourses[j] = this->teachableCourses[j + 1];
+            }
+
+            // delete this->teachableCourses[i]; // Delete the assignment from memory
+            
             this->currentCourseCount--;
             cout << "You successfully left that course." << endl;
             return;
@@ -165,7 +173,7 @@ void Teacher::grade() {
     cout << "Select a course: ";
 
     // Continually prompt the user for input until a valid input is entered
-    while (!getline(cin, name) || name.empty()) {
+    while (!getline(cin, name) || name.empty() || name.find_first_not_of(' ') == string::npos || name.find_first_not_of('	') == string::npos) {
         cout << "Sorry, that's not a valid input. Please enter a course name." << endl << "Course name: ";
     }
 
@@ -191,7 +199,7 @@ void Teacher::grade() {
     string assignmentName;
 
     // Continually prompt the user for input until a valid input is entered
-    while (!getline(cin, assignmentName) || assignmentName.empty()) {
+    while (!getline(cin, assignmentName) || assignmentName.empty() || assignmentName.find_first_not_of(' ') == string::npos || assignmentName.find_first_not_of('	') == string::npos) {
         cout << "Sorry, that's not a valid input. Please enter an assignment name." << endl << "Assignment name: ";
     }
 

@@ -22,13 +22,13 @@ class Teacher : public Profile {
         ~Teacher();
 
         /* Adds a course to teachableCourses */
-        void joinCourse(vector<Course>* courses);
+        void joinCourse(vector<Course*> courses);
 
         /* Remoes a course from teachableCourses */
         void leaveCourse();
 
         /* Creates and returns a Course object */
-        Course createCourse();
+        Course* createCourse();
 
         /* Prompts the user to grade a student's assignment */
         void grade();
