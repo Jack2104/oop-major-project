@@ -17,8 +17,8 @@ course_unit_test: Assignment.cpp Course.cpp CourseUnitTest.cpp
 	g++ Assignment.cpp Course.cpp CourseUnitTest.cpp -o CourseUnitTest.out
 
 course_input_test: Assignment.cpp Course.cpp CourseInputTest.cpp
-	g++ Assignment.cpp Course.cpp CourseUnitTest.cpp -o CourseInputTest.out
-	./CourseUnitTest < course_test_input.txt
+	g++ Assignment.cpp Course.cpp CourseInputTest.cpp -o CourseInputTest.out
+	./CourseInputTest.out < course_test_input.txt
 
 assignment_unit_test: Assignment.cpp AssignmentUnitTest.cpp
 	g++ Assignment.cpp AssignmentUnitTest.cpp -o AssignmentUnitTest.out

@@ -5,7 +5,7 @@
 #include "Assignment.h"
 
 int main() {
-    Course assignment("Major practical", 100, "A big project");
+    Course course("OOP", 1234, 4, "monday");
     
     std::cout << "Testing createAssignment()..." << std::endl;
     course.createAssignment();
