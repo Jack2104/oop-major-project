@@ -15,12 +15,9 @@ Student::Student() {
     schoolID = 0;
 };
 
-Student::Student(string name, string password, int schoolID, int maxCourseCount) {
+Student::Student(string name, string password, int schoolID, int maxCourseCount) : Profile(name, password, schoolID) {
     this->maxCourseCount = maxCourseCount;
     this->currentCourseCount = 0;
-    this->name = name;
-    this->password = password;
-    this->schoolID = schoolID;
     this->courses = new Course*[maxCourseCount];
 };
 
@@ -115,7 +112,7 @@ void Student::unenroll() {
     cout << "Enter the name of the course you'd like to leave: ";
 
     // Continually prompt the user for input until a valid input is entered
-    while (!getline(cin, name) || name.empty()) {
+    while (!getline(cin, name) || name.empty() || name.find_first_not_of(' ') == string::npos || name.find_first_not_of('	') == string::npos) {
         cout << "Sorry, that's not a valid input. Please enter an course name." << endl << "Course name: ";
     }
 
@@ -124,7 +121,12 @@ void Student::unenroll() {
         Course* course = this->courses[i];
 
         if (course->getName() == name) {
-            delete this->courses[i]; // Delete the assignment from memory
+            for (int j = i; j < this->currentCourseCount - 1; j++) {
+                this->courses[j] = this->courses[j + 1];
+            }
+
+            // delete this->courses[i]; // Delete the assignment from memory
+            
             this->currentCourseCount--;
             cout << "You successfully left that course." << endl;
             return;
@@ -135,7 +137,7 @@ void Student::unenroll() {
 }
 
 void Student::printReport() {
-    cout << "### " << this->getName() << "'s Report Card ###" << endl;
+    cout << "### " << this->name << "'s Report Card ###" << endl;
 
     for (int i = 0; i < this->currentCourseCount; i++) {
         Course* course = courses[i];

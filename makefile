@@ -13,6 +13,10 @@ teacher_unit_test: Assignment.cpp Course.cpp Profile.cpp Teacher.cpp TeacherUnit
 student_unit_test: Assignment.cpp Course.cpp Profile.cpp Student.cpp StudentUnitTest.cpp
 	g++ Assignment.cpp Course.cpp Profile.cpp Student.cpp StudentUnitTest.cpp -o StudentUnitTest.out
 
+student_input_test: Assignment.cpp Course.cpp Profile.cpp Student.cpp StudentInputTest.cpp
+	g++ Assignment.cpp Course.cpp Profile.cpp Student.cpp StudentInputTest.cpp -o StudentInputTest.out
+	./StudentInputTest.out < student_test_input.txt
+
 course_unit_test: Assignment.cpp Course.cpp CourseUnitTest.cpp
 	g++ Assignment.cpp Course.cpp CourseUnitTest.cpp -o CourseUnitTest.out
 

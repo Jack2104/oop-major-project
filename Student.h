@@ -34,7 +34,7 @@ class Student : public Profile {
         /* Enrols the student in a course by ID */
         void enrol(vector<Course>* courses, int courseID);
 
-        /* Unenrolls the student from a course by ID */
+        /* Unenrolls the student from a course */
         void unenroll();
 
         /* Abstract method implementation that prints the students's name */

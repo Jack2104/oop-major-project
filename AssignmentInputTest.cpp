@@ -7,18 +7,10 @@ int main() {
     Assignment assignment("Major practical", 100, "A big project");
     assignment.setGrade(100);
 
-    std::cout << "Testing printAssignmentInfo()..." << std::endl;
+    std::cout << "AssignmentInputTest.cpp: testing printAssignmentInfo()..." << std::endl;
     assignment.printAssignmentInfo();
 
-    cout << endl;
-    assignment.setGrade(87);
-    assignment.setName("Practical Exam");
-    assignment.setWeight(15);
-    assignment.setDescription("In person Exam");
-    cout << "Assignment: " << assignment.getName() << endl;
-    cout << "Description: " << assignment.getDescription() << endl;
-    cout << "Weight: " << assignment.getWeight() << "%" << endl;
-    cout << "Grade: " << assignment.getGrade() << "%" << endl;
+    std::cout << std::endl << "AssignmentInputTest.cpp: all tests finished" << std::endl;
 
     return 0;
 }
