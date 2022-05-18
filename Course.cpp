@@ -105,13 +105,10 @@ void Course::createAssignment() {
 
     string description;
     cout << "Assignment description (please limit to one line): ";
-    getline(cin, description);
-    // Continually prompt the user for input until a valid input is entered
-    while (description.empty() || description.find_first_not_of(' ') == string::npos || description.find_first_not_of('	') == string::npos) {
-        // cout << "Assignment description (please limit to one line, cannot be only whitespace): ";
-        cout << "Sorry, that's not a valid input. Please enter a description." << endl << "Description: ";
-        getline(cin, description);
 
+    // Continually prompt the user for input until a valid input is entered
+    while (!getline(cin, description) || description.empty() || description.find_first_not_of(' ') == string::npos || description.find_first_not_of('	') == string::npos) {
+        cout << "Sorry, that's not a valid input. Please enter a description." << endl << "Assignment description: ";
     }
 
     cout << "  Assignment description was recorded as " << description << endl;
