@@ -55,18 +55,20 @@ void Student::printTimetable() {
     }
 }
 
-void Student::enrol(vector<Course>* courses, string name) {
+void Student::enrol(vector<Course*> courses, string name) {
     if (this->currentCourseCount >= this->maxCourseCount) {
         cout << "Sorry, but you can't enrol in any more courses." << endl;
         return;
     }
 
-    vector<Course>::iterator c_ptr;
+    vector<Course*>::iterator c_ptr;
 
     // Print the name of every course
-    for(c_ptr = courses->begin(); c_ptr < courses->end(); c_ptr++) {
-        if (c_ptr->getName() == name) {
-            this->courses[this->currentCourseCount] = &(*c_ptr);
+    for(c_ptr = courses.begin(); c_ptr < courses.end(); c_ptr++) {
+        Course* course = *c_ptr;
+
+        if (course->getName() == name) {
+            this->courses[this->currentCourseCount] = course; //&(*c_ptr);
             this->currentCourseCount++;
             cout << "Successfully enrolled in course" << endl;
             return;
@@ -76,18 +78,20 @@ void Student::enrol(vector<Course>* courses, string name) {
     cout << "There's no course with that name. Please try again." << endl;
 };
 
-void Student::enrol(vector<Course>* courses, int id) {
+void Student::enrol(vector<Course*> courses, int id) {
     if (this->currentCourseCount >= this->maxCourseCount) {
         cout << "Sorry, but you can't enrol in any more courses." << endl;
         return;
     }
 
-    vector<Course>::iterator c_ptr;
+    vector<Course*>::iterator c_ptr;
 
     // Print the name of every course
-    for(c_ptr = courses->begin(); c_ptr < courses->end(); c_ptr++) {
-        if (c_ptr->getCourseID() == id) {
-            this->courses[this->currentCourseCount] = &(*c_ptr);
+    for(c_ptr = courses.begin(); c_ptr < courses.end(); c_ptr++) {
+        Course* course = *c_ptr;
+
+        if (course->getCourseID() == id) {
+            this->courses[this->currentCourseCount] = course; //&(*c_ptr);
             this->currentCourseCount++;
             cout << "Successfully enrolled in course" << endl;
             return;
@@ -134,11 +138,12 @@ void Student::unenroll() {
 }
 
 void Student::printReport() {
-    cout << "### " << this->name << "'s Report Card ###" << endl;
+    cout << "<====== " << this->name << "'s Report Card ======>" << endl;
 
     for (int i = 0; i < this->currentCourseCount; i++) {
         Course* course = courses[i];
         course->printGrade();
+        cout << endl;
     }
 };
 

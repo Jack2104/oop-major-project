@@ -9,10 +9,10 @@
 int main() {
     Student student("Bob", "password1", 1234, 4);
 
-    Course course1("Philosophy 101", 1234, 4, "monday");
-    Course course2("Maths", 3452, 4, "wednesday");
-    Course course3("Programming", 2642, 4, "tuesday");
-    Course course4("Physics 101", 2753, 4, "monday");
+    Course* course1_ptr = new Course("Philosophy 101", 1234, 4, "monday");
+    Course* course2_ptr = new Course("Maths", 3452, 4, "wednesday");
+    Course* course3_ptr = new Course("Programming", 2642, 4, "tuesday");
+    Course* course4_ptr = new Course("Physics 101", 2753, 4, "monday");
 
     Assignment* philosophyAssignment1 = new Assignment("Essay", 70, "A philosophy essay");
     Assignment* philosophyAssignment2 = new Assignment("Oral arguments", 30, "An oral presentation");
@@ -38,56 +38,49 @@ int main() {
     physicsAssignment1->setGrade(55);
     physicsAssignment2->setGrade(71);
 
-    course1.addAssignment(philosophyAssignment1);
-    course1.addAssignment(philosophyAssignment2);
+    course1_ptr->addAssignment(philosophyAssignment1);
+    course1_ptr->addAssignment(philosophyAssignment2);
 
-    course2.addAssignment(mathsAssignment1);
-    course2.addAssignment(mathsAssignment2);
+    course2_ptr->addAssignment(mathsAssignment1);
+    course2_ptr->addAssignment(mathsAssignment2);
 
-    course3.addAssignment(programmingAssignment1);
-    course3.addAssignment(programmingAssignment2);
+    course3_ptr->addAssignment(programmingAssignment1);
+    course3_ptr->addAssignment(programmingAssignment2);
 
-    course4.addAssignment(physicsAssignment1);
-    course4.addAssignment(physicsAssignment2);
+    course4_ptr->addAssignment(physicsAssignment1);
+    course4_ptr->addAssignment(physicsAssignment2);
 
-    std::vector<Course> courses;
+    std::vector<Course*> courses;
 
+    courses.push_back(course1_ptr);
+    courses.push_back(course2_ptr);
+    courses.push_back(course3_ptr);
+    courses.push_back(course4_ptr);
 
-    courses.push_back(course1);
-    courses.push_back(course2);
+    student.enrol(courses, "Philosophy 101");
+    student.enrol(courses, "Maths");
+    student.enrol(courses, 2642);
+    student.enrol(courses, 2753);
 
-    std::cout << &course3 << ", " << &course4 << std::endl;
-
-    courses.push_back(course3);
-    courses.push_back(course4);
-
-
-    student.enrol(&courses, "Philosophy 101");
-    student.enrol(&courses, "Maths");
-    student.enrol(&courses, 2642);
-    student.enrol(&courses, 2753);
-
-    std::cout << "7" << std::endl;
-
-    std::cout << "StudentInputTest.cpp: testing printReport() 1" << std::endl;
+    std::cout << std::endl << "StudentInputTest.cpp: testing printReport() 1" << std::endl;
     student.printReport();
 
-    std::cout << "StudentInputTest.cpp: testing printTimetable() 1" << std::endl;
+    std::cout << std::endl << "StudentInputTest.cpp: testing printTimetable() 1" << std::endl;
     student.printTimetable();
 
     student.unenroll();
     student.unenroll();
 
-    std::cout << "StudentInputTest.cpp: testing printReport() 2" << std::endl;
+    std::cout << std::endl << "StudentInputTest.cpp: testing printReport() 2" << std::endl;
     student.printReport();
 
-    std::cout << "StudentInputTest.cpp: testing printTimetable() 2" << std::endl;
+    std::cout << std::endl << "StudentInputTest.cpp: testing printTimetable() 2" << std::endl;
     student.printTimetable();
 
-    std::cout << "StudentInputTest.cpp: testing printTitle() 1" << std::endl;
+    std::cout << std::endl << "StudentInputTest.cpp: testing printTitle() 1" << std::endl;
     student.printTitle();
 
-    std::cout << "StudentInputTest.cpp: testing printEmail() 1" << std::endl;
+    std::cout << std::endl << "StudentInputTest.cpp: testing printEmail() 1" << std::endl;
     student.printEmail();
 
     std::cout << std::endl << "StudentInputTest.cpp: all tests finished";

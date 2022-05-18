@@ -29,10 +29,10 @@ class Student : public Profile {
         void printReport();
 
         /* Enrols the student in a course by name */
-        void enrol(vector<Course>* courses, string name);
+        void enrol(vector<Course*> courses, string name);
 
         /* Enrols the student in a course by ID */
-        void enrol(vector<Course>* courses, int courseID);
+        void enrol(vector<Course*> courses, int courseID);
 
         /* Unenrolls the student from a course */
         void unenroll();

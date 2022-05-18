@@ -173,9 +173,9 @@ int Course::calculateGrade() {
         Assignment* assignment_ptr = assignments[i];
 
         int assignmentGrade = assignment_ptr->getGrade();
-        float assignmentWeight = assignment_ptr->getWeight() / 100;
+        float assignmentWeight = (float)(assignment_ptr->getWeight()) / 100;
 
-        grade += assignmentGrade * assignmentWeight; // Multiply the assignment grade by it's weighting
+        grade += (int)(assignmentGrade * assignmentWeight); // Multiply the assignment grade by it's weighting
     }
 
     return grade;
@@ -204,7 +204,7 @@ void Course::printGrade() {
 
     for (int i = 0; i < this->currentAssignmentCount; i++) {
         Assignment* assignment = this->assignments[i];
-        cout << "  " << assignment->getName() << ": " << assignment->getGrade() << " (weighted " << assignment->getWeight() << "%)" << endl;
+        cout << "  " << assignment->getName() << ": " << assignment->getGrade() << "% (weighted " << assignment->getWeight() << "%)" << endl;
     }
 }
 
