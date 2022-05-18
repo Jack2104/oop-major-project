@@ -43,5 +43,7 @@ int main() {
     std::cout << std::endl << "CourseInputTest.cpp: testing printAssignmentList() 2" << std::endl;
     course.printAssignmentList();
 
+    std::cout << std::endl << "CourseInputTest.cpp: all testing finished" << std::endl;
+
     return 0;
 }
