@@ -15,10 +15,10 @@ int main() {
     assignment.setName("Practical Exam");
     assignment.setWeight(15);
     assignment.setDescription("In person Exam");
-    cout << "Assignment: " << assignment.getName() << "%" << endl;
+    cout << "Assignment: " << assignment.getName() << endl;
     cout << "Description: " << assignment.getDescription() << endl;
     cout << "Weight: " << assignment.getWeight() << "%" << endl;
-    cout << "Grade: " << assignment.getGrade() << endl;
+    cout << "Grade: " << assignment.getGrade() << "%" << endl;
 
     return 0;
 }
