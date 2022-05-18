@@ -3,17 +3,20 @@
 	
 Major project
 A big project
-100  
+25
 Major project 2
 Another big project
-100
+30
 Major project 3
 A third big project
-100
+25
 Practical exam
 Pretty easy
-100
+20
 
  
 	
+Major project
+Major project 2
+Major project 3
 Practical exam

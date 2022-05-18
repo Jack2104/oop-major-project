@@ -151,7 +151,12 @@ void Course::removeAssignment() {
         Assignment* assignment = this->assignments[i];
 
         if (assignment->getName() == name) {
-            delete this->assignments[i]; // Delete the assignment from memory
+            for (int j = i; j < this->currentAssignmentCount - 1; j++) {
+                this->assignments[j] = this->assignments[j + 1];
+            }
+
+            // delete this->assignments[i]; // Delete the assignment from memory
+
             this->currentAssignmentCount--;
             cout << "Assignment was deleted" << endl;
             return;
@@ -195,15 +200,20 @@ void Course::printGrade() {
     char letterGrade = this->percentageToLetterGrade(grade);
 
     cout << "### Grade for " << this->name << " ###" << endl;
-    cout << "Overall grade: " << letterGrade << "(" << grade << "%)" << endl;
+    cout << "Overall grade: " << letterGrade << " (" << grade << "%)" << endl;
 
     for (int i = 0; i < this->currentAssignmentCount; i++) {
         Assignment* assignment = this->assignments[i];
-        cout << "  " << assignment->getName() << ": " << assignment->getGrade() << "(weighted " << assignment->getWeight() << "%)" << endl;
+        cout << "  " << assignment->getName() << ": " << assignment->getGrade() << " (weighted " << assignment->getWeight() << "%)" << endl;
     }
 }
 
 void Course::printAssignmentList() {
+    if (currentAssignmentCount == 0) {
+        cout << "[this couse has no assignments]" << endl;
+        return;
+    }
+
     for (int i = 0; i < currentAssignmentCount; i++) {
         Assignment* assignment = assignments[i];
         cout << "• " << assignment->getName() << endl;
