@@ -1,23 +1,23 @@
 main: Assignment.cpp Course.cpp Profile.cpp Admin.cpp Teacher.cpp Student.cpp main.cpp
 	g++ Assignment.cpp Course.cpp Profile.cpp Admin.cpp Teacher.cpp Student.cpp main.cpp -o main.out
 
-profile_test: Profile.cpp ProfileTest.cpp
+profile_unit_test: Profile.cpp ProfileTest.cpp
 	g++ Profile.cpp ProfileTest.cpp -o ProfileTest.out
 
-admin_test: Assignment.cpp Course.cpp Profile.cpp Student.cpp Teacher.cpp Admin.cpp AdminTest.cpp
-	g++ Assignment.cpp Course.cpp Profile.cpp Student.cpp Teacher.cpp Admin.cpp AdminTest.cpp -o AdminTest.out
+admin_unit_test: Assignment.cpp Course.cpp Profile.cpp Student.cpp Teacher.cpp Admin.cpp AdminUnitTest.cpp
+	g++ Assignment.cpp Course.cpp Profile.cpp Student.cpp Teacher.cpp Admin.cpp AdminUnitTest.cpp -o AdminUnitTest.out
 
-teacher_test: Assignment.cpp Course.cpp Profile.cpp Teacher.cpp TeacherTest.cpp
-	g++ Assignment.cpp Course.cpp Profile.cpp Teacher.cpp TeacherTest.cpp -o TeacherTest.out
+teacher_unit_test: Assignment.cpp Course.cpp Profile.cpp Teacher.cpp TeacherUnitTest.cpp
+	g++ Assignment.cpp Course.cpp Profile.cpp Teacher.cpp TeacherUnitTest.cpp -o TeacherUnitTest.out
 
-student_test: Assignment.cpp Course.cpp Profile.cpp Student.cpp StudentTest.cpp
-	g++ Assignment.cpp Course.cpp Profile.cpp Student.cpp StudentTest.cpp -o StudentTest.out
+student_unit_test: Assignment.cpp Course.cpp Profile.cpp Student.cpp StudentUnitTest.cpp
+	g++ Assignment.cpp Course.cpp Profile.cpp Student.cpp StudentUnitTest.cpp -o StudentUnitTest.out
 
-course_test: Assignment.cpp Course.cpp CourseTest.cpp
-	g++ Assignment.cpp Course.cpp CourseTest.cpp -o CourseTest.out
+course_unit_test: Assignment.cpp Course.cpp CourseUnitTest.cpp
+	g++ Assignment.cpp Course.cpp CourseUnitTest.cpp -o CourseUnitTest.out
 
-assignment_test: Assignment.cpp AssignmentTest.cpp
-	g++ Assignment.cpp AssignmentTest.cpp -o AssignmentTest.out
+assignment_unit_test: Assignment.cpp AssignmentUnitTest.cpp
+	g++ Assignment.cpp AssignmentUnitTest.cpp -o AssignmentUnitTest.out
 
 integration_test:
 	./main < test_input.txt
