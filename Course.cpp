@@ -97,13 +97,26 @@ void Course::createAssignment() {
     cout << "Assignment name: ";
 
     // Continually prompt the user for input until a valid input is entered
-    while (!getline(cin, name) || name.empty()) {
+    while (!getline(cin, name) || name.empty() || name.find_first_not_of(' ') == string::npos || name.find_first_not_of('	') == string::npos) {
         cout << "Sorry, that's not a valid input. Please enter an assignment name." << endl << "Assignment name: ";
     }
 
     cout << "  Assignment name was recorded as " << name << endl;
 
-    int weight;
+    string description;
+    cout << "Assignment description (please limit to one line): ";
+    getline(cin, description);
+    // Continually prompt the user for input until a valid input is entered
+    while (description.empty() || description.find_first_not_of(' ') == string::npos || description.find_first_not_of('	') == string::npos) {
+        // cout << "Assignment description (please limit to one line, cannot be only whitespace): ";
+        cout << "Sorry, that's not a valid input. Please enter a description." << endl << "Description: ";
+        getline(cin, description);
+
+    }
+
+    cout << "  Assignment description was recorded as " << description << endl;
+
+    int weight; // TODO: handle empty inputs
     cout << "Assignment weighting (\% - please enter a value between 0 and 100): ";
     cin >> weight;
 
@@ -112,21 +125,11 @@ void Course::createAssignment() {
         cin.clear(); // Clear the buffer
         cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
 
-        cout << "Sorry, that's not a valid input. Please enter a value between 0 and 100." << endl << "Assignment weighting: ";
+        cout << "  Sorry, that's not a valid input. Please enter a value between 0 and 100." << endl << "Assignment weighting: ";
         cin >> weight;
     }
 
     cout << "  Assignment weighting was recorded as " << weight << endl;
-
-    string description;
-    cout << "Assignment description (please limit to one line): ";
-
-    // Continually prompt the user for input until a valid input is entered
-    while (!getline(cin, description) || description.empty()) {
-        cout << "Sorry, that's not a valid input. Please enter an assignment name." << endl << "Assignment description: ";
-    }
-
-    cout << "  Assignment description was recorded as " << description << endl;
 
     // Assignment* assignment = new Assignment(name, weight, description);
     this->assignments[this->currentAssignmentCount] = new Assignment(name, weight, description);
