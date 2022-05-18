@@ -7,25 +7,25 @@
 int main() {
     Course course("OOP", 1234, 4, "monday");
     
-    std::cout << "Testing createAssignment()..." << std::endl;
+    std::cout << "[testing createAssignment()]" << std::endl;
     course.createAssignment();
 
-    std::cout << "Testing createAssignment()..." << std::endl;
+    std::cout << std::endl << "[testing createAssignment()]" << std::endl;
     course.createAssignment();
 
-    std::cout << "Testing createAssignment()..." << std::endl;
+    std::cout << std::endl << "[testing createAssignment()]" << std::endl;
     course.createAssignment();
 
-    std::cout << "Testing createAssignment()..." << std::endl;
+    std::cout << std::endl << "[testing createAssignment()v" << std::endl;
     course.createAssignment();
 
-    std::cout << "Testing createAssignment()..." << std::endl;
+    std::cout << std::endl << "[testing createAssignment()]" << std::endl;
     course.createAssignment();
 
-    std::cout << std::endl << "Testing printAssignmentList()..." << std::endl;
+    std::cout << std::endl << "[testing printAssignmentList()]" << std::endl;
     course.printAssignmentList();
 
-    std::cout << std::endl << "Testing removeAssignment()..." << std::endl;
+    std::cout << std::endl << "[testing removeAssignment()]" << std::endl;
     course.removeAssignment();
 
 
