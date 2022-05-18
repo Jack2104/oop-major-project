@@ -19,5 +19,8 @@ course_unit_test: Assignment.cpp Course.cpp CourseUnitTest.cpp
 assignment_unit_test: Assignment.cpp AssignmentUnitTest.cpp
 	g++ Assignment.cpp AssignmentUnitTest.cpp -o AssignmentUnitTest.out
 
+assignment_input_test: Assignment.cpp AssignmentInputTest.cpp
+	g++ Assignment.cpp AssignmentInputTest.cpp -o AssignmentInputTest.out
+
 integration_test:
 	./main < test_input.txt
