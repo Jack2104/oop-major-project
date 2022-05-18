@@ -7,7 +7,7 @@ int main() {
     Assignment assignment("Major practical", 100, "A big project");
     assignment.setGrade(100);
 
-    std::cout << "Testing printAssignmentInfo()..." << std::ednl;
+    std::cout << "Testing printAssignmentInfo()..." << std::endl;
     assignment.printAssignmentInfo();
 
     return 0;
