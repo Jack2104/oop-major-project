@@ -5,11 +5,10 @@ Philosophy 101
 Maths
 Programming
 Physics 101
-Maths
 Intro to Machine Learning
+monday
 2365
 6
-monday
 
  
 	
@@ -18,7 +17,12 @@ Intro to Machine Learning
 
  
 	
+Chemistry
+Intro to Machine Learning
 Philosophy 101
+
+ 
+	
 Essay
 
  

@@ -6,11 +6,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
- 
-make: *** No rule to make target `all'.  Stop.
 
-
-# Make data base, printed on Thu May 19 03:28:44 2022
+# Make data base, printed on Thu May 19 13:20:49 2022
 
 # Variables
 
@@ -41,7 +38,7 @@ VSCODE_VERBOSE_LOGGING = true
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/7k/vkvkb3fn4y3_b67lxj_0w8qm0000gn/T/vscode-ipc-762ade86-4301-41c5-bc89-c798283cf2ea.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/7k/vkvkb3fn4y3_b67lxj_0w8qm0000gn/T/vscode-ipc-8cac351f-52c5-4b99-b9c6-c2369285028c.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -55,7 +52,6 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
- 
 SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.H9Kz02skrH/Listeners
 # automatic
 %F = $(notdir $%)
@@ -72,7 +68,7 @@ HOME = /Users/jack
 # default
 MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /Developer)/Makefiles
 # environment
-VSCODE_CODE_CACHE_PATH = /Users/jack/Library/Application Support/Code/CachedData/da15b6fd3ef856477bf6f4fb29ba1b7af717770d
+VSCODE_CODE_CACHE_PATH = /Users/jack/Library/Application Support/Code/CachedData/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5
 # environment
 LOGNAME = jack
 # environment
@@ -106,7 +102,7 @@ TMPDIR = /var/folders/7k/vkvkb3fn4y3_b67lxj_0w8qm0000gn/T/
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /Users/jack/Library/Application Support/Code/1.67.1-main.sock
+VSCODE_IPC_HOOK = /Users/jack/Library/Application Support/Code/1.67.2-main.sock
 # makefile
 MAKEFLAGS = Rrqp
 # environment
@@ -140,7 +136,7 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 73773
+VSCODE_PID = 68548
 # variable set hash-table stats:
 # Load=63/1024=6%, Rehash=0, Collisions=1/87=1%
 
@@ -150,9 +146,9 @@ VSCODE_PID = 73773
 
 # Directories
 
-# . (device 16777221, inode 41887336): 36 files, no impossibilities.
+# . (device 16777221, inode 41887336): 37 files, no impossibilities.
 
-# 36 files, no impossibilities in 1 directories.
+# 37 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -197,7 +193,7 @@ assignment_input_test: Assignment.cpp AssignmentInputTest.cpp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `makefile', line 34):
+#  commands to execute (from `makefile', line 35):
 	g++ Assignment.cpp AssignmentInputTest.cpp -o AssignmentInputTest.out
 	
 
@@ -205,7 +201,7 @@ course_input_test: Assignment.cpp Course.cpp CourseInputTest.cpp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `makefile', line 27):
+#  commands to execute (from `makefile', line 28):
 	g++ Assignment.cpp Course.cpp CourseInputTest.cpp -o CourseInputTest.out
 	./CourseInputTest.out < course_test_input.txt
 	
@@ -225,7 +221,6 @@ Admin.cpp:
 #  File has not been updated.
 
 # Not a target:
- 
 .SUFFIXES:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -258,7 +253,7 @@ Profile.cpp:
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-19 03:28:31
+#  Last modified 2022-05-19 03:31:13
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -290,7 +285,10 @@ student_unit_test: Assignment.cpp Course.cpp Profile.cpp Student.cpp StudentUnit
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `makefile', line 17):
+ 
+make: *** No rule to make target `all'.  Stop.
+
+#  commands to execute (from `makefile', line 18):
 	g++ Assignment.cpp Course.cpp Profile.cpp Student.cpp StudentUnitTest.cpp -o StudentUnitTest.out
 	
 
@@ -318,6 +316,7 @@ teacher_input_test: Assignment.cpp Course.cpp Profile.cpp Teacher.cpp TeacherInp
 #  File has not been updated.
 #  commands to execute (from `makefile', line 14):
 	g++ Assignment.cpp Course.cpp Profile.cpp Teacher.cpp TeacherInputTest.cpp -o TeacherInputTest.out
+	./TeacherInputTest.out < teacher_test_input.txt
 	
 
 # Not a target:
@@ -338,7 +337,7 @@ assignment_unit_test: Assignment.cpp AssignmentUnitTest.cpp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `makefile', line 31):
+#  commands to execute (from `makefile', line 32):
 	g++ Assignment.cpp AssignmentUnitTest.cpp -o AssignmentUnitTest.out
 	
 
@@ -346,7 +345,7 @@ course_unit_test: Assignment.cpp Course.cpp CourseUnitTest.cpp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `makefile', line 24):
+#  commands to execute (from `makefile', line 25):
 	g++ Assignment.cpp Course.cpp CourseUnitTest.cpp -o CourseUnitTest.out
 	
 
@@ -360,7 +359,7 @@ student_input_test: Assignment.cpp Course.cpp Profile.cpp Student.cpp StudentInp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `makefile', line 20):
+#  commands to execute (from `makefile', line 21):
 	g++ Assignment.cpp Course.cpp Profile.cpp Student.cpp StudentInputTest.cpp -o StudentInputTest.out
 	./StudentInputTest.out < student_test_input.txt
 	
@@ -381,7 +380,7 @@ integration_test:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `makefile', line 37):
+#  commands to execute (from `makefile', line 38):
 	./main < test_input.txt
 	
 
@@ -401,10 +400,9 @@ AssignmentUnitTest.cpp:
 
 # # of strings in strcache: 1
 # # of strcache buffers: 1
- 
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Thu May 19 03:28:44 2022
+# Finished Make data base on Thu May 19 13:20:49 2022
 
  

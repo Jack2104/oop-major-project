@@ -42,7 +42,7 @@ class Course {
         void printGrade();
 
         /* Prints the array assignments to the console */
-        void printAssignmentList();
+        bool printAssignmentList();
 
         /* Returns the course name */
         string getName();

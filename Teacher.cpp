@@ -28,9 +28,10 @@ Teacher::~Teacher() {
 void Teacher::joinCourse(vector<Course*> courses) {
     if (this->currentCourseCount >= this->maxCourseCount) {
         cout << "Sorry, but you can't teach any more courses" << endl;
+        return;
     }
 
-    this->currentCourseCount++;
+    // this->currentCourseCount++;
 
     cout << "The following courses are available to join:" << endl;
 
@@ -45,20 +46,30 @@ void Teacher::joinCourse(vector<Course*> courses) {
     cout << endl << "Select a course by entering its name: ";
 
     string courseName;
-
+    
     while (!getline(cin, courseName) || courseName.empty() || courseName.find_first_not_of(' ') == string::npos || courseName.find_first_not_of('	') == string::npos) {
         // Check to see if the inputted course is in the available courses list
         for(c_ptr = courses.begin(); c_ptr < courses.end(); c_ptr++) {
             Course* course = *c_ptr;
 
             if (course->getName() == courseName) {
-                this->teachableCourses[this->currentCourseCount] = course; // &(*c_ptr);
-                cout << "You successfully joined " << courseName << endl;
                 break;
             }
         }
 
         cout << courseName << " is not an available course. Please try again" << endl << "Select a course by entering its name: ";
+    }
+
+    // Check to see if the inputted course is in the available courses list
+    for(c_ptr = courses.begin(); c_ptr < courses.end(); c_ptr++) {
+        Course* course = *c_ptr;
+
+        if (course->getName() == courseName) {
+            this->teachableCourses[this->currentCourseCount] = course; // &(*c_ptr);
+            cout << "You successfully joined " << courseName << endl;
+            this->currentCourseCount++;
+            return;
+        }
     }
 }
 
@@ -74,6 +85,24 @@ Course* Teacher::createCourse() {
     }
 
     cout << "  Course name was recorded as " << name << endl;
+
+    string day;
+    cout << "What day does this course run on? Please enter a day from Monday - Friday: ";
+    getline(cin, day);
+
+    transform(day.begin(), day.end(), day.begin(), ::tolower); // convert the user input to lowercase
+    bool isDay = (day == "monday" || day == "tuesday" || day == "wednesday" || day == "thursday" || day == "friday");
+
+    if (!isDay) {
+        // Continually prompt the user for input until a valid input is entered
+        while (!getline(cin, day) || day.empty() || !isDay || day.find_first_not_of(' ') == string::npos || day.find_first_not_of('	') == string::npos) {
+            cout << "  Sorry, that's not a valid input. Please enter a day." << endl << "What day does this course run on? Please enter a day from Monday - Friday: ";
+            transform(day.begin(), day.end(), day.begin(), ::tolower); // convert the user input to lowercase
+            isDay = (day == "monday" || day == "tuesday" || day == "wednesday" || day == "thursday" || day == "friday");
+        }
+    }
+        
+    cout << "  Timetabled day was recorded as " << day << endl;
 
     int id;
     cout << "Course ID - please enter a number, with no spaces (any input after a space will not be included): ";
@@ -105,19 +134,6 @@ Course* Teacher::createCourse() {
 
     cout << "  Assignment count was recorded as " << name << endl;
 
-    string day;
-    cout << "What day does this course run on? Please enter a day from Monday - Friday: ";
-
-    transform(day.begin(), day.end(), day.begin(), ::tolower); // convert the user input to lowercase
-    bool isDay = (day == "monday" || day == "tuesday" || day == "wednesday" || day == "thursday" || day == "friday");
-
-    // Continually prompt the user for input until a valid input is entered
-    while (!getline(cin, day) || day.empty() || !isDay || day.find_first_not_of(' ') == string::npos || day.find_first_not_of('	') == string::npos) {
-        cout << "  Sorry, that's not a valid input. Please enter a day." << endl << "What day does this course run on? Please enter a day from Monday - Friday: ";
-    }
-
-    cout << "  Timetabled day was recorded as " << day << endl;
-
     Course* course_ptr = new Course(name, id, assignmentCount, day);
 
     return course_ptr;
@@ -128,6 +144,9 @@ void Teacher::leaveCourse() {
 
     for (int i = 0; i < this->currentCourseCount; i++) {
         Course* course = this->teachableCourses[i];
+
+        cout << course << endl;
+
         cout << course->getName() << endl;
     }
 
@@ -162,45 +181,81 @@ void Teacher::leaveCourse() {
 void Teacher::grade() {
     cout << "### Grade an assignment ###" << endl;
 
-    cout << "You are teaching the following courses:" << endl;
-
-    for (int i = 0; i < this->currentCourseCount; i++) {
-        Course* course = this->teachableCourses[i];
-        cout << course->getName() << endl;
-    }
-
-    string name;
-    cout << "Select a course: ";
-
-    // Continually prompt the user for input until a valid input is entered
-    while (!getline(cin, name) || name.empty() || name.find_first_not_of(' ') == string::npos || name.find_first_not_of('	') == string::npos) {
-        cout << "Sorry, that's not a valid input. Please enter a course name." << endl << "Course name: ";
-    }
-
     Course* course = nullptr;
 
-    for (int i = 0; i < this->currentCourseCount; i++) {
-        Course* t_course = this->teachableCourses[i];
-        if (t_course->getName() == name) {
-            course = t_course;
+    while (!course) {
+        cout << "You are teaching the following courses:" << endl;
+
+        for (int i = 0; i < this->currentCourseCount; i++) {
+            Course* course = this->teachableCourses[i];
+            cout << "• " << course->getName() << endl;
+        }
+
+        string name;
+        cout << endl << "Select a course: ";
+
+        // Continually prompt the user for input until a valid input is entered
+        while (!getline(cin, name) || name.empty() || name.find_first_not_of(' ') == string::npos || name.find_first_not_of('	') == string::npos) {
+            cout << "Sorry, that's not a valid input. Please enter a course name." << endl << "Select a course: ";
+        }
+
+        for (int i = 0; i < this->currentCourseCount; i++) {
+            Course* t_course = this->teachableCourses[i];
+            if (t_course->getName() == name) {
+                course = t_course;
+                break;
+            }
+        }
+
+        if (course) {
             break;
         }
+
+        cout << "You are not teaching the course that you entered, or it does not exist. Please try again." << endl << endl;
     }
 
-    if (!course) {
-        cout << "You are not teaching the course that you entered, or it does not exist. Please try again.";
+    // cout << "You are teaching the following courses:" << endl;
+
+    // for (int i = 0; i < this->currentCourseCount; i++) {
+    //     Course* course = this->teachableCourses[i];
+    //     cout << course->getName() << endl;
+    // }
+
+    // string name;
+    // cout << "Select a course: ";
+
+    // // Continually prompt the user for input until a valid input is entered
+    // while (!getline(cin, name) || name.empty() || name.find_first_not_of(' ') == string::npos || name.find_first_not_of('	') == string::npos) {
+    //     cout << "Sorry, that's not a valid input. Please enter a course name." << endl << "Select a course: ";
+    // }
+
+    // for (int i = 0; i < this->currentCourseCount; i++) {
+    //     Course* t_course = this->teachableCourses[i];
+    //     if (t_course->getName() == name) {
+    //         course = t_course;
+    //         break;
+    //     }
+    // }
+
+    // if (!course) {
+    //     cout << "You are not teaching the course that you entered, or it does not exist. Please try again.";
+    //     return;
+    // }
+
+    cout << endl << "This course has the following assignments:" << endl;
+    bool hasCourses = course->printAssignmentList();
+
+    if (!hasCourses) {
         return;
     }
 
-    cout << "This course has the following assignments:";
-    course->printAssignmentList();
-    cout << "Select an assignment to grade:";
+    cout << "Select an assignment to grade: ";
 
     string assignmentName;
 
     // Continually prompt the user for input until a valid input is entered
     while (!getline(cin, assignmentName) || assignmentName.empty() || assignmentName.find_first_not_of(' ') == string::npos || assignmentName.find_first_not_of('	') == string::npos) {
-        cout << "Sorry, that's not a valid input. Please enter an assignment name." << endl << "Assignment name: ";
+        cout << "Sorry, that's not a valid input. Please enter an assignment name." << endl << "Select an assignment to grade: ";
     }
 
     Assignment* assignment = course->getAssignment(assignmentName);

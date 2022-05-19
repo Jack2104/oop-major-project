@@ -208,14 +208,16 @@ void Course::printGrade() {
     }
 }
 
-void Course::printAssignmentList() {
+bool Course::printAssignmentList() {
     if (currentAssignmentCount == 0) {
         cout << "[this couse has no assignments]" << endl;
-        return;
+        return false;
     }
 
     for (int i = 0; i < currentAssignmentCount; i++) {
         Assignment* assignment = assignments[i];
         cout << "• " << assignment->getName() << endl;
     }
+
+    return true;
 }

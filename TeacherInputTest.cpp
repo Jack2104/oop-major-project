@@ -59,23 +59,23 @@ int main() {
     std::cout << std::endl << "TeacherInputTest.cpp: testing joinCourse() 1" << std::endl;
     teacher.joinCourse(courses);
 
-    std::cout << std::endl << "TeacherInputTest.cpp: testing joinCourse() 2" << std::endl;
+    std::cout << std::endl << std::endl << "TeacherInputTest.cpp: testing joinCourse() 2" << std::endl;
     teacher.joinCourse(courses);
 
-    std::cout << std::endl << "TeacherInputTest.cpp: testing joinCourse() 3" << std::endl;
+    std::cout << std::endl << std::endl << "TeacherInputTest.cpp: testing joinCourse() 3" << std::endl;
     teacher.joinCourse(courses);
 
-    std::cout << std::endl << "TeacherInputTest.cpp: testing joinCourse() 4" << std::endl;
+    std::cout << std::endl << std::endl << "TeacherInputTest.cpp: testing joinCourse() 4" << std::endl;
     teacher.joinCourse(courses);
 
-    std::cout << std::endl << "TeacherInputTest.cpp: testing joinCourse() 5" << std::endl;
+    std::cout << std::endl << std::endl << "TeacherInputTest.cpp: testing joinCourse() 5" << std::endl;
     teacher.joinCourse(courses);
 
     std::cout << std::endl << "TeacherInputTest.cpp: testing createCourse() 1" << std::endl;
     Course* course_ptr = teacher.createCourse();
     courses.push_back(course_ptr);
 
-    std::cout << "Course name: " << course_ptr->getName() << ", course ID: " << course_ptr->getCourseID() << ", course day:" << course_ptr->getDay() << std::endl;
+    std::cout << "Course name: " << course_ptr->getName() << ", course ID: " << course_ptr->getCourseID() << ", course day: " << course_ptr->getDay() << std::endl;
 
     std::cout << std::endl << "TeacherInputTest.cpp: testing leaveCourse() 1" << std::endl;
     teacher.leaveCourse();
@@ -84,6 +84,9 @@ int main() {
     teacher.joinCourse(courses);
 
     std::cout << std::endl << "TeacherInputTest.cpp: testing grade() 1" << std::endl;
+    teacher.grade();
+
+    std::cout << std::endl << "TeacherInputTest.cpp: testing grade() 2" << std::endl;
     teacher.grade();
 
     std::cout << std::endl << "TeacherInputTest.cpp: testing printTitle() 1" << std::endl;
