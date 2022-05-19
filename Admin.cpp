@@ -13,7 +13,7 @@ using namespace std;
 
 Admin::Admin(string name, string password, int schoolID) : Profile(name, password, schoolID) {};
 
-Teacher* Admin::createTeacher(vector<Course>* courses) {
+Teacher* Admin::createTeacher(vector<Course*> courses) {
     cout << "### Creating profile: teacher ###" << endl;
 
     string name;
@@ -70,11 +70,13 @@ Teacher* Admin::createTeacher(vector<Course>* courses) {
 
     cout << "The following courses are available to teach:" << endl;
 
-    vector<Course>::iterator c_ptr;
+    vector<Course*>::iterator c_ptr;
 
     // Print the name of every course
-    for(c_ptr = courses->begin(); c_ptr < courses->end(); c_ptr++) {
-        cout << c_ptr->getName() << endl;
+    for(c_ptr = courses.begin(); c_ptr < courses.end(); c_ptr++) {
+        Course* course = *c_ptr;
+
+        cout << course->getName() << endl;
     }
 
     cout << endl << "Select a course by entering its name: ";
@@ -83,9 +85,11 @@ Teacher* Admin::createTeacher(vector<Course>* courses) {
 
     // Continually prompt the user to enter a course until only a newline is entered (and then move on)
     while (getline(cin, courseName) && !courseName.empty()) {
+        Course* course = *c_ptr;
+
         // Check to see if the inputted course is in the available courses list
-        for(c_ptr = courses->begin(); c_ptr < courses->end(); c_ptr++) {
-            if (c_ptr->getName() == courseName) {
+        for(c_ptr = courses.begin(); c_ptr < courses.end(); c_ptr++) {
+            if (course->getName() == courseName) {
                 // teacher_ptr->joinCourse(c_ptr);
                 cout << courseName << " was accepted" << endl << "Select a course by entering its name: ";
                 break;
@@ -98,7 +102,7 @@ Teacher* Admin::createTeacher(vector<Course>* courses) {
     return teacher_ptr;
 }
 
-Student* Admin::createStudent(vector<Course>* courses) {
+Student* Admin::createStudent(vector<Course*> courses) {
     cout << "### Creating profile: student ###" << endl;
 
     string name;
@@ -155,11 +159,13 @@ Student* Admin::createStudent(vector<Course>* courses) {
 
     cout << "The following courses are available to enrol in:" << endl;
 
-    vector<Course>::iterator c_ptr;
+    vector<Course*>::iterator c_ptr;
 
     // Print the name of every course
-    for(c_ptr = courses->begin(); c_ptr < courses->end(); c_ptr++) {
-        cout << c_ptr->getName() << endl;
+    for(c_ptr = courses.begin(); c_ptr < courses.end(); c_ptr++) {
+        Course* course = *c_ptr;
+
+        cout << course->getName() << endl;
     }
 
     cout << endl << "Select a course by entering its name: ";
@@ -168,9 +174,11 @@ Student* Admin::createStudent(vector<Course>* courses) {
 
     // Continually prompt the user to enter a course until only a newline is entered (and then move on)
     while (getline(cin, courseName) && !courseName.empty()) {
+        Course* course = *c_ptr;
+        
         // Check to see if the inputted course is in the available courses list
-        for(c_ptr = courses->begin(); c_ptr < courses->end(); c_ptr++) {
-            if (c_ptr->getName() == courseName) {
+        for(c_ptr = courses.begin(); c_ptr < courses.end(); c_ptr++) {
+            if (course->getName() == courseName) {
                 student_ptr->enrol(courses, courseName);
                 cout << courseName << " was accepted" << endl << "Select a course by entering its name: ";
                 break;

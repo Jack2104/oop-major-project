@@ -15,10 +15,10 @@ class Admin : public Profile {
         Admin(string name, string password, int schoolID);
 
         /* Creates and returns a pointer to a new Teacher object */
-        Teacher* createTeacher(vector<Course>* courses);
+        Teacher* createTeacher(vector<Course*> courses);
 
         /* Creates and returns a pointer to a new Student object */
-        Student* createStudent(vector<Course>* courses);
+        Student* createStudent(vector<Course*> courses);
 
         /* Creates and returns a pointer to a new Admin object */
         Admin* createAdmin();
