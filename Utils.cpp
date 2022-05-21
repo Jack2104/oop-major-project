@@ -7,7 +7,7 @@
 
 using namespace std;
 
-static string Utils::getStringInput(string inputName, string inputConditions) {
+string Utils::getStringInput(string inputName, string inputConditions) {
     string input;
     cout << inputName << "(" << inputConditions << "): ";
 
@@ -22,7 +22,7 @@ static string Utils::getStringInput(string inputName, string inputConditions) {
     return input;
 }
 
-static string Utils::getStringInput(string inputName, string inputConditions, vector<string> acceptedInputs) {
+string Utils::getStringInput(string inputName, string inputConditions, vector<string> acceptedInputs) {
     string input;
     bool inputValid = false;
     
@@ -50,7 +50,7 @@ static string Utils::getStringInput(string inputName, string inputConditions, ve
     return input;
 }
 
-static int Utils::getIntInput(string inputName, string inputConditions) {
+int Utils::getIntInput(string inputName, string inputConditions) {
     int input;
     cout << inputName << "(" << inputConditions << "): ";
     cin >> input;
@@ -65,10 +65,12 @@ static int Utils::getIntInput(string inputName, string inputConditions) {
     }
 
     cout << "  " << inputName << " count was recorded as " << input << endl;
+    
+    return input;
 }
 
-static int Utils::getIntInput(string inputName, string inputConditions, int lowerBound, int upperBound) {
-    nt input;
+int Utils::getIntInput(string inputName, string inputConditions, int lowerBound, int upperBound) {
+    int input;
     cout << inputName << "(" << inputConditions << "): ";
     cin >> input;
 
@@ -82,4 +84,6 @@ static int Utils::getIntInput(string inputName, string inputConditions, int lowe
     }
 
     cout << "  " << inputName << " count was recorded as " << input << endl;
+
+    return input;
 }
