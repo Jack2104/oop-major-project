@@ -6,11 +6,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
- 
-make: *** No rule to make target `all'.  Stop.
 
-
-# Make data base, printed on Sat May 21 13:33:29 2022
+# Make data base, printed on Sat May 21 15:09:15 2022
 
 # Variables
 
@@ -20,7 +17,6 @@ make: *** No rule to make target `all'.  Stop.
 ?F = $(notdir $?)
 # environment
 VSCODE_LOG_NATIVE = false
- 
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
@@ -154,10 +150,9 @@ VSCODE_PID = 454
 
 # Directories
 
-# . (device 16777221, inode 41887336): 45 files, no impossibilities.
- 
+# . (device 16777221, inode 41887336): 46 files, no impossibilities.
 
-# 45 files, no impossibilities in 1 directories.
+# 46 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -229,6 +224,18 @@ Admin.cpp:
 #  Modification time never checked.
 #  File has not been updated.
 
+input_test: admin_input_test teacher_input_test student_input_test course_input_test assignment_input_test
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `makefile', line 58):
+	./AdminInputTest.out <  admin_test_input.txt
+	./TeacherInputTest.out < teacher_test_input.txt
+	./StudentInputTest.out < student_test_input.txt
+	./CourseInputTest.out < course_test_input.txt
+	./AssignmentInputTest.out
+	
+
 # Not a target:
 .SUFFIXES:
 #  Implicit rule search has not been done.
@@ -262,7 +269,7 @@ Profile.cpp:
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-21 13:33:28
+#  Last modified 2022-05-21 15:09:00
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -281,6 +288,9 @@ teacher_unit_test: Assignment.cpp Course.cpp Profile.cpp Teacher.cpp TeacherUnit
 #  commands to execute (from `makefile', line 18):
 	g++ Assignment.cpp Course.cpp Profile.cpp Teacher.cpp TeacherUnitTest.cpp -o TeacherUnitTest.out
 	
+
+ 
+make: *** No rule to make target `all'.  Stop.
 
 admin_unit_test: Assignment.cpp Course.cpp Profile.cpp Student.cpp Teacher.cpp Admin.cpp AdminUnitTest.cpp
 #  Implicit rule search has not been done.
@@ -414,19 +424,18 @@ integration_test:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `makefile', line 61):
-	./main < test_input.txt
+#  commands to execute (from `makefile', line 66):
+	./main.out < test_input.txt
 	
 
 # Not a target:
 AssignmentUnitTest.cpp:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
- 
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=36/1024=4%, Rehash=0, Collisions=5/107=5%
+# Load=37/1024=4%, Rehash=0, Collisions=5/113=4%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -438,6 +447,6 @@ AssignmentUnitTest.cpp:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Sat May 21 13:33:29 2022
+# Finished Make data base on Sat May 21 15:09:15 2022
 
  
