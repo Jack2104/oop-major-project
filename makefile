@@ -44,6 +44,10 @@ assignment_unit_test: Assignment.cpp AssignmentUnitTest.cpp
 assignment_input_test: Assignment.cpp AssignmentInputTest.cpp
 	g++ Assignment.cpp AssignmentInputTest.cpp -o AssignmentInputTest.out
 
+# Utils tests
+utils_input_test: Utils.cpp UtilsInputTest.cpp
+	g++ Utils.cpp UtilsInputTest.cpp -o UtilsInputTest.out < utils_test_input.txt
+
 # Unit test
 unit_test: profile_unit_test admin_unit_test teacher_unit_test student_unit_test course_unit_test assignment_unit_test
 	./ProfileUnitTest.out
