@@ -9,6 +9,10 @@ profile_unit_test: Profile.cpp ProfileUnitTest.cpp
 admin_unit_test: Assignment.cpp Course.cpp Profile.cpp Student.cpp Teacher.cpp Admin.cpp AdminUnitTest.cpp
 	g++ Assignment.cpp Course.cpp Profile.cpp Student.cpp Teacher.cpp Admin.cpp AdminUnitTest.cpp -o AdminUnitTest.out
 
+admin_input_test: Assignment.cpp Course.cpp Profile.cpp Student.cpp Teacher.cpp Admin.cpp AdminInputTest.cpp
+	g++ Assignment.cpp Course.cpp Profile.cpp Student.cpp Teacher.cpp Admin.cpp AdminInputTest.cpp -o AdminInputTest.out
+	./AdminInputTest.out < admin_test_input.txt
+
 # Teacher tests
 teacher_unit_test: Assignment.cpp Course.cpp Profile.cpp Teacher.cpp TeacherUnitTest.cpp
 	g++ Assignment.cpp Course.cpp Profile.cpp Teacher.cpp TeacherUnitTest.cpp -o TeacherUnitTest.out
