@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 
+using namespace std;
+
 class Utils {
     public:
         /* Continually prompt the user for a string until a valid input is entered, and return it */

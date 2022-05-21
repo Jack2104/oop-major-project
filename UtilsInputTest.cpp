@@ -2,8 +2,10 @@
 #include <string>
 #include <vector>
 
-int main() {
+#include "Utils.h"
 
+int main() {
+    std::string input = Utils::getStringInput();
 
     return 0;
 }

@@ -5,6 +5,8 @@
 
 #include "Utils.h"
 
+using namespace std;
+
 static string Utils::getStringInput(string inputName, string inputConditions) {
     string input;
     cout << inputName << "(" << inputConditions << "): ";
