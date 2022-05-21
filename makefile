@@ -54,9 +54,14 @@ unit_test: profile_unit_test admin_unit_test teacher_unit_test student_unit_test
 	./AssignmentUnitTest.out
 
 # Input test
-# input_test:
+input_test: admin_input_test teacher_input_test student_input_test course_input_test assignment_input_test
+	./AdminInputTest.out <  admin_test_input.txt
+	./TeacherInputTest.out < teacher_test_input.txt
+	./StudentInputTest.out < student_test_input.txt
+	./CourseInputTest.out < course_test_input.txt
+	./AssignmentInputTest.out
 
 # Full integration test
 integration_test:
-	./main < test_input.txt
+	./main.out < test_input.txt
 	
