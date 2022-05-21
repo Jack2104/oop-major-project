@@ -7,7 +7,7 @@
 
 using namespace std;
 
-string Utils::getStringInput(string inputName, string inputConditions) {
+string Utils::getStringInput(string inputName, string inputConditions, bool confirmInput) {
     string input;
     cout << inputName << "(" << inputConditions << "): ";
 
@@ -17,12 +17,14 @@ string Utils::getStringInput(string inputName, string inputConditions) {
         cout << inputName << "(" << inputConditions << "): ";
     }
 
-    cout << "  " << inputName << " was recorded as " << input << endl;
+    if (confirmInput) {
+        cout << "  " << inputName << " was recorded as " << input << endl;
+    }
 
     return input;
 }
 
-string Utils::getStringInput(string inputName, string inputConditions, vector<string> acceptedInputs) {
+string Utils::getStringInput(string inputName, string inputConditions, bool confirmInput, vector<string> acceptedInputs) {
     string input;
     bool inputValid = false;
     
@@ -45,12 +47,14 @@ string Utils::getStringInput(string inputName, string inputConditions, vector<st
         }
     }
 
-    cout << "  " << inputName << " was recorded as " << input << endl;
+    if (confirmInput) {
+        cout << "  " << inputName << " was recorded as " << input << endl;
+    }
 
     return input;
 }
 
-int Utils::getIntInput(string inputName, string inputConditions) {
+int Utils::getIntInput(string inputName, string inputConditions, bool confirmInput) {
     int input;
     cout << inputName << "(" << inputConditions << "): ";
     cin >> input;
@@ -64,12 +68,14 @@ int Utils::getIntInput(string inputName, string inputConditions) {
         cin >> input;
     }
 
-    cout << "  " << inputName << " count was recorded as " << input << endl;
+    if (confirmInput) {
+        cout << "  " << inputName << " was recorded as " << input << endl;
+    }
     
     return input;
 }
 
-int Utils::getIntInput(string inputName, string inputConditions, int lowerBound, int upperBound) {
+int Utils::getIntInput(string inputName, string inputConditions, bool confirmInput, int lowerBound, int upperBound) {
     int input;
     cout << inputName << "(" << inputConditions << "): ";
     cin >> input;
@@ -83,7 +89,11 @@ int Utils::getIntInput(string inputName, string inputConditions, int lowerBound,
         cin >> input;
     }
 
-    cout << "  " << inputName << " count was recorded as " << input << endl;
+    cout << "  " << inputName << " was recorded as " << input << endl;
+
+    if (confirmInput) {
+        cout << "  " << inputName << " was recorded as " << input << endl;
+    }
 
     return input;
 }

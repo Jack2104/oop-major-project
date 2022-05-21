@@ -10,7 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
 
 
-# Make data base, printed on Sat May 21 18:56:59 2022
+# Make data base, printed on Sat May 21 18:58:38 2022
 
 # Variables
 
@@ -157,7 +157,6 @@ VSCODE_PID = 454
 # . (device 16777221, inode 41887336): 51 files, no impossibilities.
 
 # 51 files, no impossibilities in 1 directories.
- 
 
 # Implicit Rules
 
@@ -170,6 +169,7 @@ CourseInputTest.cpp:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+ 
 
 # Not a target:
 Course.cpp:
@@ -229,7 +229,7 @@ Admin.cpp:
 #  Modification time never checked.
 #  File has not been updated.
 
-input_test: admin_input_test teacher_input_test student_input_test course_input_test assignment_input_test
+input_test: admin_input_test teacher_input_test student_input_test course_input_test assignment_input_test utils_input_test
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -239,6 +239,7 @@ input_test: admin_input_test teacher_input_test student_input_test course_input_
 	./StudentInputTest.out < student_test_input.txt
 	./CourseInputTest.out < course_test_input.txt
 	./AssignmentInputTest.out
+	./UtilsInputTest.out < utils_test_input.txt
 	
 
 # Not a target:
@@ -274,7 +275,7 @@ Profile.cpp:
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-21 18:56:44
+#  Last modified 2022-05-21 18:58:06
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -296,7 +297,6 @@ teacher_unit_test: Assignment.cpp Course.cpp Profile.cpp Teacher.cpp TeacherUnit
 
 utils_input_test: Utils.cpp UtilsInputTest.cpp
 #  Implicit rule search has not been done.
- 
 #  Modification time never checked.
 #  File has not been updated.
 #  commands to execute (from `makefile', line 49):
@@ -341,6 +341,7 @@ StudentUnitTest.cpp:
 
 # Not a target:
 .DEFAULT:
+ 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -448,11 +449,10 @@ integration_test:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `makefile', line 71):
+#  commands to execute (from `makefile', line 72):
 	./main.out < test_input.txt
 	
 
- 
 # Not a target:
 AssignmentUnitTest.cpp:
 #  Implicit rule search has not been done.
@@ -460,18 +460,19 @@ AssignmentUnitTest.cpp:
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=40/1024=4%, Rehash=0, Collisions=5/118=4%
+# Load=40/1024=4%, Rehash=0, Collisions=5/119=4%
 # VPATH Search Paths
 
 # No `vpath' search paths.
 
 # No general (`VPATH' variable) search path.
+ 
 
 # # of strings in strcache: 1
 # # of strcache buffers: 1
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Sat May 21 18:56:59 2022
+# Finished Make data base on Sat May 21 18:58:38 2022
 
  
