@@ -1,5 +1,5 @@
-main: Assignment.cpp Course.cpp Profile.cpp Admin.cpp Teacher.cpp Student.cpp main.cpp
-	g++ Assignment.cpp Course.cpp Profile.cpp Admin.cpp Teacher.cpp Student.cpp main.cpp -o main.out
+main: Assignment.cpp Course.cpp Profile.cpp Admin.cpp Teacher.cpp Student.cpp Utils.cpp main.cpp
+	g++ Assignment.cpp Course.cpp Profile.cpp Admin.cpp Teacher.cpp Student.cpp Utils.cpp main.cpp -o main.out
 
 # Profile tests
 profile_unit_test: Profile.cpp ProfileUnitTest.cpp
