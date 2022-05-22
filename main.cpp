@@ -19,7 +19,7 @@ int main() {
     vector<Course*> courses;
 
     Admin* defaultAdmin = new Admin("admin", "password", 0);
-    admins.push_back(admin);
+    admins.push_back(defaultAdmin);
 
     // Course* course1_ptr = new Course("Philosophy 101", 1234, 4, "monday");
     // Course* course2_ptr = new Course("Maths", 3452, 4, "wednesday");
@@ -34,6 +34,7 @@ int main() {
     cout << "{}======== Welcome to SMS-cli ========{}" << endl;
     cout << "A command-line based school management system" << endl << endl;
 
+    // 
     while (true) {
         cout << "What would you like to sign in as?" << endl << "(if this is your first time, the default admin account is called 'admin' and its password is 'password')" << endl << endl;
         cout << "1. Admin" << endl << "2. Teacher" << endl << "3. Student" << endl << endl;
@@ -45,49 +46,55 @@ int main() {
         string name = Utils::getStringInput("Name", "the name you signed up with", true);
         string password = Utils::getStringInput("Password", "cannot be whitespace only", true);
 
-        Profile* selectedProfile = nullptr;
+        // Only one of these variables will be assigned a value. This is done becaues subclass-specific
+        // functions are used, and so a Profile* pointer cannot be used. Initializing these three variables
+        // could be avoided, but it would require more deeply-nested code, and so for the sake of readability
+        // the current implementation was decided upon
+        Admin* selectedAdmin = nullptr;
+        Teacher* selectedTeacher = nullptr;
+        Student* selectedStudent = nullptr;
 
-        // Sign in
-        switch (accTypeInput) {
-            case 1:
-                vector<Admin*>::iterator a_ptr;
+        // Note: while there is repetition in the following switch statement (which, yes, does introduce technical debt), it is relatively harmless imo
+        if (accTypeInput == 1) {
+            vector<Admin*>::iterator a_ptr;
 
-                for (a_ptr = admins.begin(); a_ptr < admins.end(); a_ptr++) {
-                    if (a_ptr->getName() == name && a_ptr->getPassword() == password) {
-                        selectedProfile = &(*a_ptr);
-                        break;
-                    }
+            for (a_ptr = admins.begin(); a_ptr < admins.end(); a_ptr++) {
+                if ((*a_ptr)->getName() == name && (*a_ptr)->getPassword() == password) {
+                    selectedAdmin = *a_ptr;
+                    selectedAdmin->printTitle();
+                    selectedAdmin->printEmail();
+                    break;
                 }
+            }
+        } else if (accTypeInput == 1) {
+            vector<Teacher*>::iterator t_ptr;
 
-            case 2:
-                vector<Teacher*>::iterator t_ptr;
-
-                for (t_ptr = teachers.begin(); t_ptr < teachers.end(); t_ptr++) {
-                    if (t_ptr->getName() == name && t_ptr->getPassword() == password) {
-                        selectedProfile = &(*t_ptr);
-                        break;
-                    }
+            for (t_ptr = teachers.begin(); t_ptr < teachers.end(); t_ptr++) {
+                if ((*t_ptr)->getName() == name && (*t_ptr)->getPassword() == password) {
+                    selectedTeacher = *t_ptr;
+                    selectedTeacher->printTitle();
+                    selectedTeacher->printEmail();
+                    break;
                 }
+            }
+        } else if (accTypeInput == 3) {
+            vector<Student*>:: iterator s_ptr;
 
-            case 3:
-                vector<Student*>:: iterator s_ptr;
-
-                for (s_ptr = students.begin(); s_ptr < students.end(); s_ptr++) {
-                    if (s_ptr->getName() == name && s_ptr->getPassword() == password) {
-                        selectedProfile = &(*s_ptr);
-                        break;
-                    }
+            for (s_ptr = students.begin(); s_ptr < students.end(); s_ptr++) {
+                if ((*s_ptr)->getName() == name && (*s_ptr)->getPassword() == password) {
+                    selectedStudent = *s_ptr;
+                    selectedStudent->printTitle();
+                    selectedStudent->printEmail();
+                    break;
                 }
+            }
         }
 
         // There was no user with the name and password that was entered, so start again
-        if (!selectedProfile) {
+        if (!selectedAdmin || !selectedTeacher || !selectedStudent) {
             cout << "There's no profile with that name and password. Please try again." << endl << endl;
             continue;
         }
-
-        selectedProfile->printTitle();
-        selectedProfile->printEmail();
 
         // One the user completes an action, they are brought back to the beginning (here), so that they don't have to sign in again
         while (true) {
@@ -103,18 +110,18 @@ int main() {
                 int adminAction = Utils::getIntInput("Select a number", "must be one of the displayed options", false, 1, 4);
 
                 if (adminAction == 1) {
-                    Admin* newAdmin = selectedProfile->createAdmin();
+                    Admin* newAdmin = selectedAdmin->createAdmin();
                     admins.push_back(newAdmin);
                 } else if (adminAction == 2) {
-                    Teacher* newTeacher = selectedProfile->createTeacher();
+                    Teacher* newTeacher = selectedAdmin->createTeacher(courses);
                     teachers.push_back(newTeacher);
                 } else if (adminAction == 3) {
-                    Student* newStudent = selectedProfile->createStudent();
+                    Student* newStudent = selectedAdmin->createStudent(courses);
                     students.push_back(newStudent);
                 } else if (adminAction == 4) {
                     break; // Go back to the action selection screen
                 }
-            } else if (accInputType == 2) { // Teacher
+            } else if (accTypeInput == 2) { // Teacher
                 cout << "1. Join a course" << endl;
                 cout << "2. Leave a course" << endl;
                 cout << "3. Create a new course" << endl;
@@ -124,18 +131,18 @@ int main() {
                 int teacherAction = Utils::getIntInput("Select a number", "must be one of the displayed options", false, 1, 5);
 
                 if (teacherAction == 1) {
-                    selectedProfile->joinCourse(courses);
+                    selectedTeacher->joinCourse(courses);
                 } else if (teacherAction == 2) {
-                    selectedProfile->leaveCourse();
+                    selectedTeacher->leaveCourse();
                 } else if (teacherAction == 3) {
-                    Course* newCourse = selectedProfile->createCourse();
+                    Course* newCourse = selectedTeacher->createCourse();
                     courses.push_back(newCourse);
                 } else if (teacherAction == 4) {
-                    selectedProfile->grade();
+                    selectedTeacher->grade();
                 } else if (teacherAction == 5) {
                     break; // Go back to the action selection screen
                 }
-            } else if (accInputType == 3) { // Student
+            } else if (accTypeInput == 3) { // Student
                 cout << "1. View courses" << endl;
                 cout << "2. View timetable" << endl;
                 cout << "3. Enrol in a course" << endl;
@@ -147,15 +154,15 @@ int main() {
                 cout << endl;
 
                 if (studentAction == 1) {
-                    selectedProfile->printCourses();
+                    selectedStudent->printCourses();
                 } else if (studentAction == 2) {
-                    selectedProfile->printTimetable();
+                    selectedStudent->printTimetable();
                 } else if (studentAction == 3) {
                     cout << "Would you like to enrol in a course by name or ID?" << endl;
                     cout << "1. Course name" << endl;
                     cout << "2. Course ID" << endl << endl;
 
-                    int enrollmentType = Utils::getStringInput("Select a number", "must be one of the displayed options", false, 1, 2);
+                    int enrollmentType = Utils::getIntInput("Select a number", "must be one of the displayed options", false, 1, 2);
 
                     cout << "The following courses are available to enrol in:" << endl;
 
@@ -164,23 +171,23 @@ int main() {
                     // Print all the course names/IDs to the console
                     for (c_ptr = courses.begin(); c_ptr < courses.end(); c_ptr++) {
                         if (enrollmentType == 1) {
-                            cout << c_ptr->getName();
+                            cout << (*c_ptr)->getName();
                             continue;
                         }
 
-                        cout << c_ptr->getID();
+                        cout << (*c_ptr)->getID();
                     }
 
                     // Determine which enrol() function to use (run-time polymorphism)
                     if (enrollmentType == 1) {
                         string courseName = Utils::getStringInput("Course name", "enter one of the above course names", false);
-                        selectedProfile->enrol(courses, courseName);
+                        selectedStudent->enrol(courses, courseName);
                     } else if (enrollmentType == 2) {
                         string courseID = Utils::getStringInput("Course ID", "enter one of the above course IDs", false);
-                        selectedProfile->enrol(courses, courseID);
+                        selectedStudent->enrol(courses, courseID);
                     }
                 } else if (studentAction == 4) {
-                    selectedProfile->unenroll();
+                    selectedStudent->unenroll();
                 } else if (studentAction == 5) {
                     break; // Go back to the action selection screen
                 }
