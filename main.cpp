@@ -175,7 +175,7 @@ int main() {
                             continue;
                         }
 
-                        cout << (*c_ptr)->getID();
+                        cout << (*c_ptr)->getCourseID();
                     }
 
                     // Determine which enrol() function to use (run-time polymorphism)
