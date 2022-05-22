@@ -89,8 +89,6 @@ int Utils::getIntInput(string inputName, string inputConditions, bool confirmInp
         cin >> input;
     }
 
-    cout << "  " << inputName << " was recorded as " << input << endl;
-
     if (confirmInput) {
         cout << "  " << inputName << " was recorded as " << input << endl;
     }

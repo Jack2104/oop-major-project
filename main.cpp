@@ -43,8 +43,8 @@ int main() {
 
         cout << endl << "### Login ###" << endl;
 
-        string name = Utils::getStringInput("Name", "the name you signed up with", true);
-        string password = Utils::getStringInput("Password", "cannot be whitespace only", true);
+        string name = Utils::getStringInput("Name", "the name you signed up with", false);
+        string password = Utils::getStringInput("Password", "cannot be whitespace only", false);
 
         // Only one of these variables will be assigned a value. This is done becaues subclass-specific
         // functions are used, and so a Profile* pointer cannot be used. Initializing these three variables
