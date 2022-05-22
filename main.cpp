@@ -58,7 +58,6 @@ int main() {
                         break;
                     }
                 }
-                break;
 
             case 2:
                 vector<Teacher*>::iterator t_ptr;
@@ -69,7 +68,6 @@ int main() {
                         break;
                     }
                 }
-                break;
 
             case 3:
                 vector<Student*>:: iterator s_ptr;
@@ -80,7 +78,6 @@ int main() {
                         break;
                     }
                 }
-                break;
         }
 
         // There was no user with the name and password that was entered, so start again
