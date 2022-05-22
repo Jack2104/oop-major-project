@@ -18,6 +18,9 @@ int main() {
     vector<Student*> students;
     vector<Course*> courses;
 
+    Admin* defaultAdmin = new Admin("admin", "password", 0);
+    admins.push_back(admin);
+
     // Course* course1_ptr = new Course("Philosophy 101", 1234, 4, "monday");
     // Course* course2_ptr = new Course("Maths", 3452, 4, "wednesday");
     // Course* course3_ptr = new Course("Programming", 2642, 4, "tuesday");
@@ -27,9 +30,6 @@ int main() {
     // courses.push_back(course2_ptr);
     // courses.push_back(course3_ptr);
     // courses.push_back(course4_ptr);
-
-    Admin* admin = new Admin("admin", "password", 0);
-    admins.push_back(admin);
 
     cout << "{}======== Welcome to SMS-cli ========{}" << endl;
     cout << "A command-line based school management system" << endl << endl;
@@ -50,7 +50,7 @@ int main() {
         // Sign in
         switch (accTypeInput) {
             case 1:
-                vector<Admin*>:: iterator a_ptr;
+                vector<Admin*>::iterator a_ptr;
 
                 for (a_ptr = admins.begin(); a_ptr < admins.end(); a_ptr++) {
                     if (a_ptr->getName() == name && a_ptr->getPassword() == password) {
@@ -61,7 +61,7 @@ int main() {
                 break;
 
             case 2:
-                vector<Teacher*>:: iterator t_ptr;
+                vector<Teacher*>::iterator t_ptr;
 
                 for (t_ptr = teachers.begin(); t_ptr < teachers.end(); t_ptr++) {
                     if (t_ptr->getName() == name && t_ptr->getPassword() == password) {
