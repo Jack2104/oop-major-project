@@ -91,7 +91,7 @@ int main() {
         }
 
         // There was no user with the name and password that was entered, so start again
-        if (!selectedAdmin || !selectedTeacher || !selectedStudent) {
+        if (!selectedAdmin && !selectedTeacher && !selectedStudent) {
             cout << "There's no profile with that name and password. Please try again." << endl << endl;
             continue;
         }
