@@ -47,11 +47,11 @@ int main() {
 
         cout << endl << "### Login ###" << endl;
 
-        cout << "Enter your name: ";
+        // cout << "Enter your name: ";
         string name = Utils::getStringInput("Name", "the name you signed up with", true);
 
-        cout << "Enter your password: ";
-        string password = Utils::getStringInput("Name", "cannot be whitespace only", true);
+        // cout << "Enter your password: ";
+        string password = Utils::getStringInput("Password", "cannot be whitespace only", true);
 
         Profile* selectedProfile = nullptr;
 
@@ -93,6 +93,7 @@ int main() {
 
         // There was no user with the name and password that was entered, so start again
         if (!selectedProfile) {
+            cout << 
             continue;
         }
 
