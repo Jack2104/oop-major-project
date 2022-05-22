@@ -179,7 +179,7 @@ void Teacher::leaveCourse() {
 }
 
 void Teacher::grade() {
-    cout << "### Grade an assignment ###" << endl;
+    cout << endl << "### Grade an assignment ###" << endl;
 
     Course* course = nullptr;
 

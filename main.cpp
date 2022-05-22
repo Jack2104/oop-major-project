@@ -107,10 +107,13 @@ int main() {
 
                 if (adminAction == 1) {
                     Admin* newAdmin = selectedProfile->createAdmin();
+                    admins.push_back(newAdmin);
                 } else if (adminAction == 2) {
                     Teacher* newTeacher = selectedProfile->createTeacher();
+                    teachers.push_back(newTeacher);
                 } else if (adminAction == 3) {
                     Student* newStudent = selectedProfile->createStudent();
+                    students.push_back(newStudent);
                 } else if (adminAction == 4) {
                     break; // Go back to the action selection screen
                 }
@@ -124,17 +127,17 @@ int main() {
                 int teacherAction = Utils::getIntInput("Select a number", "must be one of the displayed options", false, 1, 5);
 
                 if (teacherAction == 1) {
-
+                    selectedProfile->joinCourse(courses);
                 } else if (teacherAction == 2) {
-                    
+                    selectedProfile->leaveCourse();
                 } else if (teacherAction == 3) {
-                    
+                    Course* newCourse = selectedProfile->createCourse();
+                    courses.push_back(newCourse);
                 } else if (teacherAction == 4) {
-                    
+                    selectedProfile->grade();
                 } else if (teacherAction == 5) {
                     break; // Go back to the action selection screen
                 }
-
             } else if (accInputType == 3) { // Student
                 cout << "1. View courses" << endl;
                 cout << "2. View timetable" << endl;
