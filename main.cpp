@@ -112,7 +112,7 @@ int main() {
                 } else if (adminAction == 3) {
                     Student* newStudent = selectedProfile->createStudent();
                 } else if (adminAction == 4) {
-                    break;
+                    break; // Go back to the action selection screen
                 }
             } else if (accInputType == 2) { // Teacher
                 cout << "1. Join a course" << endl;
@@ -132,7 +132,7 @@ int main() {
                 } else if (teacherAction == 4) {
                     
                 } else if (teacherAction == 5) {
-                    break;
+                    break; // Go back to the action selection screen
                 }
 
             } else if (accInputType == 3) { // Student
@@ -161,6 +161,7 @@ int main() {
 
                     vector<Course*>::iterator c_ptr;
 
+                    // Print all the course names/IDs to the console
                     for (c_ptr = courses.begin(); c_ptr < courses.end(); c_ptr++) {
                         if (enrollmentType == 1) {
                             cout << c_ptr->getName();
@@ -170,6 +171,7 @@ int main() {
                         cout << c_ptr->getID();
                     }
 
+                    // Determine which enrol() function to use (run-time polymorphism)
                     if (enrollmentType == 1) {
                         string courseName = Utils::getStringInput("Course name", "enter one of the above course names", false);
                         selectedProfile->enrol(courses, courseName);
@@ -180,7 +182,7 @@ int main() {
                 } else if (studentAction == 4) {
                     selectedProfile->unenroll();
                 } else if (studentAction == 5) {
-                    break;
+                    break; // Go back to the action selection screen
                 }
             }
         }
