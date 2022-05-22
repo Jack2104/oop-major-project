@@ -27,7 +27,7 @@ Student::~Student() {
 };
 
 void Student::printCourses() {
-    cout << "### Enrolled Courses ###" << endl;
+    cout << endl << "### Enrolled Courses ###" << endl;
 
     for (int i = 0 ; i < currentCourseCount ; i++) {
         cout << courses[i]->getCourseID() << " " << courses[i]->getName() << endl;
@@ -35,7 +35,7 @@ void Student::printCourses() {
 };
 
 void Student::printTimetable() {
-    cout << "### Timetable ###" << endl;
+    cout << endl << "### Timetable ###" << endl;
 
     string days[] = {"monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"};
 
@@ -138,7 +138,7 @@ void Student::unenroll() {
 }
 
 void Student::printReport() {
-    cout << "<====== " << this->name << "'s Report Card ======>" << endl;
+    cout << endl << "<====== " << this->name << "'s Report Card ======>" << endl;
 
     for (int i = 0; i < this->currentCourseCount; i++) {
         Course* course = courses[i];
@@ -148,7 +148,7 @@ void Student::printReport() {
 };
 
 void Student::printTitle() {
-    cout << "### " << this->name << " (Student) ###" << endl;
+    cout << endl << "### " << this->name << " (Student) ###" << endl;
 };
 
 void Student::printEmail() {

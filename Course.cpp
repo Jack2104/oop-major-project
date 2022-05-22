@@ -91,7 +91,7 @@ void Course::createAssignment() {
 
     // this->currentAssignmentCount++;
 
-    cout << "### Create new assignment ###" << endl;
+    cout << endl << "### Create new assignment ###" << endl;
 
     string name;
     cout << "Assignment name: ";
@@ -135,7 +135,7 @@ void Course::createAssignment() {
 }
 
 void Course::removeAssignment() {
-    cout << "This course has the following assignments:" << endl;
+    cout << endl << "This course has the following assignments:" << endl;
     this->printAssignmentList();
 
     string name;
@@ -199,7 +199,7 @@ void Course::printGrade() {
     int grade = this->calculateGrade();
     char letterGrade = this->percentageToLetterGrade(grade);
 
-    cout << "### Grade for " << this->name << " ###" << endl;
+    cout << endl << "### Grade for " << this->name << " ###" << endl;
     cout << "Overall grade: " << letterGrade << " (" << grade << "%)" << endl;
 
     for (int i = 0; i < this->currentAssignmentCount; i++) {

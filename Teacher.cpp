@@ -31,9 +31,7 @@ void Teacher::joinCourse(vector<Course*> courses) {
         return;
     }
 
-    // this->currentCourseCount++;
-
-    cout << "The following courses are available to join:" << endl;
+    cout << endl << "The following courses are available to join:" << endl;
 
     vector<Course*>::iterator c_ptr;
 
@@ -74,7 +72,7 @@ void Teacher::joinCourse(vector<Course*> courses) {
 }
 
 Course* Teacher::createCourse() {
-    cout << "### Create new course ###" << endl;
+    cout << endl << "### Create new course ###" << endl;
 
     string name;
     cout << "Course name: ";
@@ -284,7 +282,7 @@ void Teacher::grade() {
 }
 
 void Teacher::printTitle() {
-    cout << "### " << this->name << " (teacher) ###" << endl;
+    cout << endl << "### " << this->name << " (teacher) ###" << endl;
 }
 
 void Teacher::printEmail() {

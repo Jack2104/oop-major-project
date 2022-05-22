@@ -6,8 +6,8 @@
 using namespace std;
 
 Profile::Profile() {
-    name = "[no name]";
-    password = "[no password]";
+    name = "[no name provided]";
+    password = "[no password provided]";
     schoolID = 0;
 };
 

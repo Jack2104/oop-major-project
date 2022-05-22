@@ -14,7 +14,7 @@ using namespace std;
 Admin::Admin(string name, string password, int schoolID) : Profile(name, password, schoolID) {};
 
 Teacher* Admin::createTeacher(vector<Course*> courses) {
-    cout << "### Creating profile: teacher ###" << endl;
+    cout << endl << "### Creating profile: teacher ###" << endl;
 
     string name;
     cout << "Name: ";
@@ -110,7 +110,7 @@ Teacher* Admin::createTeacher(vector<Course*> courses) {
 }
 
 Student* Admin::createStudent(vector<Course*> courses) {
-    cout << "### Creating profile: student ###" << endl;
+    cout << endl << "### Creating profile: student ###" << endl;
 
     string name;
     cout << "Name: ";
@@ -198,7 +198,7 @@ Student* Admin::createStudent(vector<Course*> courses) {
 }
 
 Admin* Admin::createAdmin() {
-    cout << "### Creating profile: admin ###" << endl;
+    cout << endl << "### Creating profile: admin ###" << endl;
 
     string name;
     cout << "Name: ";
@@ -251,7 +251,7 @@ Admin* Admin::createAdmin() {
 // }
 
 void Admin::printTitle() {
-    cout << "### " << this->name << " (admin) ###" << endl;
+    cout << endl << "### " << this->name << " (admin) ###" << endl;
 }
 
 void Admin::printEmail() {

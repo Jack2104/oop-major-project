@@ -5,7 +5,7 @@
 
 using namespace std;
 
-Assignment::Assignment() : name("[no name]"), grade(0), weight(0), description("[no description]") {};
+Assignment::Assignment() : name("[no name provided]"), grade(0), weight(0), description("[no description provided]") {};
 
 Assignment::Assignment(string name, int weight, string description) {
     this->name = name;
@@ -71,7 +71,7 @@ string Assignment::getDescription() {
 }
 
 void Assignment::printAssignmentInfo() {
-    cout << "### " << this->name << " ###" << endl;
+    cout << endl << "### " << this->name << " ###" << endl;
     cout << "Weighting: " << this->weight << " / Grade: " << this->grade << "%" << endl;
     cout << "Description: " << this->description << endl;
 }
