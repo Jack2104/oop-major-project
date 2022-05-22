@@ -9,12 +9,12 @@ using namespace std;
 
 string Utils::getStringInput(string inputName, string inputConditions, bool confirmInput) {
     string input;
-    cout << inputName << "(" << inputConditions << "): ";
+    cout << inputName << " (" << inputConditions << "): ";
 
     // Continually prompt the user for input until a valid input is entered
     while (!getline(cin, input) || input.empty() || input.find_first_not_of(' ') == string::npos || input.find_first_not_of('	') == string::npos) {
         cout << "Sorry, that's not a valid input." << endl;
-        cout << inputName << "(" << inputConditions << "): ";
+        cout << inputName << " (" << inputConditions << "): ";
     }
 
     if (confirmInput) {
@@ -28,13 +28,13 @@ string Utils::getStringInput(string inputName, string inputConditions, bool conf
     string input;
     bool inputValid = false;
     
-    cout << inputName << "(" << inputConditions << "): ";
+    cout << inputName << " (" << inputConditions << "): ";
 
     while (!inputValid) {
         // Continually prompt the user for input until a valid input is entered
         while (!getline(cin, input) || input.empty() || input.find_first_not_of(' ') == string::npos || input.find_first_not_of('	') == string::npos) {
             cout << "Sorry, that's not a valid input." << endl;
-            cout << inputName << "(" << inputConditions << "): ";
+            cout << inputName << " (" << inputConditions << "): ";
         }
 
         vector<string>::iterator ptr;
@@ -56,7 +56,7 @@ string Utils::getStringInput(string inputName, string inputConditions, bool conf
 
 int Utils::getIntInput(string inputName, string inputConditions, bool confirmInput) {
     int input;
-    cout << inputName << "(" << inputConditions << "): ";
+    cout << inputName << " (" << inputConditions << "): ";
     cin >> input;
 
     // Continually prompt the user for input until an integer is passed
@@ -77,7 +77,7 @@ int Utils::getIntInput(string inputName, string inputConditions, bool confirmInp
 
 int Utils::getIntInput(string inputName, string inputConditions, bool confirmInput, int lowerBound, int upperBound) {
     int input;
-    cout << inputName << "(" << inputConditions << "): ";
+    cout << inputName << " (" << inputConditions << "): ";
     cin >> input;
 
     // Continually prompt the user for input until an integer is passed
