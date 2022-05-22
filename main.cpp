@@ -31,10 +31,10 @@ int main() {
     // courses.push_back(course3_ptr);
     // courses.push_back(course4_ptr);
 
-    cout << "{}======== Welcome to SMS-cli ========{}" << endl;
+    cout << endl << "{}======== Welcome to SMS-cli ========{}" << endl;
     cout << "A command-line based school management system" << endl << endl;
 
-    // 
+    // Keeps the program running until the console is closed
     while (true) {
         cout << "What would you like to sign in as?" << endl << "(if this is your first time, the default admin account is called 'admin' and its password is 'password')" << endl << endl;
         cout << "1. Admin" << endl << "2. Teacher" << endl << "3. Student" << endl << endl;
