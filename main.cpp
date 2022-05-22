@@ -61,8 +61,6 @@ int main() {
             for (a_ptr = admins.begin(); a_ptr < admins.end(); a_ptr++) {
                 if ((*a_ptr)->getName() == name && (*a_ptr)->getPassword() == password) {
                     selectedAdmin = *a_ptr;
-                    selectedAdmin->printTitle();
-                    selectedAdmin->printEmail();
                     break;
                 }
             }
@@ -72,8 +70,6 @@ int main() {
             for (t_ptr = teachers.begin(); t_ptr < teachers.end(); t_ptr++) {
                 if ((*t_ptr)->getName() == name && (*t_ptr)->getPassword() == password) {
                     selectedTeacher = *t_ptr;
-                    selectedTeacher->printTitle();
-                    selectedTeacher->printEmail();
                     break;
                 }
             }
@@ -83,8 +79,6 @@ int main() {
             for (s_ptr = students.begin(); s_ptr < students.end(); s_ptr++) {
                 if ((*s_ptr)->getName() == name && (*s_ptr)->getPassword() == password) {
                     selectedStudent = *s_ptr;
-                    selectedStudent->printTitle();
-                    selectedStudent->printEmail();
                     break;
                 }
             }
@@ -102,6 +96,9 @@ int main() {
 
             // Handle the user actions
             if (accTypeInput == 1) { // Admin
+                selectedAdmin->printTitle();
+                selectedAdmin->printEmail();
+
                 cout << "1. Create a new admin profile" << endl;
                 cout << "2. Create a new teacher profile" << endl;
                 cout << "3. Create a new student profile" << endl;
@@ -122,6 +119,9 @@ int main() {
                     break; // Go back to the action selection screen
                 }
             } else if (accTypeInput == 2) { // Teacher
+                selectedTeacher->printTitle();
+                selectedTeacher->printEmail();
+
                 cout << "1. Join a course" << endl;
                 cout << "2. Leave a course" << endl;
                 cout << "3. Create a new course" << endl;
@@ -143,6 +143,9 @@ int main() {
                     break; // Go back to the action selection screen
                 }
             } else if (accTypeInput == 3) { // Student
+                selectedStudent->printTitle();
+                selectedStudent->printEmail();
+
                 cout << "1. View courses" << endl;
                 cout << "2. View timetable" << endl;
                 cout << "3. Enrol in a course" << endl;

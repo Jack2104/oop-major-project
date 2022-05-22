@@ -68,7 +68,7 @@ Teacher* Admin::createTeacher(vector<Course*> courses) {
 
     Teacher* teacher_ptr = new Teacher(name, password, id, maxCourseCount);
 
-    cout << "Add this teacher's first course!" << endl;
+    // cout << endl << "Add this teacher's first course!" << endl;
     // teacher_ptr->joinCourse(courses);
 
     // cout << "The following courses are available to teach:" << endl;
