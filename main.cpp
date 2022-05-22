@@ -18,7 +18,7 @@ int main() {
     vector<Student*> students;
     vector<Course*> courses;
 
-    Admin* defaultAdmin = new Admin("admin", "password", 0);
+    Admin* defaultAdmin = new Admin("admin", "password", 1234);
     admins.push_back(defaultAdmin);
 
     // Course* course1_ptr = new Course("Philosophy 101", 1234, 4, "monday");

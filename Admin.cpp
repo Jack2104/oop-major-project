@@ -255,6 +255,6 @@ void Admin::printTitle() {
 }
 
 void Admin::printEmail() {
-    cout << "Email address: " << this->schoolID << "@admin.edu";
+    cout << "Email address: " << this->schoolID << "@admin.edu" << endl;
 }
 
