@@ -64,7 +64,7 @@ int Utils::getIntInput(string inputName, string inputConditions, bool confirmInp
         cin.clear(); // Clear the buffer
         cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
 
-        cout << "  Sorry, that's not a valid input." << endl << "Maximum course count: ";
+        cout << "  Sorry, that's not a valid input." << endl << inputName << " (" << inputConditions << "): ";
         cin >> input;
     }
 
@@ -85,7 +85,7 @@ int Utils::getIntInput(string inputName, string inputConditions, bool confirmInp
         cin.clear(); // Clear the buffer
         cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
 
-        cout << "  Sorry, that's not a valid input." << endl << "Maximum course count: ";
+        cout << "  Sorry, that's not a valid input." << endl << inputName << " (" << inputConditions << "): ";
         cin >> input;
     }
 

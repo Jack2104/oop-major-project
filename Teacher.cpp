@@ -31,6 +31,10 @@ void Teacher::joinCourse(vector<Course*> courses) {
         return;
     }
 
+    if (courses.size() == 0) {
+        cout << "There are no courses available right now - try creating one!" << endl;
+    }
+
     cout << endl << "The following courses are available to join:" << endl;
 
     vector<Course*>::iterator c_ptr;
@@ -177,6 +181,10 @@ void Teacher::leaveCourse() {
 }
 
 void Teacher::grade() {
+    if (this->currentCourseCount == 0) {
+        cout << endl << "You aren't teaching any courses yet!" << endl;
+    }
+
     cout << endl << "### Grade an assignment ###" << endl;
 
     Course* course = nullptr;
