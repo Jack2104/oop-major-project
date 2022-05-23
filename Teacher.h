@@ -39,6 +39,9 @@ class Teacher : public Profile {
         /* Prints the list of coruses that the teacher has joined */
         bool printCourseList();
 
+        /* Returns a vector of all the teachable course names */
+        vector<string> getCourseNames();
+
         /* Abstract method implementation that prints the Teacher's name */
         void printTitle();
 

@@ -299,7 +299,7 @@ void Teacher::grade() {
 
 bool Teacher::printCourseList() {
     if (currentCourseCount == 0) {
-        cout << "[you haven't joined any assignments]" << endl;
+        cout << "[you're not teaching any courses]" << endl;
         return false;
     }
 
@@ -309,6 +309,17 @@ bool Teacher::printCourseList() {
     }
 
     return true;
+}
+
+vector<string> Teacher::getCourseNames() {
+    vector<string> courseNames;
+
+    for (int i = 0; i < this->currentCourseCount; i++) {
+        Course* course = this->teachableCourses[i];
+        courseNames.push_back(course->getName());
+    }
+
+    return courseNames;
 }
 
 void Teacher::printTitle() {

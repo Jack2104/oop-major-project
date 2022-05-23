@@ -141,7 +141,30 @@ int main() {
                     Course* newCourse = selectedTeacher->createCourse();
                     courses.push_back(newCourse);
                 } else if (teacherAction == 5) {
+                    cout << endl << "You are teaching the following courses:" << endl;
                     
+                    bool hasCourses = selectedTeacher->printCourseList();
+
+                    if (!hasCourses) {
+                        cout << endl << "Join a course to create a new assignment." << endl;
+                    }
+
+                    vector<string> courseNames = selectedTeacher->getCourseNames();
+
+                    string courseInput = Utils::getStringInput("Select a course to create an assignment for", "must be one of the above courses", false, courseNames);
+
+                    Course* selectedCourse = nullptr;
+
+                    vector<Course*>::iterator c_ptr;
+
+                    for (c_ptr = courses.begin(); c_ptr < courses.end(); c_ptr++) {
+                        if ((*c_ptr)->getName() == courseInput) {
+                            selectedCourse = *c_ptr;
+                            break;
+                        }
+                    }
+
+                    selectedCourse->createAssignment();
                 } else if (teacherAction == 5) {
                     selectedTeacher->grade();
                 } else if (teacherAction == 6) {
