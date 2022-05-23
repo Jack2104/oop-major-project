@@ -131,7 +131,7 @@ int main() {
                 cout << "5. Grade an assignment" << endl;
                 cout << "6. Go back" << endl << endl;
 
-                int teacherAction = Utils::getIntInput("Select a number", "must be one of the displayed options", false, 1, 5);
+                int teacherAction = Utils::getIntInput("Select a number", "must be one of the displayed options", false, 1, 6);
 
                 if (teacherAction == 1) {
                     selectedTeacher->joinCourse(courses);
@@ -145,8 +145,10 @@ int main() {
                     
                     bool hasCourses = selectedTeacher->printCourseList();
 
+                    cout << endl;
+
                     if (!hasCourses) {
-                        cout << endl << "Join a course to create a new assignment." << endl;
+                        cout << "Join a course to create a new assignment." << endl;
                     }
 
                     vector<string> courseNames = selectedTeacher->getCourseNames();

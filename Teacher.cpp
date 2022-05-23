@@ -258,6 +258,7 @@ void Teacher::grade() {
 
     cout << endl << "This course has the following assignments:" << endl;
     bool hasCourses = course->printAssignmentList();
+    cout << endl;
 
     if (!hasCourses) {
         return;
