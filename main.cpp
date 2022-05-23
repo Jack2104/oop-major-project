@@ -140,7 +140,7 @@ int main() {
                 } else if (teacherAction == 3) {
                     Course* newCourse = selectedTeacher->createCourse();
                     courses.push_back(newCourse);
-                } else if (teacherAction == 5) {
+                } else if (teacherAction == 4) {
                     cout << endl << "You are teaching the following courses:" << endl;
                     
                     bool hasCourses = selectedTeacher->printCourseList();
