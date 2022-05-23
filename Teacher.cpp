@@ -33,7 +33,7 @@ void Teacher::joinCourse(vector<Course*> courses) {
 
     if (courses.size() == 0) {
         cout << "There are no courses available right now - try creating one!" << endl;
-        return
+        return;
     }
 
     cout << endl << "The following courses are available to join:" << endl;
