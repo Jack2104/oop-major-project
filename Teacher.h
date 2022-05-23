@@ -36,6 +36,9 @@ class Teacher : public Profile {
         /* Creates and returns an Assignment object */
         // Assignment createAssignment();
 
+        /* Prints the list of coruses that the teacher has joined */
+        bool printCourseList();
+
         /* Abstract method implementation that prints the Teacher's name */
         void printTitle();
 

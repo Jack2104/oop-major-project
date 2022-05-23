@@ -36,12 +36,6 @@ int main() {
 
     // Keeps the program running until the console is closed
     while (true) {
-        vector<Teacher*>:: iterator t;
-
-        for (t = teachers.begin(); t < teachers.end(); t++) {
-            cout << endl << "t: " << (*t)->getName() << endl << endl;
-        }
-
         cout << "What would you like to sign in as?" << endl << "(if this is your first time, the default admin account is called 'admin' and its password is 'password')" << endl << endl;
         cout << "1. Admin" << endl << "2. Teacher" << endl << "3. Student" << endl << endl;
 
@@ -98,13 +92,12 @@ int main() {
 
         // One the user completes an action, they are brought back to the beginning (here), so that they don't have to sign in again
         while (true) {
-            cout << endl << "Please select one of the following actions:" << endl;
-
             // Handle the user actions
             if (accTypeInput == 1) { // Admin
                 selectedAdmin->printTitle();
                 selectedAdmin->printEmail();
-                cout << endl;
+
+                cout << endl << "Please select one of the following actions:" << endl;
 
                 cout << "1. Create a new admin profile" << endl;
                 cout << "2. Create a new teacher profile" << endl;
@@ -128,13 +121,15 @@ int main() {
             } else if (accTypeInput == 2) { // Teacher
                 selectedTeacher->printTitle();
                 selectedTeacher->printEmail();
-                cout << endl;
+
+                cout << endl << "Please select one of the following actions:" << endl;
 
                 cout << "1. Join a course" << endl;
                 cout << "2. Leave a course" << endl;
                 cout << "3. Create a new course" << endl;
-                cout << "4. Grade an assignment" << endl;
-                cout << "5. Go back" << endl << endl;
+                cout << "4. Create a new assignment" << endl;
+                cout << "5. Grade an assignment" << endl;
+                cout << "6. Go back" << endl << endl;
 
                 int teacherAction = Utils::getIntInput("Select a number", "must be one of the displayed options", false, 1, 5);
 
@@ -145,15 +140,18 @@ int main() {
                 } else if (teacherAction == 3) {
                     Course* newCourse = selectedTeacher->createCourse();
                     courses.push_back(newCourse);
-                } else if (teacherAction == 4) {
-                    selectedTeacher->grade();
                 } else if (teacherAction == 5) {
+                    
+                } else if (teacherAction == 5) {
+                    selectedTeacher->grade();
+                } else if (teacherAction == 6) {
                     break; // Go back to the action selection screen
                 }
             } else if (accTypeInput == 3) { // Student
                 selectedStudent->printTitle();
                 selectedStudent->printEmail();
-                cout << endl;
+
+                cout << endl << "Please select one of the following actions:" << endl;
 
                 cout << "1. View courses" << endl;
                 cout << "2. View timetable" << endl;

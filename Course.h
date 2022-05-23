@@ -61,6 +61,9 @@ class Course {
 
         /* Assigns a day to a course */
         void setDay(string name);
+
+        /* Returns the current assignment count */
+        int getCurrentAssignmentCount();
 };
 
 #endif

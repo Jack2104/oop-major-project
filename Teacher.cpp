@@ -33,6 +33,7 @@ void Teacher::joinCourse(vector<Course*> courses) {
 
     if (courses.size() == 0) {
         cout << "There are no courses available right now - try creating one!" << endl;
+        return
     }
 
     cout << endl << "The following courses are available to join:" << endl;
@@ -42,7 +43,7 @@ void Teacher::joinCourse(vector<Course*> courses) {
     // Print the name of every course
     for(c_ptr = courses.begin(); c_ptr < courses.end(); c_ptr++) {
         Course* course = *c_ptr;
-        cout << course->getName() << endl;
+        cout << "• " << course->getName() << endl;
     }
 
     cout << endl << "Select a course by entering its name: ";
@@ -119,7 +120,7 @@ Course* Teacher::createCourse() {
         cin >> id;
     }
 
-    cout << "  Course ID was recorded as " << name << endl;
+    cout << "  Course ID was recorded as " << id << endl;
 
     int assignmentCount;
     cout << "How many assignments can this course have? Please enter a number, with no spaces (any input after a space will not be included): ";
@@ -134,21 +135,24 @@ Course* Teacher::createCourse() {
         cin >> assignmentCount;
     }
 
-    cout << "  Assignment count was recorded as " << name << endl;
+    cout << "  Assignment count was recorded as " << assignmentCount << endl;
 
     Course* course_ptr = new Course(name, id, assignmentCount, day);
+
+    cout << endl << "Course created!" << endl;
 
     return course_ptr;
 }
 
 void Teacher::leaveCourse() {
+    if (this->currentCourseCount == 0) {
+        cout << "You haven't joined any courses yet" << endl;
+    }
+
     cout << "You have joined the following courses:" << endl;
 
     for (int i = 0; i < this->currentCourseCount; i++) {
         Course* course = this->teachableCourses[i];
-
-        cout << course << endl;
-
         cout << course->getName() << endl;
     }
 
@@ -157,7 +161,7 @@ void Teacher::leaveCourse() {
 
     // Continually prompt the user for input until a valid input is entered
     while (!getline(cin, name) || name.empty() || name.find_first_not_of(' ') == string::npos || name.find_first_not_of('	') == string::npos) {
-        cout << "Sorry, that's not a valid input. Please enter an course name." << endl << "Course name: ";
+        cout << "Sorry, that's not a valid input. Please enter a course name." << endl << "Course name: ";
     }
 
     // Find the assignment to be deleted
@@ -183,6 +187,7 @@ void Teacher::leaveCourse() {
 void Teacher::grade() {
     if (this->currentCourseCount == 0) {
         cout << endl << "You aren't teaching any courses yet!" << endl;
+        return;
     }
 
     cout << endl << "### Grade an assignment ###" << endl;
@@ -213,7 +218,10 @@ void Teacher::grade() {
             }
         }
 
-        if (course) {
+        if (course && course->getCurrentAssignmentCount() == 0) {
+            cout << "This course doesn't have any assignments." << endl;
+            break;
+        } else if (course) {
             break;
         }
 
@@ -287,6 +295,20 @@ void Teacher::grade() {
     assignment->setGrade(grade);
 
     cout << "Assignment was successfully graded (" << grade << "%)" << endl;
+}
+
+bool Teacher::printCourseList() {
+    if (currentCourseCount == 0) {
+        cout << "[you haven't joined any assignments]" << endl;
+        return false;
+    }
+
+    for (int i = 0; i < currentCourseCount; i++) {
+        Course* course = teachableCourses[i];
+        cout << "• " << course->getName() << endl;
+    }
+
+    return true;
 }
 
 void Teacher::printTitle() {

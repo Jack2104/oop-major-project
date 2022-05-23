@@ -210,7 +210,7 @@ void Course::printGrade() {
 
 bool Course::printAssignmentList() {
     if (currentAssignmentCount == 0) {
-        cout << "[this couse has no assignments]" << endl;
+        cout << "[this course has no assignments]" << endl;
         return false;
     }
 
@@ -220,4 +220,8 @@ bool Course::printAssignmentList() {
     }
 
     return true;
+}
+
+int Course::getCurrentAssignmentCount() {
+    return this->currentAssignmentCount;
 }
