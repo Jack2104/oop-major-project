@@ -36,6 +36,12 @@ int main() {
 
     // Keeps the program running until the console is closed
     while (true) {
+        vector<Teacher*>:: iterator t;
+
+        for (t = teachers.begin(); t < teachers.end(); t++) {
+            cout << endl << "t: " << (*t)->getName() << endl << endl;
+        }
+
         cout << "What would you like to sign in as?" << endl << "(if this is your first time, the default admin account is called 'admin' and its password is 'password')" << endl << endl;
         cout << "1. Admin" << endl << "2. Teacher" << endl << "3. Student" << endl << endl;
 
@@ -64,7 +70,7 @@ int main() {
                     break;
                 }
             }
-        } else if (accTypeInput == 1) {
+        } else if (accTypeInput == 2) {
             vector<Teacher*>::iterator t_ptr;
 
             for (t_ptr = teachers.begin(); t_ptr < teachers.end(); t_ptr++) {
@@ -98,6 +104,7 @@ int main() {
             if (accTypeInput == 1) { // Admin
                 selectedAdmin->printTitle();
                 selectedAdmin->printEmail();
+                cout << endl;
 
                 cout << "1. Create a new admin profile" << endl;
                 cout << "2. Create a new teacher profile" << endl;
@@ -121,6 +128,7 @@ int main() {
             } else if (accTypeInput == 2) { // Teacher
                 selectedTeacher->printTitle();
                 selectedTeacher->printEmail();
+                cout << endl;
 
                 cout << "1. Join a course" << endl;
                 cout << "2. Leave a course" << endl;
@@ -145,6 +153,7 @@ int main() {
             } else if (accTypeInput == 3) { // Student
                 selectedStudent->printTitle();
                 selectedStudent->printEmail();
+                cout << endl;
 
                 cout << "1. View courses" << endl;
                 cout << "2. View timetable" << endl;
