@@ -210,12 +210,14 @@ int main() {
                     // Print all the course names/IDs to the console
                     for (c_ptr = courses.begin(); c_ptr < courses.end(); c_ptr++) {
                         if (enrollmentType == 1) {
-                            cout << "• " << (*c_ptr)->getName() << endl << endl;
+                            cout << "• " << (*c_ptr)->getName() << endl;
                             continue;
                         }
 
-                        cout << "• " << (*c_ptr)->getCourseID() << endl << endl;
+                        cout << "• " << (*c_ptr)->getCourseID() << endl;
                     }
+
+                    cout << endl;
 
                     // Determine which enrol() function to use (run-time polymorphism)
                     if (enrollmentType == 1) {

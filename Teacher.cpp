@@ -156,11 +156,11 @@ void Teacher::leaveCourse() {
 
     for (int i = 0; i < this->currentCourseCount; i++) {
         Course* course = this->teachableCourses[i];
-        cout << course->getName() << endl;
+        cout << "• " << course->getName() << endl;
     }
 
     string name;
-    cout << "Enter the name of the course you'd like to leave: ";
+    cout << endl << "Enter the name of the course you'd like to leave: ";
 
     // Continually prompt the user for input until a valid input is entered
     while (!getline(cin, name) || name.empty() || name.find_first_not_of(' ') == string::npos || name.find_first_not_of('	') == string::npos) {
