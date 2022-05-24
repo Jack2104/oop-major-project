@@ -10,19 +10,19 @@ int main() {
     acceptedInputs.push_back("test");
 
     std::cout << "UtilsInputTest.cpp: testing getStringInput() 1" << std::endl;
-    std::string input = Utils::getStringInput("Enter a string", "cannot be only whitespace or a newline");
+    std::string input = Utils::getStringInput("Enter a string", "cannot be only whitespace or a newline", true);
     std::cout << std::endl;
 
     std::cout << "UtilsInputTest.cpp: testing getStringInput() 2" << std::endl;
-    std::string input2 = Utils::getStringInput("Enter a string", "cannot be only whitespace or a newline", acceptedInputs);
+    std::string input2 = Utils::getStringInput("Enter a string", "cannot be only whitespace or a newline", true, acceptedInputs);
     std::cout << std::endl;
 
     std::cout << "UtilsInputTest.cpp: testing getIntInput() 1" << std::endl;
-    int input3 = Utils::getIntInput("Enter a number", "all characters after any spaces will be ignored");
+    int input3 = Utils::getIntInput("Enter a number", "all characters after any spaces will be ignored", true);
     std::cout << std::endl;
 
     std::cout << "UtilsInputTest.cpp: testing getIntInput() 2" << std::endl;
-    int input4 = Utils::getIntInput("Enter a number", "all characters after any spaces will be ignored", 0, 100);
+    int input4 = Utils::getIntInput("Enter a number", "all characters after any spaces will be ignored", true, 0, 100);
     std::cout << std::endl;
 
     std::cout << "UtilsInputTest.cpp: all tests finished" << std::endl;

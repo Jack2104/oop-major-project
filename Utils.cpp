@@ -12,7 +12,7 @@ string Utils::getStringInput(string inputName, string inputConditions, bool conf
     cout << inputName << " (" << inputConditions << "): ";
 
     // Continually prompt the user for input until a valid input is entered
-    while (!getline(cin, input) || input.empty() || input.find_first_not_of(' ') == string::npos || input.find_first_not_of('	') == string::npos) {
+    while (!getline(cin >> ws, input) || input.empty() || input.find_first_not_of(' ') == string::npos || input.find_first_not_of('	') == string::npos) {
         cout << "Sorry, that's not a valid input." << endl;
         cout << inputName << " (" << inputConditions << "): ";
     }
@@ -32,7 +32,7 @@ string Utils::getStringInput(string inputName, string inputConditions, bool conf
 
     while (!inputValid) {
         // Continually prompt the user for input until a valid input is entered
-        while (!getline(cin, input) || input.empty() || input.find_first_not_of(' ') == string::npos || input.find_first_not_of('	') == string::npos) {
+        while (!getline(cin >> ws, input) || input.empty() || input.find_first_not_of(' ') == string::npos || input.find_first_not_of('	') == string::npos) {
             cout << "Sorry, that's not a valid input." << endl;
             cout << inputName << " (" << inputConditions << "): ";
         }
