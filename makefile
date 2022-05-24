@@ -17,24 +17,24 @@ admin_input_test: Assignment.cpp Course.cpp Profile.cpp Student.cpp Teacher.cpp 
 teacher_unit_test: Assignment.cpp Course.cpp Profile.cpp Teacher.cpp TeacherUnitTest.cpp
 	g++ Assignment.cpp Course.cpp Profile.cpp Teacher.cpp TeacherUnitTest.cpp -o TeacherUnitTest.out
 
-teacher_input_test: Assignment.cpp Course.cpp Profile.cpp Teacher.cpp TeacherInputTest.cpp
-	g++ Assignment.cpp Course.cpp Profile.cpp Teacher.cpp TeacherInputTest.cpp -o TeacherInputTest.out
+teacher_input_test: Assignment.cpp Course.cpp Profile.cpp Teacher.cpp Utils.cpp TeacherInputTest.cpp
+	g++ Assignment.cpp Course.cpp Profile.cpp Teacher.cpp Utils.cpp TeacherInputTest.cpp -o TeacherInputTest.out
 	./TeacherInputTest.out < teacher_test_input.txt
 
 # Student tests
 student_unit_test: Assignment.cpp Course.cpp Profile.cpp Student.cpp StudentUnitTest.cpp
 	g++ Assignment.cpp Course.cpp Profile.cpp Student.cpp StudentUnitTest.cpp -o StudentUnitTest.out
 
-student_input_test: Assignment.cpp Course.cpp Profile.cpp Student.cpp StudentInputTest.cpp
-	g++ Assignment.cpp Course.cpp Profile.cpp Student.cpp StudentInputTest.cpp -o StudentInputTest.out
+student_input_test: Assignment.cpp Course.cpp Profile.cpp Student.cpp Utils.cpp StudentInputTest.cpp
+	g++ Assignment.cpp Course.cpp Profile.cpp Student.cpp Utils.cpp StudentInputTest.cpp -o StudentInputTest.out
 	./StudentInputTest.out < student_test_input.txt
 
 # Course tests
 course_unit_test: Assignment.cpp Course.cpp CourseUnitTest.cpp
 	g++ Assignment.cpp Course.cpp CourseUnitTest.cpp -o CourseUnitTest.out
 
-course_input_test: Assignment.cpp Course.cpp CourseInputTest.cpp
-	g++ Assignment.cpp Course.cpp CourseInputTest.cpp -o CourseInputTest.out
+course_input_test: Assignment.cpp Course.cpp Utils.cpp CourseInputTest.cpp
+	g++ Assignment.cpp Course.cpp Utils.cpp CourseInputTest.cpp -o CourseInputTest.out
 	./CourseInputTest.out < course_test_input.txt
 
 # Assignment tests

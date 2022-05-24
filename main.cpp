@@ -21,16 +21,6 @@ int main() {
     Admin* defaultAdmin = new Admin("admin", "password", 1234);
     admins.push_back(defaultAdmin);
 
-    // Course* course1_ptr = new Course("Philosophy 101", 1234, 4, "monday");
-    // Course* course2_ptr = new Course("Maths", 3452, 4, "wednesday");
-    // Course* course3_ptr = new Course("Programming", 2642, 4, "tuesday");
-    // Course* course4_ptr = new Course("Physics 101", 2753, 4, "monday");
-
-    // courses.push_back(course1_ptr);
-    // courses.push_back(course2_ptr);
-    // courses.push_back(course3_ptr);
-    // courses.push_back(course4_ptr);
-
     cout << endl << "{}======== Welcome to SMS-cli ========{}" << endl;
     cout << "A command-line based school management system" << endl;
 
@@ -139,7 +129,7 @@ int main() {
                     selectedTeacher->leaveCourse();
                 } else if (teacherAction == 3) {
                     Course* newCourse = selectedTeacher->createCourse(courses);
-                    
+
                     if (newCourse)
                         courses.push_back(newCourse);
                 } else if (teacherAction == 4) {

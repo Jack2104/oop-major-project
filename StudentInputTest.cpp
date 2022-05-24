@@ -5,6 +5,7 @@
 #include "Student.h"
 #include "Course.h"
 #include "Assignment.h"
+#include "Utils.h"
 
 int main() {
     Student student("Bob", "password1", 1234, 4);

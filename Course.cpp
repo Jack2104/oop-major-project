@@ -4,6 +4,7 @@
 
 #include "Course.h"
 #include "Assignment.h"
+#include "Utils.h"
 
 using namespace std;
 
@@ -89,47 +90,11 @@ void Course::createAssignment() {
         return;
     }
 
-    // this->currentAssignmentCount++;
-
     cout << endl << "### Create new assignment ###" << endl;
 
-    string name;
-    cout << "Assignment name: ";
-
-    // Continually prompt the user for input until a valid input is entered
-    while (!getline(cin, name) || name.empty() || name.find_first_not_of(' ') == string::npos || name.find_first_not_of('	') == string::npos) {
-        cout << "Sorry, that's not a valid input. Please enter an assignment name." << endl << "Assignment name: ";
-    }
-
-    cout << "  Assignment name was recorded as " << name << endl;
-
-    string description;
-    cout << "Assignment description (please limit to one line): ";
-
-    // Continually prompt the user for input until a valid input is entered
-    while (!getline(cin, description) || description.empty() || description.find_first_not_of(' ') == string::npos || description.find_first_not_of('	') == string::npos) {
-        cout << "Sorry, that's not a valid input. Please enter a description." << endl << "Assignment description: ";
-    }
-
-    cout << "  Assignment description was recorded as " << description << endl;
-
-    int weight; // TODO: handle empty inputs
-    cout << "Assignment weighting (\% - please enter a value between 0 and 100): ";
-    cin >> weight;
-
-    cin.clear(); // Clear the buffer
-    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
-
-    // Continually prompt the user for input until an integer from 0-100 is passed
-    while(!weight || weight < 0 || weight > 100) {
-        // cin.clear(); // Clear the buffer
-        // cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
-
-        cout << "  Sorry, that's not a valid input. Please enter a value between 0 and 100." << endl << "Assignment weighting: ";
-        cin >> weight;
-    }
-
-    cout << "  Assignment weighting was recorded as " << weight << endl;
+    string name = Utils::getStringInput("Assignment name", "can be anything", true);
+    string description = Utils::getStringInput("Desctription", "please keep to one line", true);
+    int weight = Utils::getIntInput("Assignment weighting", "\% - please enter a value between 0 and 100", true, 0, 100);
 
     this->assignments[this->currentAssignmentCount] = new Assignment(name, weight, description);
     this->currentAssignmentCount++;
@@ -141,13 +106,7 @@ void Course::removeAssignment() {
     cout << endl << "This course has the following assignments:" << endl;
     this->printAssignmentList();
 
-    string name;
-    cout << endl << "Enter the name of the assignment you'd like to delete: ";
-
-    // Continually prompt the user for input until a valid input is entered
-    while (!getline(cin, name) || name.empty() || name.find_first_not_of(' ') == string::npos || name.find_first_not_of('	') == string::npos) {
-        cout << "Sorry, that's not a valid input. Please enter an assignment name." << endl << "Assignment name: ";
-    }
+    string name = Utils::getStringInput("Assignment name", "the assignment to delete", false);
 
     // Find the assignment to be deleted
     for (int i = 0; i < this->currentAssignmentCount; i++) {
@@ -157,8 +116,6 @@ void Course::removeAssignment() {
             for (int j = i; j < this->currentAssignmentCount - 1; j++) {
                 this->assignments[j] = this->assignments[j + 1];
             }
-
-            // delete this->assignments[i]; // Delete the assignment from memory
 
             this->currentAssignmentCount--;
             cout << "Assignment was deleted" << endl;

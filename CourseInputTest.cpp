@@ -3,6 +3,7 @@
 
 #include "Course.h"
 #include "Assignment.h"
+#include "Utils.h"
 
 int main() {
     Course course("OOP", 1234, 4, "monday");

@@ -4,6 +4,8 @@
 
 #include "Student.h"
 #include "Course.h"
+#include "Utils.h"
+#include "Utils.h"
 
 using namespace std;
 
@@ -137,13 +139,9 @@ void Student::unenroll() {
         cout << "• " << course->getName() << endl;
     }
 
-    string name;
-    cout << "Enter the name of the course you'd like to leave: ";
+    cout << endl;
 
-    // Continually prompt the user for input until a valid input is entered
-    while (!getline(cin, name) || name.empty() || name.find_first_not_of(' ') == string::npos || name.find_first_not_of('	') == string::npos) {
-        cout << "Sorry, that's not a valid input. Please enter an course name." << endl << "Course name: ";
-    }
+    string name = Utils::getStringInput("Course name", "course to unenroll from", false);
 
     // Find the assignment to be deleted
     for (int i = 0; i < this->currentCourseCount; i++) {
@@ -154,8 +152,6 @@ void Student::unenroll() {
                 this->courses[j] = this->courses[j + 1];
             }
 
-            // delete this->courses[i]; // Delete the assignment from memory
-            
             this->currentCourseCount--;
             cout << "You successfully left that course." << endl;
             return;
