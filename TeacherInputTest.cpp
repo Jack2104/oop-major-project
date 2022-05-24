@@ -72,7 +72,7 @@ int main() {
     teacher.joinCourse(courses);
 
     std::cout << std::endl << "TeacherInputTest.cpp: testing createCourse() 1" << std::endl;
-    Course* course_ptr = teacher.createCourse();
+    Course* course_ptr = teacher.createCourse(courses);
     courses.push_back(course_ptr);
 
     std::cout << "Course name: " << course_ptr->getName() << ", course ID: " << course_ptr->getCourseID() << ", course day: " << course_ptr->getDay() << std::endl;
