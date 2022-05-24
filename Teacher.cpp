@@ -253,34 +253,6 @@ void Teacher::grade() {
         cout << "You are not teaching the course that you entered, or it does not exist. Please try again." << endl << endl;
     }
 
-    // cout << "You are teaching the following courses:" << endl;
-
-    // for (int i = 0; i < this->currentCourseCount; i++) {
-    //     Course* course = this->teachableCourses[i];
-    //     cout << course->getName() << endl;
-    // }
-
-    // string name;
-    // cout << "Select a course: ";
-
-    // // Continually prompt the user for input until a valid input is entered
-    // while (!getline(cin, name) || name.empty() || name.find_first_not_of(' ') == string::npos || name.find_first_not_of('	') == string::npos) {
-    //     cout << "Sorry, that's not a valid input. Please enter a course name." << endl << "Select a course: ";
-    // }
-
-    // for (int i = 0; i < this->currentCourseCount; i++) {
-    //     Course* t_course = this->teachableCourses[i];
-    //     if (t_course->getName() == name) {
-    //         course = t_course;
-    //         break;
-    //     }
-    // }
-
-    // if (!course) {
-    //     cout << "You are not teaching the course that you entered, or it does not exist. Please try again.";
-    //     return;
-    // }
-
     cout << endl << "This course has the following assignments:" << endl;
     bool hasCourses = course->printAssignmentList();
     cout << endl;
