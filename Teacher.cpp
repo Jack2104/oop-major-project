@@ -78,7 +78,7 @@ void Teacher::joinCourse(vector<Course*> courses) {
     cout << courseName << " is not an available course. Please try again" << endl;
 }
 
-Course* Teacher::createCourse() {
+Course* Teacher::createCourse(vector<Course*> courses) {
     cout << endl << "### Create new course ###" << endl;
 
     string name;
@@ -87,6 +87,15 @@ Course* Teacher::createCourse() {
     // Continually prompt the user for input until a valid input is entered
     while (!getline(cin, name) || name.empty() || name.find_first_not_of(' ') == string::npos || name.find_first_not_of('	') == string::npos) {
         cout << "  Sorry, that's not a valid input. Please enter a course name." << endl << "Course name: ";
+    }
+
+    vector<Course*>::iterator ptr;
+
+    for (ptr = courses.begin(); ptr < courses.end(); ptr++) {
+        if ((*ptr)->getName() == name) {
+            cout << "A course with that name already exists" << endl;
+            return nullptr;
+        }
     }
 
     cout << "  Course name was recorded as " << name << endl;
@@ -120,6 +129,13 @@ Course* Teacher::createCourse() {
 
         cout << "Sorry, that's not a valid input. Please enter a number, with no spaces." << endl << "Course ID: ";
         cin >> id;
+    }
+
+    for (ptr = courses.begin(); ptr < courses.end(); ptr++) {
+        if ((*ptr)->getCourseID() == id) {
+            cout << "A course with that ID already exists" << endl;
+            return nullptr;
+        }
     }
 
     cout << "  Course ID was recorded as " << id << endl;

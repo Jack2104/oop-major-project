@@ -138,8 +138,10 @@ int main() {
                 } else if (teacherAction == 2) {
                     selectedTeacher->leaveCourse();
                 } else if (teacherAction == 3) {
-                    Course* newCourse = selectedTeacher->createCourse();
-                    courses.push_back(newCourse);
+                    Course* newCourse = selectedTeacher->createCourse(courses);
+                    
+                    if (newCourse)
+                        courses.push_back(newCourse);
                 } else if (teacherAction == 4) {
                     cout << endl << "You are teaching the following courses:" << endl;
                     

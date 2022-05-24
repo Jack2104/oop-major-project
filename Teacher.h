@@ -28,7 +28,7 @@ class Teacher : public Profile {
         void leaveCourse();
 
         /* Creates and returns a Course object */
-        Course* createCourse();
+        Course* createCourse(vector<Course*> courses);
 
         /* Prompts the user to grade a student's assignment */
         void grade();
