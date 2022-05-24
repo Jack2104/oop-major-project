@@ -6,11 +6,11 @@ profile_unit_test: Profile.cpp ProfileUnitTest.cpp
 	g++ Profile.cpp ProfileUnitTest.cpp -o ProfileUnitTest.out
 
 # Admin tests
-admin_unit_test: Assignment.cpp Course.cpp Profile.cpp Student.cpp Teacher.cpp Admin.cpp AdminUnitTest.cpp
-	g++ Assignment.cpp Course.cpp Profile.cpp Student.cpp Teacher.cpp Admin.cpp AdminUnitTest.cpp -o AdminUnitTest.out
+admin_unit_test: Assignment.cpp Course.cpp Profile.cpp Student.cpp Teacher.cpp Admin.cpp Utils.cpp AdminUnitTest.cpp
+	g++ Assignment.cpp Course.cpp Profile.cpp Student.cpp Teacher.cpp Admin.cpp Utils.cpp AdminUnitTest.cpp -o AdminUnitTest.out
 
-admin_input_test: Assignment.cpp Course.cpp Profile.cpp Student.cpp Teacher.cpp Admin.cpp AdminInputTest.cpp
-	g++ Assignment.cpp Course.cpp Profile.cpp Student.cpp Teacher.cpp Admin.cpp AdminInputTest.cpp -o AdminInputTest.out
+admin_input_test: Assignment.cpp Course.cpp Profile.cpp Student.cpp Teacher.cpp Admin.cpp Utils.cpp AdminInputTest.cpp
+	g++ Assignment.cpp Course.cpp Profile.cpp Student.cpp Teacher.cpp Admin.cpp Utils.cpp AdminInputTest.cpp -o AdminInputTest.out
 	./AdminInputTest.out < admin_test_input.txt
 
 # Teacher tests

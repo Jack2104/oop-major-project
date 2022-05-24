@@ -8,6 +8,7 @@
 #include "Teacher.h"
 #include "Student.h"
 #include "Course.h"
+#include "Utils.h"
 
 using namespace std;
 
@@ -16,101 +17,13 @@ Admin::Admin(string name, string password, int schoolID) : Profile(name, passwor
 Teacher* Admin::createTeacher(vector<Course*> courses) {
     cout << endl << "### Creating profile: teacher ###" << endl;
 
-    string name;
-    cout << "Name: ";
+    string name = Utils::getStringInput("Name", "or a username", true);
+    string password = Utils::getStringInput("Password", "case sensitive", true);
 
-    // Continually prompt the user for input until a valid input is entered
-    while (!getline(cin, name) || name.empty() || name.find_first_not_of(' ') == string::npos || name.find_first_not_of('	') == string::npos) {
-        cout << "Sorry, that's not a valid input. Please enter a name." << endl << "Name: ";
-    }
-
-    cout << "  Name was recorded as " << name << endl;
-
-    string password;
-    cout << "Password: ";
-    
-    // Like for name, prompt the user for input until a non-empty string is entered
-    while (!getline(cin, password) || password.empty() || password.find_first_not_of(' ') == string::npos || password.find_first_not_of('	') == string::npos) {
-        cout << "  Sorry, that's not a valid input. Please enter a password." << endl << "Password: ";
-    }
-
-    cout << "  Password was recorded as " << password << endl;
-
-    int id;
-    cout << "School ID - please enter a number, with no spaces (any input after a space will not be included): ";
-    cin >> id;
-
-    cin.clear(); // Clear the buffer
-    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
-
-    // Continually prompt the user for input until an integer is passed
-    while(!id) {
-        // cin.clear(); // Clear the buffer
-        // cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
-
-        cout << "  Sorry, that's not a valid input. Please enter a number, with no spaces." << endl << "School ID: ";
-        cin >> id;
-    }
-
-    cout << "  School ID was recorded as " << id << endl;
-
-    int maxCourseCount;
-    cout << "Maximum course count - please enter a number, with no spaces (any input after a space will not be included): ";
-    cin >> maxCourseCount;
-
-    cin.clear(); // Clear the buffer
-    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
-
-    // Continually prompt the user for input until an integer is passed
-    while(!maxCourseCount) {
-        // cin.clear(); // Clear the buffer
-        // cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
-
-        cout << "  Sorry, that's not a valid input. Please enter a number, with no spaces." << endl << "Maximum course count: ";
-        cin >> maxCourseCount;
-    }
-
-    cout << "  Maximum course count was recorded as " << maxCourseCount << endl;
+    int id = Utils::getIntInput("School ID", "please enter a number, with no spaces", true);
+    int maxCourseCount = Utils::getIntInput("Maximum course count", "please enter a number, with no spaces", true);
 
     Teacher* teacher_ptr = new Teacher(name, password, id, maxCourseCount);
-
-    // cout << endl << "Add this teacher's first course!" << endl;
-    // teacher_ptr->joinCourse(courses);
-
-    // cout << "The following courses are available to teach:" << endl;
-
-    // vector<Course*>::iterator c_ptr;
-
-    // // Print the name of every course
-    // for(c_ptr = courses.begin(); c_ptr < courses.end(); c_ptr++) {
-    //     Course* course = *c_ptr;
-
-    //     cout << course->getName() << endl;
-    // }
-
-    // cout << endl << "Select a course by entering its name: ";
-
-    // string courseName;
-
-    // // Continually prompt the user to enter a course until only a newline is entered (and then move on)
-    // do {
-    //     getline(cin, courseName);
-
-    //     // Check to see if the inputted course is in the available courses list
-    //     for(c_ptr = courses.begin(); c_ptr < courses.end(); c_ptr++) {
-    //         Course* course = *c_ptr;
-
-    //         cout << "c name: " << course->getName() << ", " << courseName << endl;
-    
-    //         if (course->getName() == courseName) {
-    //             teacher_ptr->joinCourse(courses);
-    //             cout << courseName << " was accepted" << endl << "Select a course by entering its name: ";
-    //             break;
-    //         }
-    //     }
-
-    //     cout << "  " << courseName << " is not an available course. Please try again" << endl << "Select a course by entering its name: ";
-    // } while (!courseName.empty());
 
     return teacher_ptr;
 }
@@ -118,93 +31,13 @@ Teacher* Admin::createTeacher(vector<Course*> courses) {
 Student* Admin::createStudent(vector<Course*> courses) {
     cout << endl << "### Creating profile: student ###" << endl;
 
-    string name;
-    cout << "Name: ";
+    string name = Utils::getStringInput("Name", "or username", true);
+    string password = Utils::getStringInput("Password", "case sensitive", true);
 
-    // Continually prompt the user for input until a valid input is entered
-    while (!getline(cin, name) || name.empty() || name.find_first_not_of(' ') == string::npos || name.find_first_not_of('	') == string::npos) {
-        cout << "Sorry, that's not a valid input. Please enter a name." << endl << "Name: ";
-    }
-
-    cout << "  Name was recorded as " << name << endl;
-
-    string password;
-    cout << "Password: ";
+    int id = Utils::getIntInput("School ID", "please enter a number, with no spaces", true);
+    int maxCourseCount = maxCourseCount = Utils::getIntInput("Maximum course count", "please enter a number, with no spaces", true);
     
-    // Like for name, prompt the user for input until a non-empty string is entered
-    while (!getline(cin, password) || password.empty() || password.find_first_not_of(' ') == string::npos || password.find_first_not_of('	') == string::npos) {
-        cout << "  Sorry, that's not a valid input. Please enter a password." << endl << "Password: ";
-    }
-
-    cout << "  Password was recorded as " << password << endl;
-
-    int id;
-    cout << "School ID - please enter a number, with no spaces (any input after a space will not be included): ";
-    cin >> id;
-
-    cin.clear(); // Clear the buffer
-    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
-
-    // Continually prompt the user for input until an integer is passed
-    while(!id) {
-        // cin.clear(); // Clear the buffer
-        // cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
-
-        cout << "  Sorry, that's not a valid input. Please enter a number, with no spaces." << endl << "School ID: ";
-        cin >> id;
-    }
-
-    cout << "  School ID was recorded as " << name << endl;
-
-    int maxCourseCount;
-    cout << "Maximum course count - please enter a number, with no spaces (any input after a space will not be included): ";
-    cin >> maxCourseCount;
-
-    cin.clear(); // Clear the buffer
-    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
-
-    // Continually prompt the user for input until an integer is passed
-    while(!maxCourseCount) {
-        // cin.clear(); // Clear the buffer
-        // cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
-
-        cout << "  Sorry, that's not a valid input. Please enter a number, with no spaces." << endl << "Maximum course count: ";
-        cin >> maxCourseCount;
-    }
-
-    cout << "  Maximum course count was recorded as " << maxCourseCount << endl;
-
     Student* student_ptr = new Student(name, password, id, maxCourseCount);
-
-    // cout << "Enrol this student in it's first" << "The following courses are available to enrol in:" << endl;
-
-    // vector<Course*>::iterator c_ptr;
-
-    // for(c_ptr = courses.begin(); c_ptr < courses.end(); c_ptr++) {
-    //     Course* course = *c_ptr;
-
-    //     cout << course->getName() << endl;
-    // }
-
-    // cout << endl << "Select a course by entering its name: ";
-
-    // string courseName;
-
-    // // Continually prompt the user to enter a course until only a newline is entered (and then move on)
-    // while (getline(cin, courseName) && !courseName.empty()) {
-    //     // Check to see if the inputted course is in the available courses list
-    //     for(c_ptr = courses.begin(); c_ptr < courses.end(); c_ptr++) {
-    //         Course* course = *c_ptr;
-
-    //         if (course->getName() == courseName) {
-    //             student_ptr->enrol(courses, courseName);
-    //             cout << courseName << " was accepted" << endl << "Select a course by entering its name: ";
-    //             break;
-    //         }
-    //     }
-
-    //     cout << "  " << courseName << " is not an available course. Please try again" << endl << "Select a course by entering its name: ";
-    // }
 
     return student_ptr;
 }
@@ -212,58 +45,14 @@ Student* Admin::createStudent(vector<Course*> courses) {
 Admin* Admin::createAdmin() {
     cout << endl << "### Creating profile: admin ###" << endl;
 
-    string name;
-    cout << "Name: ";
-
-    // Continually prompt the user for input until a valid input is entered
-    while (!getline(cin, name) || name.empty() || name.find_first_not_of(' ') == string::npos || name.find_first_not_of('	') == string::npos) {
-        cout << "Sorry, that's not a valid input. Please enter a name." << endl << "Name: ";
-    }
-
-    cout << "  Name was recorded as " << name << endl;
-
-    string password;
-    cout << "Password: ";
-    
-    // Like for name, prompt the user for input until a non-empty string is entered
-    while (!getline(cin, password) || password.empty() || password.find_first_not_of(' ') == string::npos || password.find_first_not_of('	') == string::npos) {
-        cout << "  Sorry, that's not a valid input. Please enter a password." << endl << "Password: ";
-    }
-
-    cout << "  Password was recorded as " << password << endl;
-
-    int id;
-    cout << "School ID - please enter a number, with no spaces (any input after a space will not be included): ";
-    cin >> id;
-
-    cin.clear(); // Clear the buffer
-    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
-
-    // Continually prompt the user for input until an integer is passed
-    while(!id) {
-        // cin.clear(); // Clear the buffer
-        // cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
-
-        cout << "  Sorry, that's not a valid input. Please enter a number, with no spaces." << endl << "School ID: ";
-        cin >> id;
-    }
-
-    cout << "  School ID was recorded as " << name << endl;
+    string name = Utils::getStringInput("Name", "or username", true);
+    string password = Utils::getStringInput("Password", "case sensitive", true);
+    int id = Utils::getIntInput("School ID", "please enter a number, with no spaces", true);
 
     Admin* admin_ptr = new Admin(name, password, id);
 
     return admin_ptr;
 }
-
-// void Admin::removeProfile(int id, vector<Profile*> profiles) {
-//     vector<Profile*>::iterator p_ptr = profiles.begin();
-
-//     for(p_ptr = profiles.begin(); p_ptr < profiles.end(); p_ptr++) {
-//         if ((*p_ptr)->getID() == id) {
-//             remove(profiles.begin(), profiles.end(), *p_ptr);
-//         }
-//     }
-// }
 
 void Admin::printTitle() {
     cout << endl << "### " << this->name << " (admin) ###" << endl;

@@ -4,6 +4,7 @@
 #include "Admin.h"
 #include "Teacher.h"
 #include "Student.h"
+#include "Utils.h"
 
 int main() {
     Admin admin("John", "password", 1342);
