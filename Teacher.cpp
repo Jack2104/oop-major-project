@@ -74,6 +74,8 @@ void Teacher::joinCourse(vector<Course*> courses) {
             return;
         }
     }
+
+    cout << courseName << " is not an available course. Please try again" << endl;
 }
 
 Course* Teacher::createCourse() {
