@@ -32,11 +32,11 @@ int main() {
     // courses.push_back(course4_ptr);
 
     cout << endl << "{}======== Welcome to SMS-cli ========{}" << endl;
-    cout << "A command-line based school management system" << endl << endl;
+    cout << "A command-line based school management system" << endl;
 
     // Keeps the program running until the console is closed
     while (true) {
-        cout << "What would you like to sign in as?" << endl << "(if this is your first time, the default admin account is called 'admin' and its password is 'password')" << endl << endl;
+        cout << endl << "What would you like to sign in as?" << endl << "(if this is your first time, the default admin account is called 'admin' and its password is 'password')" << endl << endl;
         cout << "1. Admin" << endl << "2. Teacher" << endl << "3. Student" << endl << endl;
 
         int accTypeInput = Utils::getIntInput("Select a number", "must be one of the displayed options", false, 1, 3);
@@ -206,11 +206,11 @@ int main() {
                     // Print all the course names/IDs to the console
                     for (c_ptr = courses.begin(); c_ptr < courses.end(); c_ptr++) {
                         if (enrollmentType == 1) {
-                            cout << (*c_ptr)->getName();
+                            cout << "• " << (*c_ptr)->getName() << endl << endl;
                             continue;
                         }
 
-                        cout << (*c_ptr)->getCourseID();
+                        cout << "• " << (*c_ptr)->getCourseID() << endl << endl;
                     }
 
                     // Determine which enrol() function to use (run-time polymorphism)
@@ -218,7 +218,7 @@ int main() {
                         string courseName = Utils::getStringInput("Course name", "enter one of the above course names", false);
                         selectedStudent->enrol(courses, courseName);
                     } else if (enrollmentType == 2) {
-                        string courseID = Utils::getStringInput("Course ID", "enter one of the above course IDs", false);
+                        int courseID = Utils::getIntInput("Course ID", "enter one of the above course IDs", false);
                         selectedStudent->enrol(courses, courseID);
                     }
                 } else if (studentAction == 4) {

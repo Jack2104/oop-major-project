@@ -29,6 +29,11 @@ Student::~Student() {
 void Student::printCourses() {
     cout << endl << "### Enrolled Courses ###" << endl;
 
+    if (currentCourseCount == 0) {
+        cout << "You aren't enrolled in any courses" << endl;
+        return;
+    }
+
     for (int i = 0 ; i < currentCourseCount ; i++) {
         cout << courses[i]->getCourseID() << " " << courses[i]->getName() << endl;
     }
@@ -67,6 +72,15 @@ void Student::enrol(vector<Course*> courses, string name) {
     for(c_ptr = courses.begin(); c_ptr < courses.end(); c_ptr++) {
         Course* course = *c_ptr;
 
+        for (int i = 0; i < this->currentCourseCount; i++) {
+            Course* enrolled_course = this->courses[i];
+
+            if (enrolled_course->getName() == course->getName()) {
+                cout << "You're already enrolled in this course" << endl;
+                return;
+            }
+        }
+
         if (course->getName() == name) {
             this->courses[this->currentCourseCount] = course; //&(*c_ptr);
             this->currentCourseCount++;
@@ -90,6 +104,15 @@ void Student::enrol(vector<Course*> courses, int id) {
     for(c_ptr = courses.begin(); c_ptr < courses.end(); c_ptr++) {
         Course* course = *c_ptr;
 
+        for (int i = 0; i < this->currentCourseCount; i++) {
+            Course* enrolled_course = this->courses[i];
+
+            if (enrolled_course->getCourseID() == course->getCourseID()) {
+                cout << "You're already enrolled in this course" << endl;
+                return;
+            }
+        }
+
         if (course->getCourseID() == id) {
             this->courses[this->currentCourseCount] = course; //&(*c_ptr);
             this->currentCourseCount++;
@@ -102,11 +125,16 @@ void Student::enrol(vector<Course*> courses, int id) {
 };
 
 void Student::unenroll() {
+    if (this->currentCourseCount == 0) {
+        cout << "You aren't enrolled in any courses" << endl;
+        return;
+    }
+
     cout << "You are enrolled in the following courses:" << endl;
 
     for (int i = 0; i < this->currentCourseCount; i++) {
         Course* course = this->courses[i];
-        cout << course->getName() << endl;
+        cout << "• " << course->getName() << endl;
     }
 
     string name;

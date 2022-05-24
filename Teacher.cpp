@@ -147,6 +147,7 @@ Course* Teacher::createCourse() {
 void Teacher::leaveCourse() {
     if (this->currentCourseCount == 0) {
         cout << "You haven't joined any courses yet" << endl;
+        return;
     }
 
     cout << "You have joined the following courses:" << endl;
