@@ -104,16 +104,16 @@ void Student::enrol(vector<Course*> courses, int id) {
     for(c_ptr = courses.begin(); c_ptr < courses.end(); c_ptr++) {
         Course* course = *c_ptr;
 
-        for (int i = 0; i < this->currentCourseCount; i++) {
-            Course* enrolled_course = this->courses[i];
-
-            if (enrolled_course->getCourseID() == course->getCourseID()) {
-                cout << "You're already enrolled in this course" << endl;
-                return;
-            }
-        }
-
         if (course->getCourseID() == id) {
+            for (int i = 0; i < this->currentCourseCount; i++) {
+                Course* enrolled_course = this->courses[i];
+
+                if (enrolled_course->getCourseID() == course->getCourseID()) {
+                    cout << "You're already enrolled in this course" << endl;
+                    return;
+                }
+            }
+
             this->courses[this->currentCourseCount] = course; //&(*c_ptr);
             this->currentCourseCount++;
             cout << "Successfully enrolled in course" << endl;
