@@ -117,10 +117,13 @@ void Course::createAssignment() {
     cout << "Assignment weighting (\% - please enter a value between 0 and 100): ";
     cin >> weight;
 
+    cin.clear(); // Clear the buffer
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
+
     // Continually prompt the user for input until an integer from 0-100 is passed
     while(!weight || weight < 0 || weight > 100) {
-        cin.clear(); // Clear the buffer
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
+        // cin.clear(); // Clear the buffer
+        // cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
 
         cout << "  Sorry, that's not a valid input. Please enter a value between 0 and 100." << endl << "Assignment weighting: ";
         cin >> weight;

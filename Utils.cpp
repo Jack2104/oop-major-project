@@ -59,10 +59,13 @@ int Utils::getIntInput(string inputName, string inputConditions, bool confirmInp
     cout << inputName << " (" << inputConditions << "): ";
     cin >> input;
 
+    cin.clear(); // Clear the buffer
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
+
     // Continually prompt the user for input until an integer is passed
     while(!input) {
-        cin.clear(); // Clear the buffer
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
+        // cin.clear(); // Clear the buffer
+        // cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
 
         cout << "  Sorry, that's not a valid input." << endl << inputName << " (" << inputConditions << "): ";
         cin >> input;
@@ -80,10 +83,13 @@ int Utils::getIntInput(string inputName, string inputConditions, bool confirmInp
     cout << inputName << " (" << inputConditions << "): ";
     cin >> input;
 
+    cin.clear(); // Clear the buffer
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
+
     // Continually prompt the user for input until an integer is passed
     while(!input || input < lowerBound || input > upperBound) {
-        cin.clear(); // Clear the buffer
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
+        // cin.clear(); // Clear the buffer
+        // cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
 
         cout << "  Sorry, that's not a valid input." << endl << inputName << " (" << inputConditions << "): ";
         cin >> input;

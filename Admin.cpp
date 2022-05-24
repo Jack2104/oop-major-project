@@ -40,10 +40,13 @@ Teacher* Admin::createTeacher(vector<Course*> courses) {
     cout << "School ID - please enter a number, with no spaces (any input after a space will not be included): ";
     cin >> id;
 
+    cin.clear(); // Clear the buffer
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
+
     // Continually prompt the user for input until an integer is passed
     while(!id) {
-        cin.clear(); // Clear the buffer
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
+        // cin.clear(); // Clear the buffer
+        // cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
 
         cout << "  Sorry, that's not a valid input. Please enter a number, with no spaces." << endl << "School ID: ";
         cin >> id;
@@ -55,10 +58,13 @@ Teacher* Admin::createTeacher(vector<Course*> courses) {
     cout << "Maximum course count - please enter a number, with no spaces (any input after a space will not be included): ";
     cin >> maxCourseCount;
 
+    cin.clear(); // Clear the buffer
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
+
     // Continually prompt the user for input until an integer is passed
     while(!maxCourseCount) {
-        cin.clear(); // Clear the buffer
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
+        // cin.clear(); // Clear the buffer
+        // cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
 
         cout << "  Sorry, that's not a valid input. Please enter a number, with no spaces." << endl << "Maximum course count: ";
         cin >> maxCourseCount;
@@ -136,10 +142,13 @@ Student* Admin::createStudent(vector<Course*> courses) {
     cout << "School ID - please enter a number, with no spaces (any input after a space will not be included): ";
     cin >> id;
 
+    cin.clear(); // Clear the buffer
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
+
     // Continually prompt the user for input until an integer is passed
     while(!id) {
-        cin.clear(); // Clear the buffer
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
+        // cin.clear(); // Clear the buffer
+        // cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
 
         cout << "  Sorry, that's not a valid input. Please enter a number, with no spaces." << endl << "School ID: ";
         cin >> id;
@@ -151,10 +160,13 @@ Student* Admin::createStudent(vector<Course*> courses) {
     cout << "Maximum course count - please enter a number, with no spaces (any input after a space will not be included): ";
     cin >> maxCourseCount;
 
+    cin.clear(); // Clear the buffer
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
+
     // Continually prompt the user for input until an integer is passed
     while(!maxCourseCount) {
-        cin.clear(); // Clear the buffer
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
+        // cin.clear(); // Clear the buffer
+        // cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
 
         cout << "  Sorry, that's not a valid input. Please enter a number, with no spaces." << endl << "Maximum course count: ";
         cin >> maxCourseCount;
@@ -224,10 +236,13 @@ Admin* Admin::createAdmin() {
     cout << "School ID - please enter a number, with no spaces (any input after a space will not be included): ";
     cin >> id;
 
+    cin.clear(); // Clear the buffer
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
+
     // Continually prompt the user for input until an integer is passed
     while(!id) {
-        cin.clear(); // Clear the buffer
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
+        // cin.clear(); // Clear the buffer
+        // cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore all the inputted characters
 
         cout << "  Sorry, that's not a valid input. Please enter a number, with no spaces." << endl << "School ID: ";
         cin >> id;
