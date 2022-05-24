@@ -148,8 +148,10 @@ int main() {
                     cout << endl;
 
                     if (!hasCourses) {
-                        cout << "Join a course to create a new assignment." << endl;
+                        return;
                     }
+
+                    cout << "Join a course to create a new assignment." << endl;
 
                     vector<string> courseNames = selectedTeacher->getCourseNames();
 
