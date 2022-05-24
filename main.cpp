@@ -180,11 +180,12 @@ int main() {
 
                 cout << "1. View courses" << endl;
                 cout << "2. View timetable" << endl;
-                cout << "3. Enrol in a course" << endl;
-                cout << "4. Unnroll in a course" << endl;
-                cout << "5. Go back" << endl << endl;
+                cout << "3. View report" << endl;
+                cout << "4. Enrol in a course" << endl;
+                cout << "5. Unnroll in a course" << endl;
+                cout << "6. Go back" << endl << endl;
 
-                int studentAction = Utils::getIntInput("Select a number", "must be one of the displayed options", false, 1, 4);
+                int studentAction = Utils::getIntInput("Select a number", "must be one of the displayed options", false, 1, 6);
 
                 cout << endl;
 
@@ -193,6 +194,8 @@ int main() {
                 } else if (studentAction == 2) {
                     selectedStudent->printTimetable();
                 } else if (studentAction == 3) {
+                    selectedStudent->printReport();
+                } else if (studentAction == 4) {
                     cout << "Would you like to enrol in a course by name or ID?" << endl;
                     cout << "1. Course name" << endl;
                     cout << "2. Course ID" << endl << endl;
@@ -221,9 +224,9 @@ int main() {
                         int courseID = Utils::getIntInput("Course ID", "enter one of the above course IDs", false);
                         selectedStudent->enrol(courses, courseID);
                     }
-                } else if (studentAction == 4) {
-                    selectedStudent->unenroll();
                 } else if (studentAction == 5) {
+                    selectedStudent->unenroll();
+                } else if (studentAction == 6) {
                     break; // Go back to the action selection screen
                 }
             }
