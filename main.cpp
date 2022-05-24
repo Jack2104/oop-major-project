@@ -148,7 +148,7 @@ int main() {
                     cout << endl;
 
                     if (!hasCourses) {
-                        return;
+                        break;
                     }
 
                     cout << "Join a course to create a new assignment." << endl;
