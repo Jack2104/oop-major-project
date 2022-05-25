@@ -1,4 +1,4 @@
-make --dry-run --keep-going --print-directory
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory `/Users/jack/Library/CloudStorage/OneDrive-Personal/Uni/Year 1/Semester 1/Object Oriented Programming (1102)/Major Prac/oop-major-project'
 g++ Assignment.cpp Course.cpp Profile.cpp Admin.cpp Teacher.cpp Student.cpp Utils.cpp main.cpp -o main.out
 make: Leaving directory `/Users/jack/Library/CloudStorage/OneDrive-Personal/Uni/Year 1/Semester 1/Object Oriented Programming (1102)/Major Prac/oop-major-project'
